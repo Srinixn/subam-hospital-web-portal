@@ -1,0 +1,8 @@
+{
+  "name": "Subam hospital",
+  "description": "A premier healthcare facility for women and children. Specializing in advanced obstetrics, gynecology, fertility care (IVF), and Level III NICU. Dedicated to delivering life and happiness since 2008. it is in elampillai  salem",
+  "requestFramePermissions": [
+    "geolocation"
+  ],
+  "majorCapabilities": []
+}
