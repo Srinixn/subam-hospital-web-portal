@@ -1,6 +1,6 @@
 import { motion } from 'motion/react';
 import { DOCTORS } from '../constants';
-import { Star, Calendar, ArrowRight } from 'lucide-react';
+import { Star } from 'lucide-react';
 
 export default function Doctors() {
   return (
@@ -56,7 +56,7 @@ export default function Doctors() {
                 </div>
               </div>
 
-              <div className="flex flex-col justify-between py-2">
+              <div className="flex flex-col py-2">
                 <div>
                   <span className="text-xs font-bold text-brand-primary px-3 py-1 bg-teal-50 rounded-full uppercase tracking-tighter">
                     {doctor.specialty}
@@ -78,15 +78,7 @@ export default function Doctors() {
                   </div>
                 </div>
 
-                <div className="mt-8 flex items-center gap-4">
-                  <button className="btn-primary !py-2.5 !px-5 flex items-center gap-2">
-                    <Calendar size={18} />
-                    <span>Book Now</span>
-                  </button>
-                  <button className="p-3 text-slate-400 hover:text-brand-primary transition-colors">
-                    <ArrowRight size={22} />
-                  </button>
-                </div>
+                {/* Action button removed to keep layout clean after quick-booking removal */}
               </div>
             </motion.div>
           ))}

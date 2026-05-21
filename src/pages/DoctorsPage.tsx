@@ -71,7 +71,7 @@ export default function DoctorsPage() {
       {/* Grid Section */}
       <section className="py-24 bg-slate-50">
         <div className="container-custom">
-          <div className="grid md:grid-cols-2 gap-12">
+          <div className="grid md:grid-cols-2 gap-10">
             {DOCTORS.map((doctor, idx) => (
               <motion.div
                 key={doctor.id}
@@ -124,14 +124,8 @@ export default function DoctorsPage() {
                      </div>
                   </div>
 
-                  <div className="flex flex-wrap gap-4 mt-auto">
-                     <Link to="/contact" className="btn-primary flex-grow">
-                        Quick Booking
-                     </Link>
-                     <button className="h-14 w-14 rounded-2xl border border-slate-200 flex items-center justify-center text-slate-400 hover:border-brand-primary hover:text-brand-primary transition-all">
-                        <ArrowRight size={24} />
-                     </button>
-                  </div>
+                  {/* Quick booking and arrow removed per update; spacer keeps layout balanced */}
+                  <div className="mt-6" />
                 </div>
               </motion.div>
             ))}
