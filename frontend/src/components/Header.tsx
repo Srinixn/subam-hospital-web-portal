@@ -108,6 +108,7 @@ export default function Header() {
       ]
     },
     { name: 'Careers', path: '/careers' },
+    { name: 'Feedback', path: '/feedback' },
   ];
 
   return (

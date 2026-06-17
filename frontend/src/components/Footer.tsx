@@ -55,7 +55,8 @@ export default function Footer() {
                 { name: 'About Us', path: '/about' },
                 { name: 'Our Network', path: '/our-network' },
                 { name: 'Contact Us', path: '/contact' },
-                { name: 'Health Blog', path: '/blog' }
+                { name: 'Health Blog', path: '/blogs' },
+                { name: 'Feedback', path: '/feedback' }
               ].map(item => (
                 <li key={item.name}>
                   <Link to={item.path} className="hover:text-brand-primary transition-colors underline decoration-transparent hover:decoration-brand-primary underline-offset-4">{item.name}</Link>

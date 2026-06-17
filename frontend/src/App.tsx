@@ -6,6 +6,7 @@ import ServicesPage from './pages/ServicesPage';
 import DoctorsPage from './pages/DoctorsPage';
 import About from './pages/About';
 import Contact from './pages/Contact';
+import Feedback from './pages/Feedback';
 import Facilities from './pages/Facilities';
 import SuccessStories from './pages/SuccessStories';
 import Gallery from './pages/Gallery';
@@ -53,7 +54,9 @@ export default function App() {
             <Route path="/doctors" element={<DoctorsPage />} />
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/feedback" element={<Feedback />} />
             <Route path="/facilities" element={<Facilities />} />
+
             <Route path="/specialities/obstetrics" element={<Obstetrics />} />
             <Route path="/specialities/gynecology" element={<Gynecology />} />
             <Route path="/specialities/radiology" element={<Radiology />} />
