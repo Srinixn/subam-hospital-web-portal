@@ -1,7 +1,82 @@
+import { useState } from 'react';
 import { motion } from 'motion/react';
 import { Phone, Mail, MapPin, Clock, MessageSquare, ArrowRight, ShieldCheck, Headphones } from 'lucide-react';
+import { api } from '../services/api';
 
 export default function Contact() {
+  const [formData, setFormData] = useState({
+    fullName: '',
+    phone: '',
+    email: '',
+    inquiryType: 'General Inquiry',
+    message: ''
+  });
+  const [errors, setErrors] = useState<Record<string, string>>({});
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [submitError, setSubmitError] = useState('');
+
+  const validate = () => {
+    const tempErrors: Record<string, string> = {};
+    if (!formData.fullName.trim()) {
+      tempErrors.fullName = 'Full Name is required';
+    } else if (formData.fullName.length < 2 || formData.fullName.length > 100) {
+      tempErrors.fullName = 'Full Name must be between 2 and 100 characters';
+    }
+
+    if (!formData.phone.trim()) {
+      tempErrors.phone = 'Phone Number is required';
+    } else if (!/^\+?[0-9\s\-]{7,20}$/.test(formData.phone.trim())) {
+      tempErrors.phone = 'Please enter a valid phone number (7-20 digits)';
+    }
+
+    if (!formData.email.trim()) {
+      tempErrors.email = 'Email Address is required';
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email.trim())) {
+      tempErrors.email = 'Please enter a valid email address';
+    }
+
+    if (!formData.message.trim()) {
+      tempErrors.message = 'Message is required';
+    } else if (formData.message.length < 10 || formData.message.length > 2000) {
+      tempErrors.message = 'Message must be between 10 and 2000 characters';
+    }
+
+    setErrors(tempErrors);
+    return Object.keys(tempErrors).length === 0;
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setSubmitError('');
+    if (!validate()) return;
+
+    setIsSubmitting(true);
+    const response = await api.submitContact(formData);
+    setIsSubmitting(false);
+
+    if (response.success) {
+      setIsSubmitted(true);
+      setFormData({
+        fullName: '',
+        phone: '',
+        email: '',
+        inquiryType: 'General Inquiry',
+        message: ''
+      });
+    } else {
+      if (response.errors) {
+        const fieldErrors: Record<string, string> = {};
+        response.errors.forEach((err) => {
+          fieldErrors[err.field] = err.message;
+        });
+        setErrors(fieldErrors);
+      } else {
+        setSubmitError(response.message || 'An error occurred. Please try again later.');
+      }
+    }
+  };
+
   const contactInfo = [
     {
       icon: Phone,
@@ -59,38 +134,103 @@ export default function Contact() {
             <div className="grid lg:grid-cols-5 gap-16 items-start">
                {/* Form */}
                <div className="lg:col-span-3 bg-slate-50 rounded-[4rem] p-10 md:p-16 border border-slate-100">
-                  <h3 className="text-3xl mb-10 font-display">Send a Message</h3>
-                  <form className="space-y-8">
-                     <div className="grid md:grid-cols-2 gap-8">
-                        <div className="space-y-2">
-                           <label className="text-xs font-black text-slate-400 uppercase tracking-widest pl-2">Full Name</label>
-                           <input className="w-full h-16 bg-white border border-slate-200 rounded-2xl px-6 focus:outline-none focus:ring-2 focus:ring-brand-primary/20" placeholder="John Doe" />
+                  {isSubmitted ? (
+                     <motion.div 
+                        initial={{ opacity: 0, scale: 0.95 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        className="text-center py-16 px-6"
+                     >
+                        <div className="h-24 w-24 rounded-[2rem] bg-teal-50 text-brand-primary flex items-center justify-center mx-auto mb-8 border border-brand-primary/20">
+                           <ShieldCheck size={48} />
                         </div>
-                        <div className="space-y-2">
-                           <label className="text-xs font-black text-slate-400 uppercase tracking-widest pl-2">Phone Number</label>
-                           <input className="w-full h-16 bg-white border border-slate-200 rounded-2xl px-6 focus:outline-none focus:ring-2 focus:ring-brand-primary/20" placeholder="+91 00000 00000" />
-                        </div>
-                     </div>
-                     <div className="space-y-2">
-                        <label className="text-xs font-black text-slate-400 uppercase tracking-widest pl-2">Email Address</label>
-                        <input className="w-full h-16 bg-white border border-slate-200 rounded-2xl px-6 focus:outline-none focus:ring-2 focus:ring-brand-primary/20" placeholder="john@example.com" />
-                     </div>
-                     <div className="space-y-2">
-                        <label className="text-xs font-black text-slate-400 uppercase tracking-widest pl-2">Your Inquiry</label>
-                        <select className="w-full h-16 bg-white border border-slate-200 rounded-2xl px-6 focus:outline-none focus:ring-2 focus:ring-brand-primary/20 appearance-none">
-                           <option>General Inquiry</option>
-                           <option>Feedback/Suggestions</option>
-                           <option>Career Opportunities</option>
-                        </select>
-                     </div>
-                     <div className="space-y-2">
-                        <label className="text-xs font-black text-slate-400 uppercase tracking-widest pl-2">Detailed Message</label>
-                        <textarea className="w-full h-40 bg-white border border-slate-200 rounded-3xl p-6 focus:outline-none focus:ring-2 focus:ring-brand-primary/20 resize-none" placeholder="Describe your requirement in detail..." />
-                     </div>
-                     <button className="btn-primary w-full h-16 text-lg flex items-center justify-center gap-3">
-                        Submit Inquiry <ArrowRight size={20} />
-                     </button>
-                  </form>
+                        <h3 className="text-4xl mb-4 font-display">Thank You!</h3>
+                        <p className="text-slate-500 text-lg max-w-md mx-auto mb-10 leading-relaxed">
+                           Your inquiry has been submitted successfully. Our team will get back to you within 24 hours.
+                        </p>
+                        <button 
+                           onClick={() => setIsSubmitted(false)}
+                           className="btn-primary px-8 h-14 text-xs font-bold uppercase tracking-widest"
+                        >
+                           Send Another Message
+                        </button>
+                     </motion.div>
+                  ) : (
+                     <>
+                        <h3 className="text-3xl mb-10 font-display">Send a Message</h3>
+                        {submitError && (
+                           <div className="mb-8 p-6 bg-red-50 border border-red-100 text-red-600 rounded-2xl text-sm font-medium">
+                              {submitError}
+                           </div>
+                        )}
+                        <form onSubmit={handleSubmit} className="space-y-8">
+                           <div className="grid md:grid-cols-2 gap-8">
+                              <div className="space-y-2">
+                                 <label className="text-xs font-black text-slate-400 uppercase tracking-widest pl-2">Full Name</label>
+                                 <input 
+                                    value={formData.fullName}
+                                    onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
+                                    className={`w-full h-16 bg-white border ${errors.fullName ? 'border-red-500 focus:ring-red-500/20' : 'border-slate-200 focus:ring-brand-primary/20'} rounded-2xl px-6 focus:outline-none focus:ring-2`} 
+                                    placeholder="John Doe" 
+                                 />
+                                 {errors.fullName && <p className="text-red-500 text-xs mt-1 pl-2 font-medium">{errors.fullName}</p>}
+                              </div>
+                              <div className="space-y-2">
+                                 <label className="text-xs font-black text-slate-400 uppercase tracking-widest pl-2">Phone Number</label>
+                                 <input 
+                                    value={formData.phone}
+                                    onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                                    className={`w-full h-16 bg-white border ${errors.phone ? 'border-red-500 focus:ring-red-500/20' : 'border-slate-200 focus:ring-brand-primary/20'} rounded-2xl px-6 focus:outline-none focus:ring-2`} 
+                                    placeholder="+91 00000 00000" 
+                                 />
+                                 {errors.phone && <p className="text-red-500 text-xs mt-1 pl-2 font-medium">{errors.phone}</p>}
+                              </div>
+                           </div>
+                           <div className="space-y-2">
+                              <label className="text-xs font-black text-slate-400 uppercase tracking-widest pl-2">Email Address</label>
+                              <input 
+                                 value={formData.email}
+                                 onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                                 className={`w-full h-16 bg-white border ${errors.email ? 'border-red-500 focus:ring-red-500/20' : 'border-slate-200 focus:ring-brand-primary/20'} rounded-2xl px-6 focus:outline-none focus:ring-2`} 
+                                 placeholder="john@example.com" 
+                              />
+                              {errors.email && <p className="text-red-500 text-xs mt-1 pl-2 font-medium">{errors.email}</p>}
+                           </div>
+                           <div className="space-y-2">
+                              <label className="text-xs font-black text-slate-400 uppercase tracking-widest pl-2">Your Inquiry</label>
+                              <div className="relative">
+                                 <select 
+                                    value={formData.inquiryType}
+                                    onChange={(e) => setFormData({ ...formData, inquiryType: e.target.value })}
+                                    className="w-full h-16 bg-white border border-slate-200 rounded-2xl px-6 focus:outline-none focus:ring-2 focus:ring-brand-primary/20 appearance-none"
+                                 >
+                                    <option>General Inquiry</option>
+                                    <option>Feedback/Suggestions</option>
+                                    <option>Career Opportunities</option>
+                                 </select>
+                                 <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-6 text-slate-500">
+                                    <span className="text-[10px]">▼</span>
+                                 </div>
+                              </div>
+                           </div>
+                           <div className="space-y-2">
+                              <label className="text-xs font-black text-slate-400 uppercase tracking-widest pl-2">Detailed Message</label>
+                              <textarea 
+                                 value={formData.message}
+                                 onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                                 className={`w-full h-40 bg-white border ${errors.message ? 'border-red-500 focus:ring-red-500/20' : 'border-slate-200 focus:ring-brand-primary/20'} rounded-3xl p-6 focus:outline-none focus:ring-2 resize-none`} 
+                                 placeholder="Describe your requirement in detail..." 
+                              />
+                              {errors.message && <p className="text-red-500 text-xs mt-1 pl-2 font-medium">{errors.message}</p>}
+                           </div>
+                           <button 
+                              disabled={isSubmitting}
+                              className="btn-primary w-full h-16 text-lg flex items-center justify-center gap-3 disabled:opacity-75"
+                           >
+                              {isSubmitting ? 'Submitting...' : 'Submit Inquiry'} <ArrowRight size={20} />
+                           </button>
+                        </form>
+                     </>
+                  )}
                </div>
 
                {/* Map Placeholder & Trust */}
