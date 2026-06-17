@@ -75,6 +75,13 @@ export default function App() {
             <Route path="/sunsrishti-womens-care" element={<SunsrishtiWomensCare />} />
             <Route path="/sunsrishti-fertility-center" element={<SunsrishtiFertilityCenter />} />
             <Route path="/subam-hospital" element={<SubamHospital />} />
+            <Route path="*" element={
+              <div className="pt-32 pb-24 text-center container-custom min-h-[60vh] flex flex-col items-center justify-center">
+                <h1 className="text-6xl md:text-8xl font-display text-brand-primary mb-6">404</h1>
+                <p className="text-xl text-slate-500 mb-10 max-w-md">The page you're looking for doesn't exist or has been moved.</p>
+                <a href="/" className="btn-primary">Back to Home</a>
+              </div>
+            } />
           </Routes>
         </main>
         
