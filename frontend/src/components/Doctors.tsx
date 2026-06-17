@@ -1,6 +1,6 @@
 import { motion } from 'motion/react';
 import { DOCTORS } from '../constants';
-import { Star } from 'lucide-react';
+import { Star, ArrowRight } from 'lucide-react';
 
 export default function Doctors() {
   return (
