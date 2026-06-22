@@ -204,8 +204,14 @@ export default function Contact() {
                                     className="w-full h-16 bg-white border border-slate-200 rounded-2xl px-6 focus:outline-none focus:ring-2 focus:ring-brand-primary/20 appearance-none"
                                  >
                                     <option>General Inquiry</option>
-                                    <option>Feedback/Suggestions</option>
-                                    <option>Career Opportunities</option>
+                                    <option>Obstetrics</option>
+                                    <option>Gynecology</option>
+                                    <option>Pediatrics</option>
+                                    <option>Radiology</option>
+                                    <option>Antenatal (Pregnancy Care)</option>
+                                    <option>Postnatal Care</option>
+                                    <option>Fertility Care</option>
+                                    <option>Newborn Care</option>
                                  </select>
                                  <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-6 text-slate-500">
                                     <span className="text-[10px]">▼</span>

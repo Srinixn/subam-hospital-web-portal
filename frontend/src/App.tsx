@@ -12,6 +12,7 @@ import SuccessStories from './pages/SuccessStories';
 import Gallery from './pages/Gallery';
 import Articles from './pages/Articles';
 import Careers from './pages/Careers';
+import JobDetail from './pages/JobDetail';
 import OurNetwork from './pages/OurNetwork';
 import SunsrishtiWomensCare from './pages/hospitals/SunsrishtiWomensCare';
 import SunsrishtiFertilityCenter from './pages/hospitals/SunsrishtiFertilityCenter';
@@ -74,6 +75,7 @@ export default function App() {
             <Route path="/blogs" element={<HealthBlogs />} />
             <Route path="/journals" element={<MedicalJournals />} />
             <Route path="/careers" element={<Careers />} />
+            <Route path="/careers/:slug" element={<JobDetail />} />
             <Route path="/our-network" element={<OurNetwork />} />
             <Route path="/sunsrishti-womens-care" element={<SunsrishtiWomensCare />} />
             <Route path="/sunsrishti-fertility-center" element={<SunsrishtiFertilityCenter />} />

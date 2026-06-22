@@ -42,6 +42,53 @@ export interface SafeAdminUser {
   email: string;
 }
 
+// ─────────────────────────────────────────────
+//  Recruitment System Interfaces
+// ─────────────────────────────────────────────
+
+export interface Department {
+  id: number;
+  name: string;
+  createdAt: Date;
+}
+
+export interface Job {
+  id: number;
+  departmentId: number;
+  title: string;
+  slug: string;
+  description: string;
+  requirements: string;
+  employmentType: 'Full-time' | 'Part-time' | 'Contract';
+  status: 'Draft' | 'Published' | 'Closed';
+  createdAt: Date;
+  updatedAt: Date;
+}
+
+export interface JobWithDepartment extends Job {
+  departmentName?: string;
+}
+
+export interface Application {
+  id: number;
+  jobId: number;
+  firstName: string;
+  lastName: string;
+  email: string;
+  phone: string;
+  experienceYears: number;
+  status: 'New' | 'Reviewed' | 'Shortlisted' | 'Interview Scheduled' | 'Rejected' | 'Hired';
+  resumeFilePath: string;
+  resumeOriginalName: string;
+  createdAt: Date;
+  updatedAt: Date;
+}
+
+export interface ApplicationWithJob extends Application {
+  jobTitle?: string;
+  departmentName?: string;
+}
+
 /** Standard success response envelope. */
 export interface ApiResponse<T = undefined> {
   success: boolean;
@@ -68,8 +115,14 @@ export interface ValidationError {
 /** Allowed inquiry types for the contact form. */
 export const INQUIRY_TYPES = [
   'General Inquiry',
-  'Feedback/Suggestions',
-  'Career Opportunities',
+  'Obstetrics',
+  'Gynecology',
+  'Pediatrics',
+  'Radiology',
+  'Antenatal (Pregnancy Care)',
+  'Postnatal Care',
+  'Fertility Care',
+  'Newborn Care',
 ] as const;
 
 export type InquiryType = (typeof INQUIRY_TYPES)[number];

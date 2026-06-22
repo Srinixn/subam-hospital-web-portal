@@ -1,5 +1,5 @@
 import { Link, Outlet, useLocation, Navigate } from 'react-router-dom';
-import { LayoutDashboard, Users, MessageSquare, LogOut, Menu, X, Bell } from 'lucide-react';
+import { LayoutDashboard, Users, MessageSquare, LogOut, Menu, X, Bell, Briefcase, FileText } from 'lucide-react';
 import { useState } from 'react';
 import { useAuth } from '../hooks/useAuth';
 
@@ -24,6 +24,8 @@ export default function Layout() {
     { name: 'Dashboard', path: '/', icon: LayoutDashboard },
     { name: 'Contact Inquiries', path: '/contacts', icon: Users },
     { name: 'Patient Feedback', path: '/feedbacks', icon: MessageSquare },
+    { name: 'Jobs', path: '/jobs', icon: Briefcase },
+    { name: 'Applications', path: '/applications', icon: FileText },
   ];
 
   return (

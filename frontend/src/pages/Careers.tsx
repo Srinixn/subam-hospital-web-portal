@@ -1,32 +1,38 @@
+import { useState, useEffect } from 'react';
 import { motion } from 'motion/react';
 import { Briefcase, MapPin, Clock, ArrowRight, Star, Heart } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
-const JOBS = [
-  {
-    title: "Senior Staff Nurse",
-    dept: "Maternity Ward",
-    type: "Full-time",
-    location: "Trichy Branch",
-    experience: "3-5 Years"
-  },
-  {
-    title: "Resident Medical Officer",
-    dept: "Emergency Care",
-    type: "Shift-based",
-    location: "Main Hospital",
-    experience: "1-3 Years"
-  },
-  {
-    title: "Lab Technician",
-    dept: "Diagnostics",
-    type: "Full-time",
-    location: "Main Hospital",
-    experience: "2+ Years"
-  }
-];
+interface Job {
+  id: number;
+  title: string;
+  slug: string;
+  departmentName: string;
+  employmentType: string;
+  location?: string;
+  experience?: string;
+}
 
 export default function Careers() {
+  const [jobs, setJobs] = useState<Job[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchJobs = async () => {
+      try {
+        const res = await fetch('/api/public/jobs');
+        const json = await res.json();
+        if (json.success) {
+          setJobs(json.data);
+        }
+      } catch (error) {
+        console.error('Failed to fetch jobs:', error);
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchJobs();
+  }, []);
   return (
     <div className="pt-32 pb-24 bg-white">
       <div className="container-custom">
@@ -74,38 +80,48 @@ export default function Careers() {
         <div className="mb-16">
           <h2 className="text-4xl md:text-5xl font-display text-brand-dark mb-12">Current Openings</h2>
           <div className="space-y-4">
-            {JOBS.map((job, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 10 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: i * 0.1 }}
-                viewport={{ once: true }}
-                className="flex flex-col md:flex-row md:items-center justify-between p-8 bg-white border border-slate-100 rounded-[2.5rem] hover:shadow-premium transition-all group"
-              >
-                <div className="flex gap-6 items-center mb-6 md:mb-0">
-                  <div className="h-14 w-14 rounded-2xl bg-slate-50 flex items-center justify-center text-slate-400 group-hover:bg-brand-primary/10 group-hover:text-brand-primary transition-colors shrink-0">
-                    <Briefcase size={28} />
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-bold text-brand-dark group-hover:text-brand-primary transition-colors">{job.title}</h3>
-                    <div className="flex flex-wrap gap-4 mt-2">
-                       <span className="flex items-center gap-1 text-[10px] uppercase font-black tracking-widest text-slate-400"><MapPin size={12} /> {job.location}</span>
-                       <span className="flex items-center gap-1 text-[10px] uppercase font-black tracking-widest text-slate-400"><Clock size={12} /> {job.type}</span>
+            {loading ? (
+              <div className="py-12 text-center text-slate-500">
+                <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-brand-primary mx-auto mb-4"></div>
+                Loading openings...
+              </div>
+            ) : jobs.length === 0 ? (
+              <div className="py-12 text-center text-slate-500 bg-slate-50 rounded-3xl border border-slate-100">
+                No open positions currently available. Please check back later.
+              </div>
+            ) : (
+              jobs.map((job, i) => (
+                <motion.div
+                  key={job.id}
+                  initial={{ opacity: 0, y: 10 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ delay: i * 0.1 }}
+                  viewport={{ once: true }}
+                  className="flex flex-col md:flex-row md:items-center justify-between p-8 bg-white border border-slate-100 rounded-[2.5rem] hover:shadow-premium transition-all group"
+                >
+                  <div className="flex gap-6 items-center mb-6 md:mb-0">
+                    <div className="h-14 w-14 rounded-2xl bg-slate-50 flex items-center justify-center text-slate-400 group-hover:bg-brand-primary/10 group-hover:text-brand-primary transition-colors shrink-0">
+                      <Briefcase size={28} />
+                    </div>
+                    <div>
+                      <h3 className="text-xl font-bold text-brand-dark group-hover:text-brand-primary transition-colors">{job.title}</h3>
+                      <div className="flex flex-wrap gap-4 mt-2">
+                        <span className="flex items-center gap-1 text-[10px] uppercase font-black tracking-widest text-slate-400"><MapPin size={12} /> Trichy</span>
+                        <span className="flex items-center gap-1 text-[10px] uppercase font-black tracking-widest text-slate-400"><Clock size={12} /> {job.employmentType}</span>
+                      </div>
                     </div>
                   </div>
-                </div>
-                <div className="flex items-center gap-8">
-                  <div className="hidden md:block text-right">
-                    <p className="text-xs font-bold text-slate-500 mb-1">{job.dept}</p>
-                    <p className="text-[10px] font-black text-slate-400 uppercase">Exp: {job.experience}</p>
+                  <div className="flex items-center gap-8">
+                    <div className="hidden md:block text-right">
+                      <p className="text-xs font-bold text-slate-500 mb-1">{job.departmentName}</p>
+                    </div>
+                    <Link to={`/careers/${job.slug}`} className="h-14 px-8 bg-brand-dark text-white rounded-2xl font-bold flex items-center gap-2 hover:bg-brand-primary transition-colors shadow-lg whitespace-nowrap">
+                      View Details <ArrowRight size={18} />
+                    </Link>
                   </div>
-                  <Link to="/contact" className="h-14 px-8 bg-brand-dark text-white rounded-2xl font-bold flex items-center gap-2 hover:bg-brand-primary transition-colors shadow-lg">
-                    Apply Now <ArrowRight size={18} />
-                  </Link>
-                </div>
-              </motion.div>
-            ))}
+                </motion.div>
+              ))
+            )}
           </div>
         </div>
 

@@ -54,7 +54,7 @@ call npm run migrate --workspace=backend
 if %errorlevel% neq 0 (
     echo [ERROR] Migrations failed.
     pause
-    exit /b %errorlevel%
+    exit /b %errorlevel%l̥
 )
 
 echo Seeding database...
