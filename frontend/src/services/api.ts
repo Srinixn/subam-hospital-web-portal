@@ -73,4 +73,10 @@ export const api = {
       method: 'POST',
       body: JSON.stringify(data),
     }),
+
+  getJobs: <T = any>() =>
+    request<T[]>('public/jobs'),
+
+  getJobBySlug: <T = any>(slug: string) =>
+    request<T>(`public/jobs/${slug}`),
 };

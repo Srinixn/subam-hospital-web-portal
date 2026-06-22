@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { Briefcase, MapPin, Clock, ArrowLeft } from 'lucide-react';
 import ApplicationForm from '../components/ApplicationForm';
-import { fetchApi } from '../services/api'; // I'll assume they have this based on admin, or I'll just use fetch
+import { api } from '../services/api';
 
 interface Job {
   id: number;
@@ -21,11 +21,9 @@ export default function JobDetail() {
   useEffect(() => {
     const fetchJob = async () => {
       try {
-        // Simple fetch
-        const res = await fetch(`/api/public/jobs/${slug}`);
-        const json = await res.json();
-        if (json.success) {
-          setJob(json.data);
+        const res = await api.getJobBySlug<Job>(slug || '');
+        if (res.success && res.data) {
+          setJob(res.data);
         }
       } catch (err) {
         console.error('Failed to fetch job:', err);
@@ -62,7 +60,7 @@ export default function JobDetail() {
         <Link to="/careers" className="inline-flex items-center gap-2 text-brand-primary font-bold hover:underline mb-10">
           <ArrowLeft size={20} /> Back to Careers
         </Link>
-        
+
         <div className="mb-12">
           <h1 className="text-4xl md:text-6xl font-display text-brand-dark mb-6 leading-tight">{job.title}</h1>
           <div className="flex flex-wrap gap-4 md:gap-8 items-center border-b border-slate-100 pb-8">
@@ -84,7 +82,7 @@ export default function JobDetail() {
         <div className="prose prose-lg prose-slate max-w-none mb-16">
           <h3 className="text-2xl font-bold text-brand-dark mb-4">Job Description</h3>
           <div className="whitespace-pre-wrap text-slate-600 mb-10">{job.description}</div>
-          
+
           <h3 className="text-2xl font-bold text-brand-dark mb-4">Requirements</h3>
           <div className="whitespace-pre-wrap text-slate-600">{job.requirements}</div>
         </div>
