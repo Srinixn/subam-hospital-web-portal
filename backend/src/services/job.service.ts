@@ -1,9 +1,7 @@
 import { JobRepository } from '../repositories/job.repository.js';
-import { DepartmentRepository } from '../repositories/department.repository.js';
-import { Job, JobWithDepartment, Department } from '../types/index.js';
+import { Job } from '../types/index.js';
 
 const jobRepo = new JobRepository();
-const deptRepo = new DepartmentRepository();
 
 function generateSlug(title: string): string {
   return title
@@ -13,25 +11,26 @@ function generateSlug(title: string): string {
 }
 
 export class JobService {
-  async getAllJobs(includeDrafts: boolean = false): Promise<JobWithDepartment[]> {
+  async getAllJobs(includeDrafts: boolean = false): Promise<Job[]> {
     return await jobRepo.findAll(includeDrafts);
   }
 
-  async getJobById(id: number): Promise<JobWithDepartment | null> {
+  async getJobById(id: number): Promise<Job | null> {
     return await jobRepo.findById(id);
   }
 
-  async getJobBySlug(slug: string): Promise<JobWithDepartment | null> {
+  async getJobBySlug(slug: string): Promise<Job | null> {
     return await jobRepo.findBySlug(slug);
   }
 
   async createJob(data: {
-    departmentId: number;
     title: string;
     description: string;
     requirements: string;
+    location: 'Sun Srishti Speciality Hospital' | 'Sunsrishti Fertility Center' | 'Subam Hospital';
     employmentType: 'Full-time' | 'Part-time' | 'Contract';
     status: 'Draft' | 'Published' | 'Closed';
+    linkedinJobUrl: string;
   }): Promise<number> {
     let slug = generateSlug(data.title);
     let count = 1;
@@ -65,18 +64,5 @@ export class JobService {
 
   async deleteJob(id: number): Promise<boolean> {
     return await jobRepo.delete(id);
-  }
-
-  // Department methods
-  async getAllDepartments(): Promise<Department[]> {
-    return await deptRepo.findAll();
-  }
-
-  async createDepartment(name: string): Promise<number> {
-    return await deptRepo.create(name);
-  }
-
-  async deleteDepartment(id: number): Promise<boolean> {
-    return await deptRepo.delete(id);
   }
 }

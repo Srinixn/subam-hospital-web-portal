@@ -1,17 +1,15 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'motion/react';
 import { Briefcase, MapPin, Clock, ArrowRight, Star, Heart } from 'lucide-react';
-import { Link } from 'react-router-dom';
 import { api } from '../services/api';
 
 interface Job {
     id: number;
     title: string;
     slug: string;
-    departmentName: string;
+    location: string;
+    linkedinJobUrl: string;
     employmentType: string;
-    location?: string;
-    experience?: string;
 }
 
 export default function Careers() {
@@ -106,18 +104,20 @@ export default function Careers() {
                                         <div>
                                             <h3 className="text-xl font-bold text-brand-dark group-hover:text-brand-primary transition-colors">{job.title}</h3>
                                             <div className="flex flex-wrap gap-4 mt-2">
-                                                <span className="flex items-center gap-1 text-[10px] uppercase font-black tracking-widest text-slate-400"><MapPin size={12} /> Trichy</span>
+                                                <span className="flex items-center gap-1 text-[10px] uppercase font-black tracking-widest text-slate-400"><MapPin size={12} /> {job.location}</span>
                                                 <span className="flex items-center gap-1 text-[10px] uppercase font-black tracking-widest text-slate-400"><Clock size={12} /> {job.employmentType}</span>
                                             </div>
                                         </div>
                                     </div>
                                     <div className="flex items-center gap-8">
-                                        <div className="hidden md:block text-right">
-                                            <p className="text-xs font-bold text-slate-500 mb-1">{job.departmentName}</p>
-                                        </div>
-                                        <Link to={`/careers/${job.slug}`} className="h-14 px-8 bg-brand-dark text-white rounded-2xl font-bold flex items-center gap-2 hover:bg-brand-primary transition-colors shadow-lg whitespace-nowrap">
-                                            View Details <ArrowRight size={18} />
-                                        </Link>
+                                        <a 
+                                            href={job.linkedinJobUrl} 
+                                            target="_blank" 
+                                            rel="noopener noreferrer" 
+                                            className="h-14 px-8 bg-brand-dark text-white rounded-2xl font-bold flex items-center gap-2 hover:bg-brand-primary transition-colors shadow-lg whitespace-nowrap"
+                                        >
+                                            Apply via LinkedIn <ArrowRight size={18} />
+                                        </a>
                                     </div>
                                 </motion.div>
                             ))

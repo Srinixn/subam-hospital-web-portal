@@ -46,47 +46,18 @@ export interface SafeAdminUser {
 //  Recruitment System Interfaces
 // ─────────────────────────────────────────────
 
-export interface Department {
-  id: number;
-  name: string;
-  createdAt: Date;
-}
-
 export interface Job {
   id: number;
-  departmentId: number;
   title: string;
   slug: string;
   description: string;
   requirements: string;
+  location: 'Sun Srishti Speciality Hospital' | 'Sunsrishti Fertility Center' | 'Subam Hospital';
   employmentType: 'Full-time' | 'Part-time' | 'Contract';
   status: 'Draft' | 'Published' | 'Closed';
+  linkedinJobUrl: string;
   createdAt: Date;
   updatedAt: Date;
-}
-
-export interface JobWithDepartment extends Job {
-  departmentName?: string;
-}
-
-export interface Application {
-  id: number;
-  jobId: number;
-  firstName: string;
-  lastName: string;
-  email: string;
-  phone: string;
-  experienceYears: number;
-  status: 'New' | 'Reviewed' | 'Shortlisted' | 'Interview Scheduled' | 'Rejected' | 'Hired';
-  resumeFilePath: string;
-  resumeOriginalName: string;
-  createdAt: Date;
-  updatedAt: Date;
-}
-
-export interface ApplicationWithJob extends Application {
-  jobTitle?: string;
-  departmentName?: string;
 }
 
 /** Standard success response envelope. */

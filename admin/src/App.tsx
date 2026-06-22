@@ -6,7 +6,6 @@ import Dashboard from './pages/Dashboard';
 import Contacts from './pages/Contacts';
 import Feedbacks from './pages/Feedbacks';
 import Jobs from './pages/Jobs';
-import Applications from './pages/Applications';
 
 function App() {
   return (
@@ -19,7 +18,6 @@ function App() {
             <Route path="/contacts" element={<Contacts />} />
             <Route path="/feedbacks" element={<Feedbacks />} />
             <Route path="/jobs" element={<Jobs />} />
-            <Route path="/applications" element={<Applications />} />
           </Route>
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>

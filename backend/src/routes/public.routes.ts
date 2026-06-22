@@ -9,13 +9,10 @@ import { handleValidationErrors } from '../middleware/validate.js';
 import * as contactController from '../controllers/contact.controller.js';
 import * as feedbackController from '../controllers/feedback.controller.js';
 import { JobController } from '../controllers/job.controller.js';
-import { ApplicationController } from '../controllers/application.controller.js';
-import { uploadResume } from '../middleware/upload.js';
 import { INQUIRY_TYPES } from '../types/index.js';
 
 const router = Router();
 const jobController = new JobController();
-const appController = new ApplicationController();
 
 // ── Rate limiter for public form submissions ──
 const formLimiter = rateLimit({
@@ -94,8 +91,5 @@ router.post(
 // ── Jobs ──
 router.get('/jobs', jobController.getPublicJobs.bind(jobController));
 router.get('/jobs/:slug', jobController.getPublicJobBySlug.bind(jobController));
-
-// ── Applications ──
-router.post('/jobs/:jobId/apply', formLimiter, uploadResume.single('resume'), appController.submitApplication.bind(appController));
 
 export default router;

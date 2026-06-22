@@ -1,58 +1,55 @@
 import { ResultSetHeader, RowDataPacket } from 'mysql2';
 import pool from '../config/database.js';
-import { Job, JobWithDepartment } from '../types/index.js';
+import { Job } from '../types/index.js';
 
 export class JobRepository {
-  async findAll(includeDrafts: boolean = false): Promise<JobWithDepartment[]> {
+  async findAll(includeDrafts: boolean = false): Promise<Job[]> {
     let query = `
-      SELECT j.id, j.department_id as departmentId, j.title, j.slug, j.description, j.requirements, j.employment_type as employmentType, j.status, j.created_at as createdAt, j.updated_at as updatedAt, d.name as departmentName
-      FROM jobs j
-      LEFT JOIN departments d ON j.department_id = d.id
+      SELECT id, title, slug, description, requirements, location, employment_type as employmentType, status, linkedin_job_url as linkedinJobUrl, created_at as createdAt, updated_at as updatedAt
+      FROM jobs
     `;
     
     if (!includeDrafts) {
-      query += ` WHERE j.status = 'Published'`;
+      query += ` WHERE status = 'Published'`;
     }
     
-    query += ` ORDER BY j.created_at DESC`;
+    query += ` ORDER BY created_at DESC`;
 
     const [rows] = await pool.query<RowDataPacket[]>(query);
-    return rows as JobWithDepartment[];
+    return rows as Job[];
   }
 
-  async findById(id: number): Promise<JobWithDepartment | null> {
+  async findById(id: number): Promise<Job | null> {
     const [rows] = await pool.query<RowDataPacket[]>(
       `
-      SELECT j.id, j.department_id as departmentId, j.title, j.slug, j.description, j.requirements, j.employment_type as employmentType, j.status, j.created_at as createdAt, j.updated_at as updatedAt, d.name as departmentName
-      FROM jobs j
-      LEFT JOIN departments d ON j.department_id = d.id
-      WHERE j.id = ?
+      SELECT id, title, slug, description, requirements, location, employment_type as employmentType, status, linkedin_job_url as linkedinJobUrl, created_at as createdAt, updated_at as updatedAt
+      FROM jobs
+      WHERE id = ?
       `,
       [id]
     );
     if (rows.length === 0) return null;
-    return rows[0] as JobWithDepartment;
+    return rows[0] as Job;
   }
 
-  async findBySlug(slug: string): Promise<JobWithDepartment | null> {
+  async findBySlug(slug: string): Promise<Job | null> {
     const [rows] = await pool.query<RowDataPacket[]>(
       `
-      SELECT j.id, j.department_id as departmentId, j.title, j.slug, j.description, j.requirements, j.employment_type as employmentType, j.status, j.created_at as createdAt, j.updated_at as updatedAt, d.name as departmentName
-      FROM jobs j
-      LEFT JOIN departments d ON j.department_id = d.id
-      WHERE j.slug = ? AND j.status = 'Published'
+      SELECT id, title, slug, description, requirements, location, employment_type as employmentType, status, linkedin_job_url as linkedinJobUrl, created_at as createdAt, updated_at as updatedAt
+      FROM jobs
+      WHERE slug = ? AND status = 'Published'
       `,
       [slug]
     );
     if (rows.length === 0) return null;
-    return rows[0] as JobWithDepartment;
+    return rows[0] as Job;
   }
 
   async create(job: Omit<Job, 'id' | 'createdAt' | 'updatedAt'>): Promise<number> {
     const [result] = await pool.query<ResultSetHeader>(
-      `INSERT INTO jobs (department_id, title, slug, description, requirements, employment_type, status)
-       VALUES (?, ?, ?, ?, ?, ?, ?)`,
-      [job.departmentId, job.title, job.slug, job.description, job.requirements, job.employmentType, job.status]
+      `INSERT INTO jobs (title, slug, description, requirements, location, employment_type, status, linkedin_job_url)
+       VALUES (?, ?, ?, ?, ?, ?, ?, ?)`,
+      [job.title, job.slug, job.description, job.requirements, job.location, job.employmentType, job.status, job.linkedinJobUrl]
     );
     return result.insertId;
   }
@@ -61,13 +58,14 @@ export class JobRepository {
     const fields: string[] = [];
     const values: any[] = [];
 
-    if (job.departmentId !== undefined) { fields.push('department_id = ?'); values.push(job.departmentId); }
     if (job.title !== undefined) { fields.push('title = ?'); values.push(job.title); }
     if (job.slug !== undefined) { fields.push('slug = ?'); values.push(job.slug); }
     if (job.description !== undefined) { fields.push('description = ?'); values.push(job.description); }
     if (job.requirements !== undefined) { fields.push('requirements = ?'); values.push(job.requirements); }
+    if (job.location !== undefined) { fields.push('location = ?'); values.push(job.location); }
     if (job.employmentType !== undefined) { fields.push('employment_type = ?'); values.push(job.employmentType); }
     if (job.status !== undefined) { fields.push('status = ?'); values.push(job.status); }
+    if (job.linkedinJobUrl !== undefined) { fields.push('linkedin_job_url = ?'); values.push(job.linkedinJobUrl); }
 
     if (fields.length === 0) return true;
 

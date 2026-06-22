@@ -2,27 +2,27 @@ import { useState, useEffect } from 'react';
 import { Plus, Edit2, Trash2, X } from 'lucide-react';
 import { fetchApi } from '../services/api';
 
-interface Department {
-  id: number;
-  name: string;
-}
+const LOCATION_OPTIONS = [
+  'Sun Srishti Speciality Hospital',
+  'Sunsrishti Fertility Center',
+  'Subam Hospital'
+];
 
 interface Job {
   id: number;
-  departmentId: number;
   title: string;
   slug: string;
   description: string;
   requirements: string;
+  location: string;
+  linkedinJobUrl: string;
   employmentType: string;
   status: string;
   createdAt: string;
-  departmentName?: string;
 }
 
 export default function Jobs() {
   const [jobs, setJobs] = useState<Job[]>([]);
-  const [departments, setDepartments] = useState<Department[]>([]);
   const [loading, setLoading] = useState(true);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [editingJob, setEditingJob] = useState<Job | null>(null);
@@ -30,7 +30,8 @@ export default function Jobs() {
   // Form State
   const [formData, setFormData] = useState({
     title: '',
-    departmentId: '',
+    location: LOCATION_OPTIONS[0],
+    linkedinJobUrl: '',
     description: '',
     requirements: '',
     employmentType: 'Full-time',
@@ -40,13 +41,8 @@ export default function Jobs() {
   const fetchData = async () => {
     setLoading(true);
     try {
-      const [jobsRes, deptsRes] = await Promise.all([
-        fetchApi<{ data: Job[] }>('admin/jobs'),
-        fetchApi<{ data: Department[] }>('admin/departments')
-      ]);
-
+      const jobsRes = await fetchApi<{ data: Job[] }>('admin/jobs');
       if (jobsRes.data) setJobs(jobsRes.data);
-      if (deptsRes.data) setDepartments(deptsRes.data);
     } catch (error) {
       console.error('Failed to fetch data:', error);
     } finally {
@@ -63,7 +59,8 @@ export default function Jobs() {
       setEditingJob(job);
       setFormData({
         title: job.title,
-        departmentId: job.departmentId.toString(),
+        location: job.location,
+        linkedinJobUrl: job.linkedinJobUrl,
         description: job.description,
         requirements: job.requirements,
         employmentType: job.employmentType,
@@ -73,7 +70,8 @@ export default function Jobs() {
       setEditingJob(null);
       setFormData({
         title: '',
-        departmentId: departments.length > 0 ? departments[0].id.toString() : '',
+        location: LOCATION_OPTIONS[0],
+        linkedinJobUrl: '',
         description: '',
         requirements: '',
         employmentType: 'Full-time',
@@ -145,7 +143,7 @@ export default function Jobs() {
             <thead className="bg-slate-50 text-xs uppercase text-slate-500 font-bold border-b border-slate-200">
               <tr>
                 <th className="px-6 py-4">Job Title</th>
-                <th className="px-6 py-4">Department</th>
+                <th className="px-6 py-4">Location</th>
                 <th className="px-6 py-4">Type</th>
                 <th className="px-6 py-4">Status</th>
                 <th className="px-6 py-4 text-right">Actions</th>
@@ -172,7 +170,7 @@ export default function Jobs() {
                       <div className="font-bold text-slate-800">{job.title}</div>
                       <div className="text-xs text-slate-500">/{job.slug}</div>
                     </td>
-                    <td className="px-6 py-4 text-slate-600">{job.departmentName}</td>
+                    <td className="px-6 py-4 text-slate-600">{job.location}</td>
                     <td className="px-6 py-4 text-slate-600">{job.employmentType}</td>
                     <td className="px-6 py-4">
                       <span className={`inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium whitespace-nowrap ${
@@ -230,18 +228,27 @@ export default function Jobs() {
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-bold text-slate-700 mb-1">Department *</label>
+                  <label className="block text-sm font-bold text-slate-700 mb-1">Location *</label>
                   <select 
                     required
                     className="w-full px-4 py-2 border border-slate-200 rounded-lg focus:ring-2 focus:ring-brand-primary/20 focus:border-brand-primary"
-                    value={formData.departmentId} onChange={e => setFormData({...formData, departmentId: e.target.value})}
+                    value={formData.location} onChange={e => setFormData({...formData, location: e.target.value})}
                   >
-                    <option value="">Select Department</option>
-                    {departments.map(d => (
-                      <option key={d.id} value={d.id}>{d.name}</option>
+                    {LOCATION_OPTIONS.map(loc => (
+                      <option key={loc} value={loc}>{loc}</option>
                     ))}
                   </select>
                 </div>
+              </div>
+
+              <div>
+                <label className="block text-sm font-bold text-slate-700 mb-1">LinkedIn Job URL *</label>
+                <input 
+                  required type="url" 
+                  placeholder="https://www.linkedin.com/jobs/view/..."
+                  className="w-full px-4 py-2 border border-slate-200 rounded-lg focus:ring-2 focus:ring-brand-primary/20 focus:border-brand-primary"
+                  value={formData.linkedinJobUrl} onChange={e => setFormData({...formData, linkedinJobUrl: e.target.value})}
+                />
               </div>
 
               <div>
@@ -302,3 +309,4 @@ export default function Jobs() {
     </div>
   );
 }
+

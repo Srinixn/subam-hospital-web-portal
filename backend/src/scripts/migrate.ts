@@ -60,56 +60,27 @@ const MIGRATIONS: { name: string; sql: string }[] = [
     `,
   },
   {
-    name: 'Create departments table',
-    sql: `
-      CREATE TABLE IF NOT EXISTS departments (
-        id            INT           AUTO_INCREMENT PRIMARY KEY,
-        name          VARCHAR(100)  NOT NULL,
-        created_at    TIMESTAMP     NOT NULL DEFAULT CURRENT_TIMESTAMP
-      ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-    `,
+    name: 'Drop deprecated tables (if they exist)',
+    sql: `DROP TABLE IF EXISTS applications, departments;`,
   },
   {
     name: 'Create jobs table',
     sql: `
       CREATE TABLE IF NOT EXISTS jobs (
-        id              INT           AUTO_INCREMENT PRIMARY KEY,
-        department_id   INT           NOT NULL,
-        title           VARCHAR(255)  NOT NULL,
-        slug            VARCHAR(255)  NOT NULL,
-        description     TEXT          NOT NULL,
-        requirements    TEXT          NOT NULL,
-        employment_type ENUM('Full-time', 'Part-time', 'Contract') NOT NULL,
-        status          ENUM('Draft', 'Published', 'Closed') NOT NULL DEFAULT 'Draft',
-        created_at      TIMESTAMP     NOT NULL DEFAULT CURRENT_TIMESTAMP,
-        updated_at      TIMESTAMP     NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+        id                INT           AUTO_INCREMENT PRIMARY KEY,
+        title             VARCHAR(255)  NOT NULL,
+        slug              VARCHAR(255)  NOT NULL,
+        description       TEXT          NOT NULL,
+        requirements      TEXT          NOT NULL,
+        location          ENUM('Sun Srishti Speciality Hospital', 'Sunsrishti Fertility Center', 'Subam Hospital') NOT NULL,
+        employment_type   ENUM('Full-time', 'Part-time', 'Contract') NOT NULL,
+        status            ENUM('Draft', 'Published', 'Closed') NOT NULL DEFAULT 'Draft',
+        linkedin_job_url  VARCHAR(255)  NOT NULL,
+        created_at        TIMESTAMP     NOT NULL DEFAULT CURRENT_TIMESTAMP,
+        updated_at        TIMESTAMP     NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
 
         UNIQUE INDEX idx_jobs_slug (slug),
-        INDEX idx_jobs_status (status),
-        CONSTRAINT fk_jobs_department FOREIGN KEY (department_id) REFERENCES departments(id) ON DELETE RESTRICT
-      ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-    `,
-  },
-  {
-    name: 'Create applications table',
-    sql: `
-      CREATE TABLE IF NOT EXISTS applications (
-        id                    INT           AUTO_INCREMENT PRIMARY KEY,
-        job_id                INT           NOT NULL,
-        first_name            VARCHAR(100)  NOT NULL,
-        last_name             VARCHAR(100)  NOT NULL,
-        email                 VARCHAR(255)  NOT NULL,
-        phone                 VARCHAR(20)   NOT NULL,
-        experience_years      INT           NOT NULL,
-        status                ENUM('New', 'Reviewed', 'Shortlisted', 'Interview Scheduled', 'Rejected', 'Hired') NOT NULL DEFAULT 'New',
-        resume_file_path      VARCHAR(255)  NOT NULL,
-        resume_original_name  VARCHAR(255)  NOT NULL,
-        created_at            TIMESTAMP     NOT NULL DEFAULT CURRENT_TIMESTAMP,
-        updated_at            TIMESTAMP     NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-
-        INDEX idx_applications_job_id (job_id),
-        INDEX idx_applications_status (status),
-        CONSTRAINT fk_applications_job FOREIGN KEY (job_id) REFERENCES jobs(id) ON DELETE RESTRICT
+        INDEX idx_jobs_status (status)
       ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
     `,
   },
@@ -121,6 +92,20 @@ async function migrate(): Promise<void> {
   const connection = await pool.getConnection();
 
   try {
+    // Attempt to alter the jobs table if it already exists from a previous migration
+    try {
+      await connection.execute(`
+        ALTER TABLE jobs
+        DROP FOREIGN KEY fk_jobs_department,
+        DROP COLUMN department_id,
+        ADD COLUMN location ENUM('Sun Srishti Speciality Hospital', 'Sunsrishti Fertility Center', 'Subam Hospital') NOT NULL DEFAULT 'Subam Hospital',
+        ADD COLUMN linkedin_job_url VARCHAR(255) NOT NULL DEFAULT '';
+      `);
+      console.log('  ✓ Altered existing jobs table schema.');
+    } catch (e: any) {
+      // Ignore errors (e.g., table doesn't exist, or columns already altered)
+    }
+
     for (const migration of MIGRATIONS) {
       console.log(`  Running: ${migration.name}...`);
       await connection.execute(migration.sql);
