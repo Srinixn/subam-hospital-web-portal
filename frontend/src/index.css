@@ -32,7 +32,7 @@
 
 @layer components {
   .container-custom {
-    @apply max-w-7xl mx-auto px-6 lg:px-8;
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
   }
 
   .glass-card {
@@ -40,13 +40,17 @@
   }
 
   .btn-primary {
-    @apply bg-brand-primary text-white px-8 py-4 rounded-2xl font-bold transition-all 
+    @apply bg-brand-primary text-white px-6 sm:px-8 py-3 sm:py-4 rounded-2xl font-bold transition-all 
            hover:bg-teal-700 hover:shadow-xl hover:shadow-teal-500/20 active:scale-95 
            flex items-center justify-center gap-2;
   }
 
   .bento-item {
-    @apply bg-white rounded-3xl p-8 border border-slate-100 transition-all hover:border-brand-primary/30 hover:shadow-premium;
+    @apply bg-white rounded-2xl sm:rounded-3xl p-5 sm:p-8 border border-slate-100 transition-all hover:border-brand-primary/30 hover:shadow-premium;
+  }
+
+  .card-hospital {
+    @apply bg-white rounded-2xl sm:rounded-3xl p-5 sm:p-8 border border-slate-100 transition-all hover:border-brand-primary/30 hover:shadow-premium;
   }
 }
 
@@ -69,4 +73,29 @@
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
+}
+
+/* Infinite Marquee Ribbon Animation */
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 40s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+/* Hide scrollbar but allow scrolling */
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
 }

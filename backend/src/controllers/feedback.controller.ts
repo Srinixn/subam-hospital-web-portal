@@ -108,3 +108,23 @@ export async function toggleReadStatus(
     next(err);
   }
 }
+
+/**
+ * GET /api/public/testimonials
+ * Public endpoint — get all public testimonials with rating > 3.
+ */
+export async function getPublicTestimonials(
+  req: Request,
+  res: Response,
+  next: NextFunction,
+): Promise<void> {
+  try {
+    const testimonials = await feedbackService.getTestimonials();
+    res.json({
+      success: true,
+      data: testimonials,
+    });
+  } catch (err) {
+    next(err);
+  }
+}

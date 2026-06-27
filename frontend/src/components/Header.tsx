@@ -1,5 +1,5 @@
 import { motion } from 'motion/react';
-import { Phone, Menu, X, Calendar, User, Globe, Mail, Clock, Search } from 'lucide-react';
+import { Phone, Menu, X, Calendar, User, Globe, Mail, Clock, Search, ChevronDown } from 'lucide-react';
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 
@@ -52,7 +52,14 @@ const NavItem = ({ item, scrolled, location }: any) => {
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [openDropdown, setOpenDropdown] = useState<string | null>(null);
   const location = useLocation();
+
+  // Close mobile menu on route change
+  useEffect(() => {
+    setIsOpen(false);
+    setOpenDropdown(null);
+  }, [location.pathname]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -79,15 +86,13 @@ export default function Header() {
       path: '/services',
       dropdown: [
         { name: 'Obstetrics', path: '/specialities/obstetrics' },
-        { name: 'Gynecology', path: '/specialities/gynecology' },
+        { name: 'Gynaecology', path: '/specialities/gynecology' },
+        { name: 'Paediatrics', path: '/specialities/pediatrics' },
         { name: 'Radiology', path: '/specialities/radiology' },
-        { name: 'Pediatric', path: '/specialities/pediatrics' },
-        { name: 'NICU', path: '/specialities/nicu' },
+        { name: 'Antenatal (Pregnancy Care)', path: '/specialities/pregnancy-care' },
+        { name: 'Postnatal Care', path: '/specialities/post-natal' },
         { name: 'Fertility Care', path: '/specialities/fertility' },
-        { name: 'Pregnancy Care', path: '/specialities/pregnancy-care' },
-        { name: 'Pain Clinic', path: '/specialities/pain-clinic' },
-        { name: 'Pre-Pregnancy Plan', path: '/specialities/pre-pregnancy' },
-        { name: 'Post-Natal Care', path: '/specialities/post-natal' }
+        { name: 'Newborn Care', path: '/specialities/newborn-care' }
       ]
     },
     { name: 'Facilities', path: '/facilities' },
@@ -112,7 +117,7 @@ export default function Header() {
   ];
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50">
+    <header className="fixed top-0 left-0 right-0 z-50" style={{ paddingTop: 'env(safe-area-inset-top, 0px)' }}>
       {/* Top Bar - Very Subam style */}
       <div className={`hidden lg:block transition-all duration-300 ${
         scrolled || location.pathname !== '/' ? 'h-0 opacity-0 overflow-hidden' : 'bg-brand-dark py-2'
@@ -121,11 +126,11 @@ export default function Header() {
           <div className="flex items-center gap-6">
             <div className="flex items-center gap-2 text-[9px] font-bold text-white/60 tracking-wider">
               <Mail size={10} className="text-brand-primary" />
-              <span>info@subamhospital.com</span>
+              <a href="mailto:hospitalsubam@gmail.com" className="hover:text-white transition-colors">hospitalsubam@gmail.com</a>
             </div>
             <div className="flex items-center gap-2 text-[9px] font-bold text-white/60 tracking-wider">
               <Phone size={10} className="text-brand-primary" />
-              <span>+91 431 1234567</span>
+              <a href="tel:+919092225481" className="hover:text-white transition-colors">+91 90922 25481</a>
             </div>
             <div className="flex items-center gap-2 text-[9px] font-bold text-white/60 tracking-wider">
               <Clock size={10} className="text-brand-primary" />
@@ -181,41 +186,74 @@ export default function Header() {
       {/* Mobile Menu */}
       {isOpen && (
         <motion.div 
-          initial={{ opacity: 0, scale: 0.95 }}
-          animate={{ opacity: 1, scale: 1 }}
-          className="lg:hidden absolute top-full left-0 right-0 bg-white shadow-2xl p-6 flex flex-col gap-4 border-t border-slate-100 max-h-[90vh] overflow-y-auto"
+          initial={{ opacity: 0, y: -10 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="lg:hidden absolute top-full left-0 right-0 bg-white shadow-2xl p-4 sm:p-6 flex flex-col gap-1 border-t border-slate-100 max-h-[85vh] overflow-y-auto"
+          style={{ paddingBottom: 'max(1rem, env(safe-area-inset-bottom, 0px))' }}
         >
           {navItems.map((item) => (
             <div key={item.name} className="flex flex-col">
-              <Link 
-                to={item.path}
-                onClick={() => !item.dropdown && setIsOpen(false)}
-                className={`text-sm font-bold py-3 flex items-center justify-between ${
-                  location.pathname === item.path ? 'text-brand-primary' : 'text-slate-800'
-                }`}
-              >
-                {item.name}
-              </Link>
-              {item.dropdown && (
-                <div className="pl-4 flex flex-col border-l-2 border-slate-50 mb-2">
+              {item.dropdown ? (
+                <button
+                  onClick={() => setOpenDropdown(openDropdown === item.name ? null : item.name)}
+                  className={`text-sm font-bold py-3 flex items-center justify-between w-full text-left ${
+                    location.pathname === item.path ? 'text-brand-primary' : 'text-slate-800'
+                  }`}
+                >
+                  {item.name}
+                  <ChevronDown size={16} className={`transition-transform duration-200 ${openDropdown === item.name ? 'rotate-180' : ''}`} />
+                </button>
+              ) : (
+                <Link 
+                  to={item.path}
+                  onClick={() => setIsOpen(false)}
+                  className={`text-sm font-bold py-3 flex items-center justify-between ${
+                    location.pathname === item.path ? 'text-brand-primary' : 'text-slate-800'
+                  }`}
+                >
+                  {item.name}
+                </Link>
+              )}
+              {item.dropdown && openDropdown === item.name && (
+                <motion.div 
+                  initial={{ opacity: 0, height: 0 }}
+                  animate={{ opacity: 1, height: 'auto' }}
+                  className="pl-4 flex flex-col border-l-2 border-brand-primary/20 mb-2 overflow-hidden"
+                >
+                  <Link
+                    to={item.path}
+                    onClick={() => setIsOpen(false)}
+                    className={`py-2.5 text-xs font-bold ${
+                      location.pathname === item.path ? 'text-brand-primary' : 'text-slate-500'
+                    }`}
+                  >
+                    View All {item.name}
+                  </Link>
                   {item.dropdown.map((sub: any) => (
                     <Link
                       key={sub.name}
                       to={sub.path}
                       onClick={() => setIsOpen(false)}
-                      className={`py-2 text-xs font-bold ${
+                      className={`py-2.5 text-xs font-bold ${
                         location.pathname === sub.path ? 'text-brand-primary' : 'text-slate-500'
                       }`}
                     >
                       {sub.name}
                     </Link>
                   ))}
-                </div>
+                </motion.div>
               )}
             </div>
           ))}
-          <div className="pt-4 mt-4 border-t border-slate-100">
-             <a href="tel:+914311234567" className="flex items-center justify-center gap-2 bg-red-600 text-white font-bold py-4 rounded-xl text-xs w-full">
+          <div className="pt-4 mt-4 border-t border-slate-100 space-y-3">
+             <Link 
+               to="/contact" 
+               onClick={() => setIsOpen(false)}
+               className="flex items-center justify-center gap-2 bg-brand-primary text-white font-bold py-3.5 rounded-xl text-xs w-full uppercase tracking-widest"
+             >
+               Consult Now
+             </Link>
+             <a href="tel:+919092225481" className="flex items-center justify-center gap-2 bg-red-600 text-white font-bold py-3.5 rounded-xl text-xs w-full">
                <Phone size={16} /> ER Hotline
              </a>
           </div>

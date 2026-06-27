@@ -41,7 +41,7 @@ export default function Hero() {
   }, []);
 
   return (
-    <section className="relative h-[80vh] min-h-[600px] w-full overflow-hidden">
+    <section className="relative h-[70vh] sm:h-[80vh] min-h-[500px] sm:min-h-[600px] w-full overflow-hidden">
       <AnimatePresence initial={false}>
         <motion.div
           key={current}
@@ -77,7 +77,7 @@ export default function Hero() {
                    <span className="text-white text-[9px] font-black uppercase tracking-[0.4em]">{SLIDES[current].tag}</span>
                 </div>
                 
-                <h1 className="text-2xl md:text-4xl mb-4 leading-[1.1] tracking-tight font-display text-white max-w-lg">
+                <h1 className="text-3xl sm:text-4xl md:text-5xl mb-4 leading-[1.1] tracking-tight font-display text-white max-w-lg">
                    {SLIDES[current].title}
                 </h1>
 
@@ -85,11 +85,11 @@ export default function Hero() {
                   {SLIDES[current].description}
                 </p>
 
-                <div className="flex flex-wrap gap-4 items-center">
-                  <Link to="/services" className="px-6 h-12 bg-brand-primary text-white font-bold rounded-xl flex items-center hover:bg-teal-700 hover:shadow-xl transition-all text-xs tracking-wide shadow-teal-900/40">
+                <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 items-stretch sm:items-center w-full sm:w-auto">
+                  <Link to="/services" className="px-6 h-12 bg-brand-primary text-white font-bold rounded-xl flex items-center justify-center hover:bg-teal-700 hover:shadow-xl transition-all text-xs tracking-wide shadow-teal-900/40">
                     Explore Specialties <ArrowRight className="ml-2" size={16} />
                   </Link>
-                  <Link to="/about" className="px-6 h-12 bg-white/10 backdrop-blur-md border border-white/20 text-white font-bold rounded-xl flex items-center hover:bg-white/20 transition-all text-xs tracking-wide">
+                  <Link to="/about" className="px-6 h-12 bg-white/10 backdrop-blur-md border border-white/20 text-white font-bold rounded-xl flex items-center justify-center hover:bg-white/20 transition-all text-xs tracking-wide">
                     Our History
                   </Link>
                 </div>
@@ -103,14 +103,17 @@ export default function Hero() {
 
 
       {/* Slide Indicators */}
-      <div className="absolute top-1/2 right-12 z-30 -translate-y-1/2 flex flex-col gap-4">
+      <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-30 flex flex-row md:flex-col md:top-1/2 md:right-12 md:bottom-auto md:left-auto md:-translate-y-1/2 gap-3 md:gap-4">
         {SLIDES.map((_, i) => (
           <button
             key={i}
             onClick={() => setCurrent(i)}
-            className={`w-1.5 transition-all duration-500 rounded-full ${
-              current === i ? "h-16 bg-brand-primary" : "h-6 bg-white/30"
+            className={`transition-all duration-500 rounded-full cursor-pointer ${
+              current === i 
+                ? "w-8 h-1.5 md:w-1.5 md:h-16 bg-brand-primary" 
+                : "w-2 h-1.5 md:w-1.5 md:h-6 bg-white/30"
             }`}
+            aria-label={`Go to slide ${i + 1}`}
           />
         ))}
       </div>

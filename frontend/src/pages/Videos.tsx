@@ -58,7 +58,7 @@ export default function Videos() {
               viewport={{ once: true }}
               className="group cursor-pointer"
             >
-              <div className="relative aspect-video rounded-[2.5rem] overflow-hidden mb-6">
+              <div className="relative aspect-video rounded-3xl lg:rounded-[2.5rem] overflow-hidden mb-6">
                 <img 
                   src={video.thumbnail} 
                   alt={video.title}

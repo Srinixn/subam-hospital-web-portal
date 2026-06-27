@@ -85,15 +85,15 @@ export default function Feedback() {
   };
 
   return (
-    <div className="pt-24 min-h-screen">
+    <div className="pt-16 sm:pt-24 min-h-screen">
       {/* Header */}
-      <section className="bg-slate-50 py-32 relative overflow-hidden border-b border-slate-100">
+      <section className="bg-slate-50 py-16 sm:py-24 md:py-32 relative overflow-hidden border-b border-slate-100">
         <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_top_left,_var(--tw-gradient-stops))] from-teal-500/5 via-transparent to-transparent" />
         <div className="container-custom relative z-10">
            <div className="max-w-3xl">
-              <span className="text-brand-primary font-bold tracking-[0.3em] uppercase text-xs mb-6 block">Share Your Experience</span>
-              <h1 className="text-5xl md:text-8xl mb-8 font-display">Patient <br /> <span className="text-brand-primary">Feedback</span></h1>
-              <p className="text-xl text-slate-500 leading-relaxed max-w-xl">
+              <span className="text-brand-primary font-bold tracking-[0.3em] uppercase text-xs mb-4 sm:mb-6 block">Share Your Experience</span>
+              <h1 className="text-4xl sm:text-6xl md:text-8xl mb-6 sm:mb-8 font-display">Patient <br /> <span className="text-brand-primary">Feedback</span></h1>
+              <p className="text-base sm:text-xl text-slate-500 leading-relaxed max-w-xl">
                  Your experience matters to us. Please share your suggestions, feedback, and stories to help us serve our community better.
               </p>
            </div>
@@ -101,34 +101,34 @@ export default function Feedback() {
       </section>
 
       {/* Main Content */}
-      <section className="py-24 bg-white">
+      <section className="py-12 sm:py-24 bg-white">
          <div className="container-custom">
-            <div className="grid lg:grid-cols-5 gap-16 items-start">
+            <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 lg:gap-16 items-start">
                {/* Left Column: Context info */}
-               <div className="lg:col-span-2 space-y-10">
-                  <div className="p-10 rounded-[3rem] border border-slate-100 bg-slate-50">
-                     <div className="h-14 w-14 bg-teal-50 text-brand-primary rounded-2xl flex items-center justify-center mb-6">
-                        <Heart size={28} />
+               <div className="lg:col-span-2 space-y-6 sm:space-y-10 order-first lg:order-none">
+                  <div className="p-6 sm:p-10 rounded-2xl sm:rounded-[3rem] border border-slate-100 bg-slate-50">
+                     <div className="h-12 w-12 sm:h-14 sm:w-14 bg-teal-50 text-brand-primary rounded-2xl flex items-center justify-center mb-4 sm:mb-6">
+                        <Heart className="h-6 w-6 sm:h-7 sm:w-7" />
                      </div>
-                     <h3 className="text-2xl font-bold mb-4 text-brand-dark">We Care About You</h3>
-                     <p className="text-slate-500 text-sm leading-relaxed">
+                     <h3 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4 text-brand-dark">We Care About You</h3>
+                     <p className="text-slate-500 text-xs sm:text-sm leading-relaxed">
                         At Subam Hospital, patient satisfaction is our topmost priority. Your honest feedback helps our medical and admin staff refine procedures and maintain standard of care excellence.
                      </p>
                   </div>
 
-                  <div className="p-10 rounded-[3rem] border border-slate-100 bg-slate-50">
-                     <div className="h-14 w-14 bg-orange-50 text-brand-secondary rounded-2xl flex items-center justify-center mb-6">
-                        <MessageSquare size={28} />
+                  <div className="p-6 sm:p-10 rounded-2xl sm:rounded-[3rem] border border-slate-100 bg-slate-50">
+                     <div className="h-12 w-12 sm:h-14 sm:w-14 bg-orange-50 text-brand-secondary rounded-2xl flex items-center justify-center mb-4 sm:mb-6">
+                        <MessageSquare className="h-6 w-6 sm:h-7 sm:w-7" />
                      </div>
-                     <h3 className="text-2xl font-bold mb-4 text-brand-dark">Anonymous Options</h3>
-                     <p className="text-slate-500 text-sm leading-relaxed font-medium">
+                     <h3 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4 text-brand-dark">Anonymous Options</h3>
+                     <p className="text-slate-500 text-xs sm:text-sm leading-relaxed font-medium">
                         Phone and email fields are completely optional. Feel free to leave them blank if you prefer to submit anonymous feedback.
                      </p>
                   </div>
                </div>
 
                {/* Right Column: Form container */}
-               <div className="lg:col-span-3 bg-slate-50 rounded-[4rem] p-10 md:p-16 border border-slate-100">
+               <div className="lg:col-span-3 bg-slate-50 rounded-2xl sm:rounded-[3rem] lg:rounded-[4rem] p-6 sm:p-10 md:p-16 border border-slate-100">
                   {isSubmitted ? (
                      <motion.div 
                         initial={{ opacity: 0, scale: 0.95 }}
@@ -151,98 +151,98 @@ export default function Feedback() {
                      </motion.div>
                   ) : (
                      <>
-                        <h3 className="text-3xl mb-10 font-display">Submit Feedback</h3>
-                        {submitError && (
-                           <div className="mb-8 p-6 bg-red-50 border border-red-100 text-red-600 rounded-2xl text-sm font-medium">
-                              {submitError}
-                           </div>
-                        )}
-                        <form onSubmit={handleSubmit} className="space-y-8">
-                           <div className="space-y-2">
-                              <label className="text-xs font-black text-slate-400 uppercase tracking-widest pl-2">Patient / Caregiver Name</label>
-                              <input 
-                                 value={formData.patientName}
-                                 onChange={(e) => setFormData({ ...formData, patientName: e.target.value })}
-                                 className={`w-full h-16 bg-white border ${errors.patientName ? 'border-red-500 focus:ring-red-500/20' : 'border-slate-200 focus:ring-brand-primary/20'} rounded-2xl px-6 focus:outline-none focus:ring-2`} 
-                                 placeholder="Jane Smith" 
-                              />
-                              {errors.patientName && <p className="text-red-500 text-xs mt-1 pl-2 font-medium">{errors.patientName}</p>}
-                           </div>
+                         <h3 className="text-2xl sm:text-3xl mb-6 sm:mb-10 font-display">Submit Feedback</h3>
+                         {submitError && (
+                            <div className="mb-6 sm:mb-8 p-4 sm:p-6 bg-red-50 border border-red-100 text-red-600 rounded-2xl text-xs sm:text-sm font-medium">
+                               {submitError}
+                            </div>
+                         )}
+                         <form onSubmit={handleSubmit} className="space-y-6 sm:space-y-8">
+                            <div className="space-y-2">
+                               <label className="text-[10px] font-black text-slate-400 uppercase tracking-widest pl-2">Patient / Caregiver Name</label>
+                               <input 
+                                  value={formData.patientName}
+                                  onChange={(e) => setFormData({ ...formData, patientName: e.target.value })}
+                                  className={`w-full text-base h-14 sm:h-16 bg-white border ${errors.patientName ? 'border-red-500 focus:ring-red-500/20' : 'border-slate-200 focus:ring-brand-primary/20'} rounded-2xl px-5 sm:px-6 focus:outline-none focus:ring-2`} 
+                                  placeholder="Jane Smith" 
+                               />
+                               {errors.patientName && <p className="text-red-500 text-xs mt-1 pl-2 font-medium">{errors.patientName}</p>}
+                            </div>
 
-                           <div className="grid md:grid-cols-2 gap-8">
-                              <div className="space-y-2">
-                                 <label className="text-xs font-black text-slate-400 uppercase tracking-widest pl-2">Phone (Optional)</label>
-                                 <input 
-                                    value={formData.phone}
-                                    onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                                    className={`w-full h-16 bg-white border ${errors.phone ? 'border-red-500 focus:ring-red-500/20' : 'border-slate-200 focus:ring-brand-primary/20'} rounded-2xl px-6 focus:outline-none focus:ring-2`} 
-                                    placeholder="+91 00000 00000" 
-                                 />
-                                 {errors.phone && <p className="text-red-500 text-xs mt-1 pl-2 font-medium">{errors.phone}</p>}
-                              </div>
-                              <div className="space-y-2">
-                                 <label className="text-xs font-black text-slate-400 uppercase tracking-widest pl-2">Email (Optional)</label>
-                                 <input 
-                                    value={formData.email}
-                                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                                    className={`w-full h-16 bg-white border ${errors.email ? 'border-red-500 focus:ring-red-500/20' : 'border-slate-200 focus:ring-brand-primary/20'} rounded-2xl px-6 focus:outline-none focus:ring-2`} 
-                                    placeholder="jane@example.com" 
-                                 />
-                                 {errors.email && <p className="text-red-500 text-xs mt-1 pl-2 font-medium">{errors.email}</p>}
-                              </div>
-                           </div>
+                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8">
+                               <div className="space-y-2">
+                                  <label className="text-[10px] font-black text-slate-400 uppercase tracking-widest pl-2">Phone (Optional)</label>
+                                  <input 
+                                     value={formData.phone}
+                                     onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                                     className={`w-full text-base h-14 sm:h-16 bg-white border ${errors.phone ? 'border-red-500 focus:ring-red-500/20' : 'border-slate-200 focus:ring-brand-primary/20'} rounded-2xl px-5 sm:px-6 focus:outline-none focus:ring-2`} 
+                                     placeholder="+91 00000 00000" 
+                                  />
+                                  {errors.phone && <p className="text-red-500 text-xs mt-1 pl-2 font-medium">{errors.phone}</p>}
+                               </div>
+                               <div className="space-y-2">
+                                  <label className="text-[10px] font-black text-slate-400 uppercase tracking-widest pl-2">Email (Optional)</label>
+                                  <input 
+                                     value={formData.email}
+                                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                                     className={`w-full text-base h-14 sm:h-16 bg-white border ${errors.email ? 'border-red-500 focus:ring-red-500/20' : 'border-slate-200 focus:ring-brand-primary/20'} rounded-2xl px-5 sm:px-6 focus:outline-none focus:ring-2`} 
+                                     placeholder="jane@example.com" 
+                                  />
+                                  {errors.email && <p className="text-red-500 text-xs mt-1 pl-2 font-medium">{errors.email}</p>}
+                               </div>
+                            </div>
 
-                           <div className="space-y-2">
-                              <label className="text-xs font-black text-slate-400 uppercase tracking-widest pl-2">Overall Rating</label>
-                              <div className="flex gap-3 items-center py-2 pl-2">
-                                 {[1, 2, 3, 4, 5].map((star) => (
-                                    <button
-                                       key={star}
-                                       type="button"
-                                       onClick={() => setFormData({ ...formData, rating: star })}
-                                       onMouseEnter={() => setHoveredRating(star)}
-                                       onMouseLeave={() => setHoveredRating(0)}
-                                       className="transition-transform duration-150 hover:scale-125 focus:outline-none cursor-pointer"
-                                    >
-                                       <Star
-                                          size={36}
-                                          className={`transition-colors duration-150 ${
-                                             star <= (hoveredRating || formData.rating)
-                                                ? 'fill-amber-400 text-amber-400'
-                                                : 'text-slate-300'
-                                          }`}
-                                       />
-                                    </button>
-                                 ))}
-                                 <span className="text-sm font-bold text-slate-500 ml-4">
-                                    {formData.rating === 5 && 'Excellent'}
-                                    {formData.rating === 4 && 'Very Good'}
-                                    {formData.rating === 3 && 'Good'}
-                                    {formData.rating === 2 && 'Fair'}
-                                    {formData.rating === 1 && 'Poor'}
-                                 </span>
-                              </div>
-                              {errors.rating && <p className="text-red-500 text-xs mt-1 pl-2 font-medium">{errors.rating}</p>}
-                           </div>
+                            <div className="space-y-2">
+                               <label className="text-[10px] font-black text-slate-400 uppercase tracking-widest pl-2">Overall Rating</label>
+                               <div className="flex gap-3 items-center py-2 pl-2">
+                                  {[1, 2, 3, 4, 5].map((star) => (
+                                     <button
+                                        key={star}
+                                        type="button"
+                                        onClick={() => setFormData({ ...formData, rating: star })}
+                                        onMouseEnter={() => setHoveredRating(star)}
+                                        onMouseLeave={() => setHoveredRating(0)}
+                                        className="transition-transform duration-150 hover:scale-125 focus:outline-none cursor-pointer"
+                                     >
+                                        <Star
+                                           size={30}
+                                           className={`transition-colors duration-150 ${
+                                              star <= (hoveredRating || formData.rating)
+                                                 ? 'fill-amber-400 text-amber-400'
+                                                 : 'text-slate-300'
+                                           }`}
+                                        />
+                                     </button>
+                                  ))}
+                                  <span className="text-xs sm:text-sm font-bold text-slate-500 ml-4">
+                                     {formData.rating === 5 && 'Excellent'}
+                                     {formData.rating === 4 && 'Very Good'}
+                                     {formData.rating === 3 && 'Good'}
+                                     {formData.rating === 2 && 'Fair'}
+                                     {formData.rating === 1 && 'Poor'}
+                                  </span>
+                               </div>
+                               {errors.rating && <p className="text-red-500 text-xs mt-1 pl-2 font-medium">{errors.rating}</p>}
+                            </div>
 
-                           <div className="space-y-2">
-                              <label className="text-xs font-black text-slate-400 uppercase tracking-widest pl-2">Comments & Suggestions</label>
-                              <textarea 
-                                 value={formData.comments}
-                                 onChange={(e) => setFormData({ ...formData, comments: e.target.value })}
-                                 className={`w-full h-40 bg-white border ${errors.comments ? 'border-red-500 focus:ring-red-500/20' : 'border-slate-200 focus:ring-brand-primary/20'} rounded-3xl p-6 focus:outline-none focus:ring-2 resize-none`} 
-                                 placeholder="Share your thoughts about your visit..." 
-                              />
-                              {errors.comments && <p className="text-red-500 text-xs mt-1 pl-2 font-medium">{errors.comments}</p>}
-                           </div>
+                            <div className="space-y-2">
+                               <label className="text-[10px] font-black text-slate-400 uppercase tracking-widest pl-2">Comments & Suggestions</label>
+                               <textarea 
+                                  value={formData.comments}
+                                  onChange={(e) => setFormData({ ...formData, comments: e.target.value })}
+                                  className={`w-full text-base h-40 bg-white border ${errors.comments ? 'border-red-500 focus:ring-red-500/20' : 'border-slate-200 focus:ring-brand-primary/20'} rounded-3xl p-5 sm:p-6 focus:outline-none focus:ring-2 resize-none`} 
+                                  placeholder="Share your thoughts about your visit..." 
+                               />
+                               {errors.comments && <p className="text-red-500 text-xs mt-1 pl-2 font-medium">{errors.comments}</p>}
+                            </div>
 
-                           <button 
-                              disabled={isSubmitting}
-                              className="btn-primary w-full h-16 text-lg flex items-center justify-center gap-3 disabled:opacity-75"
-                           >
-                              {isSubmitting ? 'Submitting...' : 'Submit Feedback'} <ArrowRight size={20} />
-                           </button>
-                        </form>
+                            <button 
+                               disabled={isSubmitting}
+                               className="btn-primary w-full h-14 sm:h-16 text-base sm:text-lg flex items-center justify-center gap-3 disabled:opacity-75 cursor-pointer"
+                            >
+                               {isSubmitting ? 'Submitting...' : 'Submit Feedback'} <ArrowRight className="h-5 w-5" />
+                            </button>
+                         </form>
                      </>
                   )}
                </div>

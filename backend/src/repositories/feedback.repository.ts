@@ -110,3 +110,11 @@ export async function updateReadStatus(
   );
   return result.affectedRows > 0;
 }
+
+/** Fetch testimonials (feedbacks with rating > 3) for public display. */
+export async function findTestimonials(): Promise<Feedback[]> {
+  const [rows] = await pool.query<FeedbackRow[]>(
+    'SELECT * FROM feedbacks WHERE rating > 3 ORDER BY created_at DESC LIMIT 100'
+  );
+  return rows.map(toFeedback);
+}

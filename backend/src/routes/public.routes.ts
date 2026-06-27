@@ -88,6 +88,9 @@ router.post(
   feedbackController.submitFeedback,
 );
 
+// ── GET /api/public/testimonials ──
+router.get('/testimonials', feedbackController.getPublicTestimonials);
+
 // ── Jobs ──
 router.get('/jobs', jobController.getPublicJobs.bind(jobController));
 router.get('/jobs/:slug', jobController.getPublicJobBySlug.bind(jobController));

@@ -5,9 +5,9 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
   
   return (
-    <footer className="bg-slate-900 pt-24 pb-12 text-slate-400">
+    <footer className="bg-slate-900 pt-16 md:pt-24 pb-8 md:pb-12 text-slate-400">
       <div className="container-custom">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-20">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12 mb-12 md:mb-20">
           <div className="space-y-6">
             <Link to="/" className="flex items-center gap-2">
               <div className="h-8 transition-transform hover:scale-105">
@@ -35,10 +35,10 @@ export default function Footer() {
             <h4 className="text-white font-black text-[10px] uppercase tracking-[0.3em] mb-8 leading-none">Our Services</h4>
             <ul className="space-y-4 text-sm font-medium">
               {[
-                { name: 'Obstetrics', path: '/services' },
-                { name: 'Gynecology', path: '/services' },
-                { name: 'NICU', path: '/services' },
-                { name: 'Fertility', path: '/services' },
+                { name: 'Obstetrics', path: '/specialities/obstetrics' },
+                { name: 'Gynaecology', path: '/specialities/gynecology' },
+                { name: 'Newborn Care', path: '/specialities/newborn-care' },
+                { name: 'Fertility Care', path: '/specialities/fertility' },
                 { name: 'Emergency', path: '/contact' }
               ].map(item => (
                 <li key={item.name}>
@@ -74,17 +74,17 @@ export default function Footer() {
               </li>
               <li className="flex items-center gap-4">
                 <Phone size={18} className="text-brand-primary shrink-0" />
-                <span>+91 427 1234567</span>
+                <a href="tel:+919092225481" className="hover:text-brand-primary transition-colors">+91 90922 25481</a>
               </li>
               <li className="flex items-center gap-4">
                 <Mail size={18} className="text-brand-primary shrink-0" />
-                <span>contact@subamhospital.com</span>
+                <a href="mailto:hospitalsubam@gmail.com" className="hover:text-brand-primary transition-colors">hospitalsubam@gmail.com</a>
               </li>
             </ul>
           </div>
         </div>
 
-        <div className="border-t border-slate-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-6">
+        <div className="border-t border-slate-800 pt-8 flex flex-col items-center gap-4 md:flex-row md:justify-between md:gap-6">
           <p className="text-xs tracking-wider">
             © {currentYear} Subam Hospital. All Rights Reserved.
           </p>

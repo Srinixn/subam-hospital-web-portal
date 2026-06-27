@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { motion } from 'motion/react';
-import { Phone, Mail, MapPin, Clock, MessageSquare, ArrowRight, ShieldCheck, Headphones } from 'lucide-react';
+import { Phone, Mail, MapPin, Clock, MessageSquare, ArrowRight, ShieldCheck, Headphones, Calendar, Pill, Building, Baby, FlaskConical, TrendingUp } from 'lucide-react';
 import { api } from '../services/api';
 
 export default function Contact() {
@@ -81,20 +81,88 @@ export default function Contact() {
     {
       icon: Phone,
       title: "Direct Helpline",
-      details: ["+91 431 234 5678", "+91 98765 43210"],
+      details: [
+        { label: "+91 90922 25481 (Reception)", link: "tel:+919092225481" },
+        { label: "+91 95857 11112 (OP Appointment)", link: "tel:+919585711112" }
+      ],
       color: "bg-teal-50 text-brand-primary"
     },
     {
       icon: Mail,
       title: "Email Support",
-      details: ["care@subamhospital.com", "info@subamhospital.com"],
+      details: [
+        { label: "hospitalsubam@gmail.com", link: "mailto:hospitalsubam@gmail.com" },
+        { label: "subamsunsrishti@gmail.com", link: "mailto:subamsunsrishti@gmail.com" }
+      ],
       color: "bg-orange-50 text-brand-secondary"
     },
     {
       icon: MapPin,
       title: "Our Location",
-      details: ["Magudanchavadi - Elampillai Rd", "Elampillai, Salem - 637502"],
+      details: [
+        { label: "Kakapalayam Main Road Opp", link: null },
+        { label: "Elampillai - 637502", link: null }
+      ],
       color: "bg-purple-50 text-brand-accent"
+    }
+  ];
+
+  const departmentContacts = [
+    {
+      name: "Reception & Helpdesk",
+      numbers: ["9092225481"],
+      icon: Headphones,
+      desc: "For general inquiries, admission process, and visitor information."
+    },
+    {
+      name: "OP Appointment",
+      numbers: ["9092225482", "9585711112"],
+      icon: Calendar,
+      desc: "Book and schedule outpatient consultations with our medical specialists."
+    },
+    {
+      name: "Scan & Ultrasound",
+      numbers: ["9092225483"],
+      icon: Phone,
+      desc: "Schedule ultrasound, X-ray, and diagnostic radiology scans.",
+      timing: "10:00 AM - 4:00 PM"
+    },
+    {
+      name: "IVF & Fertility Care",
+      numbers: ["9092225486"],
+      icon: Baby,
+      desc: "Direct contact for fertility treatments, counseling, and IVF support."
+    },
+    {
+      name: "Pediatric OP",
+      numbers: ["9092225489"],
+      icon: Baby,
+      desc: "Consultations and wellness checkups for infants, children, and teens.",
+      timing: "Morning: 9:00 AM - 1:00 PM & Evening: 5:00 PM - 7:00 PM"
+    },
+    {
+      name: "Pharmacy",
+      numbers: ["9092225484"],
+      icon: Pill,
+      desc: "Inquire about medicine availability, home delivery, or prescription orders."
+    },
+    {
+      name: "Clinical Lab",
+      numbers: ["9092225488"],
+      icon: FlaskConical,
+      desc: "Check lab test report status, sample collection times, and test list."
+    },
+    {
+      name: "Administrative Office",
+      numbers: ["9092225485"],
+      icon: Building,
+      desc: "For corporate billing, insurance claims, and administrative matters."
+    },
+    {
+      name: "Management & Digital Marketing",
+      numbers: ["9092225487"],
+      icon: TrendingUp,
+      desc: "For partnerships, business operations, media queries, and marketing."
     }
   ];
 
@@ -124,14 +192,71 @@ export default function Contact() {
                        <info.icon size={32} />
                     </div>
                     <h3 className="text-2xl mb-4">{info.title}</h3>
-                    {info.details.map((detail, j) => (
-                      <p key={j} className="text-slate-500 font-medium mb-1">{detail}</p>
-                    ))}
+                    {info.details.map((detail, j) => 
+                      detail.link ? (
+                        <a 
+                          key={j} 
+                          href={detail.link} 
+                          className="block text-slate-500 hover:text-brand-primary font-medium mb-1 transition-colors"
+                        >
+                          {detail.label}
+                        </a>
+                      ) : (
+                        <p key={j} className="text-slate-500 font-medium mb-1">{detail.label}</p>
+                      )
+                    )}
                  </div>
                ))}
             </div>
 
-            <div className="grid lg:grid-cols-5 gap-16 items-start">
+            {/* Department Contacts Directory */}
+            <div className="mb-24">
+              <div className="text-center max-w-2xl mx-auto mb-16">
+                <span className="text-brand-primary font-bold tracking-[0.3em] uppercase text-xs mb-4 block">Direct Lines</span>
+                <h2 className="text-3xl md:text-5xl font-display text-slate-900 mb-4">Department Directory</h2>
+                <p className="text-slate-500 font-medium">Connect directly with the relevant department to bypass wait times and reach specialized assistance immediately.</p>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {departmentContacts.map((dept, idx) => (
+                  <div 
+                    key={idx} 
+                    className="bg-white rounded-[2rem] p-8 border border-slate-100 hover:border-brand-primary/20 hover:shadow-premium transition-all duration-300 flex flex-col justify-between"
+                  >
+                    <div>
+                      <div className="flex items-center gap-4 mb-4">
+                        <div className="h-12 w-12 rounded-2xl bg-slate-50 text-brand-primary flex items-center justify-center shrink-0">
+                          <dept.icon size={22} />
+                        </div>
+                        <h3 className="text-lg font-bold text-slate-800 leading-tight">{dept.name}</h3>
+                      </div>
+                      <p className="text-slate-500 text-sm leading-relaxed mb-6 font-medium opacity-85">{dept.desc}</p>
+                      {dept.timing && (
+                        <div className="flex items-center gap-2 mb-6 px-3 py-2 bg-teal-50/50 rounded-xl text-teal-800 text-xs font-semibold">
+                          <Clock size={12} className="shrink-0 text-brand-primary" />
+                          <span>Timing: {dept.timing}</span>
+                        </div>
+                      )}
+                    </div>
+                    
+                    <div className="flex flex-col gap-2 mt-auto">
+                      {dept.numbers.map((num) => (
+                        <a 
+                          key={num}
+                          href={`tel:+91${num}`}
+                          className="flex items-center justify-between px-4 py-3 bg-slate-50 hover:bg-brand-primary hover:text-white rounded-2xl transition-all duration-200 group/btn"
+                        >
+                          <span className="font-bold text-sm tracking-wide">+91 {num.slice(0, 5)} {num.slice(5)}</span>
+                          <Phone size={14} className="text-slate-400 group-hover/btn:text-white transition-colors" />
+                        </a>
+                      ))}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="grid grid-cols-1 lg:grid-cols-5 gap-16 items-start">
                {/* Form */}
                <div className="lg:col-span-3 bg-slate-50 rounded-[4rem] p-10 md:p-16 border border-slate-100">
                   {isSubmitted ? (
@@ -230,7 +355,7 @@ export default function Contact() {
                            </div>
                            <button 
                               disabled={isSubmitting}
-                              className="btn-primary w-full h-16 text-lg flex items-center justify-center gap-3 disabled:opacity-75"
+                              className="btn-primary w-full h-16 text-lg flex items-center justify-center gap-3 disabled:opacity-75 cursor-pointer"
                            >
                               {isSubmitting ? 'Submitting...' : 'Submit Inquiry'} <ArrowRight size={20} />
                            </button>
@@ -249,6 +374,7 @@ export default function Contact() {
                       style={{ border: 0 }} 
                       allowFullScreen 
                       loading="lazy"
+                      title="Contact Location Map"
                     />
                     <div className="absolute top-6 left-6 glass-card px-4 py-2 rounded-full text-[10px] font-black uppercase tracking-widest text-brand-dark">
                        Open in Google Maps
@@ -289,9 +415,9 @@ export default function Contact() {
                </div>
                <h2 className="text-4xl md:text-7xl mb-8 font-display">Medical Emergency?</h2>
                <p className="text-teal-50 text-xl font-bold mb-12 max-w-xl mx-auto">Call our 24/7 Trauma response unit for immediate ambulance dispatch and critical care coordination.</p>
-               <a href="tel:+914271234567" className="inline-flex items-center gap-6 text-4xl md:text-6xl font-black hover:scale-105 transition-transform">
+               <a href="tel:+919092225481" className="inline-flex items-center gap-6 text-4xl md:text-6xl font-black hover:scale-105 transition-transform max-w-full">
                   <Phone size={60} />
-                   <span>+91 427 123 4567</span>
+                   <span>+91 90922 25481</span>
                </a>
             </div>
          </div>

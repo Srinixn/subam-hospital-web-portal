@@ -47,9 +47,9 @@ export default function SuccessStories() {
               initial={{ opacity: 0, x: i % 2 === 0 ? -20 : 20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              className={`flex flex-col md:flex-row items-center gap-12 p-8 md:p-16 bg-white rounded-[3rem] border border-slate-100 shadow-premium ${i % 2 !== 0 ? 'md:flex-row-reverse' : ''}`}
+              className={`flex flex-col md:flex-row items-center gap-8 md:gap-12 p-6 md:p-16 bg-white rounded-3xl lg:rounded-[3rem] border border-slate-100 shadow-premium ${i % 2 !== 0 ? 'md:flex-row-reverse' : ''}`}
             >
-              <div className="w-48 h-48 md:w-64 md:h-64 rounded-[2.5rem] overflow-hidden shrink-0 border-4 border-slate-50 shadow-lg group">
+              <div className="w-48 h-48 md:w-64 md:h-64 rounded-2xl md:rounded-[2.5rem] overflow-hidden shrink-0 border-4 border-slate-50 shadow-lg group">
                 <img src={story.image} alt={story.name} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
               </div>
               <div className="flex-1 text-center md:text-left">
@@ -73,11 +73,11 @@ export default function SuccessStories() {
           ))}
         </div>
 
-        <div className="mt-24 bg-brand-dark rounded-[3rem] p-12 md:p-20 text-center text-white relative overflow-hidden">
+        <div className="mt-24 bg-brand-dark rounded-3xl lg:rounded-[3rem] p-8 md:p-20 text-center text-white relative overflow-hidden">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_var(--tw-gradient-stops))] from-brand-primary/20 via-transparent to-transparent opacity-50" />
-          <h2 className="text-4xl md:text-5xl font-display mb-8 relative z-10">Want to share your experience?</h2>
-          <p className="text-slate-300 text-lg mb-12 max-w-xl mx-auto relative z-10">We value every patient's voice. Your feedback helps us maintain our standard of excellence.</p>
-          <Link to="/contact" className="btn-primary inline-flex relative z-10 h-16 px-12 text-lg">
+          <h2 className="text-3xl md:text-5xl font-display mb-8 relative z-10">Want to share your experience?</h2>
+          <p className="text-slate-300 text-base md:text-lg mb-12 max-w-xl mx-auto relative z-10">We value every patient's voice. Your feedback helps us maintain our standard of excellence.</p>
+          <Link to="/contact" className="btn-primary inline-flex relative z-10 h-16 px-12 text-base md:text-lg justify-center items-center">
             <span>Contact Support Team</span>
             <ArrowRight size={22} />
           </Link>

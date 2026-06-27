@@ -11,20 +11,19 @@ import Facilities from './pages/Facilities';
 import SuccessStories from './pages/SuccessStories';
 import Gallery from './pages/Gallery';
 import Articles from './pages/Articles';
+import ArticleDetail from './pages/ArticleDetail';
 import Careers from './pages/Careers';
 import OurNetwork from './pages/OurNetwork';
-import SunsrishtiWomensCare from './pages/hospitals/SunsrishtiWomensCare';
+import SunsrishtiMultispecialityHospital from './pages/hospitals/SunsrishtiMultispecialityHospital';
 import SunsrishtiFertilityCenter from './pages/hospitals/SunsrishtiFertilityCenter';
 import SubamHospital from './pages/hospitals/SubamHospital';
 import Obstetrics from './pages/specialities/Obstetrics';
 import Gynecology from './pages/specialities/Gynecology';
 import Radiology from './pages/specialities/Radiology';
 import Pediatrics from './pages/specialities/Pediatrics';
-import NICU from './pages/specialities/NICU';
+import NewbornCare from './pages/specialities/NewbornCare';
 import FertilityCare from './pages/specialities/FertilityCare';
-import PainClinic from './pages/specialities/PainClinic';
 import PregnancyCare from './pages/specialities/PregnancyCare';
-import PrePregnancyPlan from './pages/specialities/PrePregnancyPlan';
 import PostNatalCare from './pages/specialities/PostNatalCare';
 import HealthBlogs from './pages/HealthBlogs';
 import MedicalJournals from './pages/MedicalJournals';
@@ -61,21 +60,20 @@ export default function App() {
             <Route path="/specialities/gynecology" element={<Gynecology />} />
             <Route path="/specialities/radiology" element={<Radiology />} />
             <Route path="/specialities/pediatrics" element={<Pediatrics />} />
-            <Route path="/specialities/nicu" element={<NICU />} />
+            <Route path="/specialities/newborn-care" element={<NewbornCare />} />
             <Route path="/specialities/fertility" element={<FertilityCare />} />
-            <Route path="/specialities/pain-clinic" element={<PainClinic />} />
             <Route path="/specialities/pregnancy-care" element={<PregnancyCare />} />
-            <Route path="/specialities/pre-pregnancy" element={<PrePregnancyPlan />} />
             <Route path="/specialities/post-natal" element={<PostNatalCare />} />
             <Route path="/success-stories" element={<SuccessStories />} />
             <Route path="/gallery" element={<Gallery />} />
             <Route path="/videos" element={<Videos />} />
             <Route path="/articles" element={<Articles />} />
+            <Route path="/articles/:id" element={<ArticleDetail />} />
             <Route path="/blogs" element={<HealthBlogs />} />
             <Route path="/journals" element={<MedicalJournals />} />
             <Route path="/careers" element={<Careers />} />
             <Route path="/our-network" element={<OurNetwork />} />
-            <Route path="/sunsrishti-womens-care" element={<SunsrishtiWomensCare />} />
+            <Route path="/sunsrishti-multispeciality-hospital" element={<SunsrishtiMultispecialityHospital />} />
             <Route path="/sunsrishti-fertility-center" element={<SunsrishtiFertilityCenter />} />
             <Route path="/subam-hospital" element={<SubamHospital />} />
             <Route path="*" element={
@@ -93,9 +91,10 @@ export default function App() {
         {/* Floating Utilities */}
         <button 
           onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-          className="fixed right-6 bottom-6 w-14 h-14 bg-white text-slate-800 rounded-full shadow-xl flex items-center justify-center hover:scale-110 active:scale-95 transition-transform z-40 border border-slate-100"
+          className="fixed right-4 bottom-4 sm:right-6 sm:bottom-6 w-11 h-11 sm:w-14 sm:h-14 bg-white text-slate-800 rounded-full shadow-xl flex items-center justify-center hover:scale-110 active:scale-95 transition-transform z-40 border border-slate-100"
+          style={{ marginBottom: 'env(safe-area-inset-bottom, 0px)' }}
         >
-          <ChevronUp size={24} />
+          <ChevronUp size={20} />
         </button>
       </div>
     </Router>

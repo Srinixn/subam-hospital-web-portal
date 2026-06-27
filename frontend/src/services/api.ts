@@ -79,4 +79,7 @@ export const api = {
 
   getJobBySlug: <T = any>(slug: string) =>
     request<T>(`public/jobs/${slug}`),
+
+  getTestimonials: <T = any>() =>
+    request<T[]>('public/testimonials'),
 };

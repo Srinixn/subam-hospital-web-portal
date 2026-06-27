@@ -22,24 +22,24 @@ export default function Gallery() {
     : GALLERY_ITEMS.filter(item => item.category === filter);
 
   return (
-    <div className="pt-32 pb-24 bg-white">
+    <div className="pt-16 sm:pt-32 pb-16 sm:pb-24 bg-white">
       <div className="container-custom">
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-16">
+        <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8 mb-10 sm:mb-16">
           <div className="max-w-2xl">
             <span className="text-[10px] font-black text-brand-primary uppercase tracking-[0.3em] mb-4 block">Visual Experience</span>
-            <h1 className="text-5xl md:text-7xl mb-8 leading-[0.95] tracking-tight font-display text-brand-dark">
+            <h1 className="text-4xl sm:text-6xl md:text-7xl mb-6 sm:mb-8 leading-[1.1] sm:leading-[0.95] tracking-tight font-display text-brand-dark">
               Hospital <span className="text-brand-primary italic">Gallery.</span>
             </h1>
-            <p className="text-lg text-slate-500 font-medium">A glimpse into our advanced infrastructure and moments of compassionate care.</p>
+            <p className="text-sm sm:text-lg text-slate-500 font-medium">A glimpse into our advanced infrastructure and moments of compassionate care.</p>
           </div>
           
-          <div className="flex flex-wrap gap-2">
+          <div className="flex gap-2 overflow-x-auto no-scrollbar max-w-full pb-2 shrink-0">
             {CATEGORIES.map(cat => (
               <button
                 key={cat}
                 onClick={() => setFilter(cat)}
-                className={`px-6 py-2 rounded-full text-[10px] font-black uppercase tracking-widest transition-all ${
-                  filter === cat ? 'bg-brand-primary text-white' : 'bg-slate-100 text-slate-500 hover:bg-slate-200'
+                className={`px-5 sm:px-6 py-2 rounded-full text-[9px] sm:text-[10px] font-black uppercase tracking-widest transition-all cursor-pointer whitespace-nowrap ${
+                  filter === cat ? 'bg-brand-primary text-white shadow-md shadow-teal-500/20' : 'bg-slate-100 text-slate-500 hover:bg-slate-200'
                 }`}
               >
                 {cat}
@@ -48,7 +48,7 @@ export default function Gallery() {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           <AnimatePresence mode="popLayout">
             {filteredItems.map((item) => (
               <motion.div
@@ -58,7 +58,7 @@ export default function Gallery() {
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.9 }}
                 onClick={() => setSelected(item)}
-                className="group relative rounded-[2rem] overflow-hidden aspect-[4/3] cursor-pointer"
+                className="group relative rounded-2xl sm:rounded-[2rem] overflow-hidden aspect-[4/3] cursor-pointer shadow-sm border border-slate-100"
               >
                 <img 
                   src={item.url} 
@@ -82,27 +82,28 @@ export default function Gallery() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              className="fixed inset-0 z-[100] bg-brand-dark/95 backdrop-blur-xl flex items-center justify-center p-6"
+              className="fixed inset-0 z-[100] bg-brand-dark/95 backdrop-blur-xl flex items-center justify-center p-4 sm:p-6"
             >
               <button 
                 onClick={() => setSelected(null)}
-                className="absolute top-8 right-8 text-white/60 hover:text-white transition-colors"
+                className="absolute top-4 right-4 sm:top-8 sm:right-8 text-white/60 hover:text-white transition-colors cursor-pointer"
+                aria-label="Close lightbox"
               >
                 <X size={32} />
               </button>
               
               <motion.div 
                 layoutId={`item-${selected.id}`}
-                className="max-w-6xl w-full rounded-[3rem] overflow-hidden bg-white shadow-2xl relative"
+                className="max-w-4xl w-full rounded-xl sm:rounded-[3rem] overflow-hidden bg-white shadow-2xl relative"
               >
                 <img 
                   src={selected.url} 
                   alt={selected.title}
-                  className="w-full h-auto max-h-[80vh] object-contain"
+                  className="w-full h-auto max-h-[70vh] sm:max-h-[80vh] object-contain bg-slate-900"
                 />
-                <div className="p-10 bg-white">
+                <div className="p-5 sm:p-10 bg-white">
                   <span className="text-[10px] font-black text-brand-primary uppercase tracking-[0.3em] mb-2 block">{selected.category}</span>
-                  <h3 className="text-3xl font-display text-brand-dark">{selected.title}</h3>
+                  <h3 className="text-xl sm:text-3xl font-display text-brand-dark">{selected.title}</h3>
                 </div>
               </motion.div>
             </motion.div>

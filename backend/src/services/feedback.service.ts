@@ -45,3 +45,8 @@ export async function markAsRead(
 ): Promise<boolean> {
   return feedbackRepo.updateReadStatus(id, isRead);
 }
+
+/** Get testimonials for public display. */
+export async function getTestimonials(): Promise<Feedback[]> {
+  return feedbackRepo.findTestimonials();
+}

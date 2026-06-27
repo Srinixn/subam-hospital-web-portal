@@ -96,7 +96,7 @@ export default function ApplicationForm({ jobId }: ApplicationFormProps) {
           <label className="block text-sm font-bold text-slate-700 mb-2">First Name *</label>
           <input 
             type="text" name="firstName" required
-            className="w-full h-14 px-4 bg-white border border-slate-200 rounded-xl focus:ring-2 focus:ring-brand-primary/20 focus:border-brand-primary transition-all outline-none"
+            className="w-full text-base h-14 px-4 bg-white border border-slate-200 rounded-xl focus:ring-2 focus:ring-brand-primary/20 focus:border-brand-primary transition-all outline-none"
             value={formData.firstName} onChange={handleChange}
           />
         </div>
@@ -104,7 +104,7 @@ export default function ApplicationForm({ jobId }: ApplicationFormProps) {
           <label className="block text-sm font-bold text-slate-700 mb-2">Last Name *</label>
           <input 
             type="text" name="lastName" required
-            className="w-full h-14 px-4 bg-white border border-slate-200 rounded-xl focus:ring-2 focus:ring-brand-primary/20 focus:border-brand-primary transition-all outline-none"
+            className="w-full text-base h-14 px-4 bg-white border border-slate-200 rounded-xl focus:ring-2 focus:ring-brand-primary/20 focus:border-brand-primary transition-all outline-none"
             value={formData.lastName} onChange={handleChange}
           />
         </div>
@@ -115,7 +115,7 @@ export default function ApplicationForm({ jobId }: ApplicationFormProps) {
           <label className="block text-sm font-bold text-slate-700 mb-2">Email Address *</label>
           <input 
             type="email" name="email" required
-            className="w-full h-14 px-4 bg-white border border-slate-200 rounded-xl focus:ring-2 focus:ring-brand-primary/20 focus:border-brand-primary transition-all outline-none"
+            className="w-full text-base h-14 px-4 bg-white border border-slate-200 rounded-xl focus:ring-2 focus:ring-brand-primary/20 focus:border-brand-primary transition-all outline-none"
             value={formData.email} onChange={handleChange}
           />
         </div>
@@ -123,7 +123,7 @@ export default function ApplicationForm({ jobId }: ApplicationFormProps) {
           <label className="block text-sm font-bold text-slate-700 mb-2">Phone Number *</label>
           <input 
             type="tel" name="phone" required
-            className="w-full h-14 px-4 bg-white border border-slate-200 rounded-xl focus:ring-2 focus:ring-brand-primary/20 focus:border-brand-primary transition-all outline-none"
+            className="w-full text-base h-14 px-4 bg-white border border-slate-200 rounded-xl focus:ring-2 focus:ring-brand-primary/20 focus:border-brand-primary transition-all outline-none"
             value={formData.phone} onChange={handleChange}
           />
         </div>
@@ -133,7 +133,7 @@ export default function ApplicationForm({ jobId }: ApplicationFormProps) {
         <label className="block text-sm font-bold text-slate-700 mb-2">Years of Experience *</label>
         <input 
           type="number" min="0" name="experienceYears" required
-          className="w-full h-14 px-4 bg-white border border-slate-200 rounded-xl focus:ring-2 focus:ring-brand-primary/20 focus:border-brand-primary transition-all outline-none"
+          className="w-full text-base h-14 px-4 bg-white border border-slate-200 rounded-xl focus:ring-2 focus:ring-brand-primary/20 focus:border-brand-primary transition-all outline-none"
           value={formData.experienceYears} onChange={handleChange}
         />
       </div>
@@ -148,9 +148,9 @@ export default function ApplicationForm({ jobId }: ApplicationFormProps) {
             onChange={handleFileChange}
             className="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-10"
           />
-          <div className={`w-full border-2 border-dashed rounded-xl p-8 flex flex-col items-center justify-center transition-colors ${resume ? 'border-brand-primary bg-brand-primary/5' : 'border-slate-300 bg-white hover:bg-slate-50'}`}>
+          <div className={`w-full border-2 border-dashed rounded-xl p-4 sm:p-8 flex flex-col items-center justify-center transition-colors ${resume ? 'border-brand-primary bg-brand-primary/5' : 'border-slate-300 bg-white hover:bg-slate-50'}`}>
             <UploadCloud size={32} className={`mb-3 ${resume ? 'text-brand-primary' : 'text-slate-400'}`} />
-            <p className="text-sm font-medium text-slate-600 text-center">
+            <p className="text-xs sm:text-sm font-medium text-slate-600 text-center">
               {resume ? resume.name : "Drag and drop your resume here, or click to browse"}
             </p>
           </div>
