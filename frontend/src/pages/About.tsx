@@ -230,7 +230,7 @@ export default function About() {
                 <div>
                   <h4 className="text-base sm:text-lg font-bold text-brand-dark mb-1">Over 25,000 Deliveries (20,000+ Normal Deliveries)</h4>
                   <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-                    Subam Hospital has successfully delivered **25,000 deliveries**, out of which **20,000 are normal deliveries** — reflecting our clinical dedication to natural childbirth, patient safety, and maternal health.
+                    Subam Hospital has successfully delivered <strong>25,000 deliveries</strong>, out of which <strong>20,000 are normal deliveries</strong> — reflecting our clinical dedication to natural childbirth, patient safety, and maternal health.
                   </p>
                 </div>
               </div>

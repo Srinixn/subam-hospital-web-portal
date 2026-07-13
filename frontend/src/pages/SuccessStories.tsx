@@ -8,21 +8,21 @@ const STORIES = [
     location: "Elampillai, Salem",
     specialty: "Maternity",
     content: "Subam Hospital is the best for women's care in Salem. Dr. Anitha is very kind and the way she explains things makes us feel very comfortable. The nursing care is also top-notch.",
-    image: "https://api.dicebear.com/7.x/avataaars/svg?seed=Buvaneswari"
+    initials: "BM"
   },
   {
     name: "Suresh Kumar",
     location: "Salem",
     specialty: "Pediatrics",
     content: "We chose Subam for our baby's delivery and pediatric care. The Level III NICU facilities and the expert care provided by the doctors here are outstanding. Highly recommended.",
-    image: "https://api.dicebear.com/7.x/avataaars/svg?seed=Suresh"
+    initials: "SK"
   },
   {
     name: "Meenakshi S.",
     location: "Sankari",
     specialty: "NICU",
     content: "My pre-term baby spent 3 weeks in the Level III NICU. The technology mixed with maternal empathy made all the difference. Today, he is a healthy toddler.",
-    image: "https://api.dicebear.com/7.x/avataaars/svg?seed=Meenakshi"
+    initials: "MS"
   }
 ];
 
@@ -49,8 +49,8 @@ export default function SuccessStories() {
               viewport={{ once: true }}
               className={`flex flex-col md:flex-row items-center gap-8 md:gap-12 p-6 md:p-16 bg-white rounded-3xl lg:rounded-[3rem] border border-slate-100 shadow-premium ${i % 2 !== 0 ? 'md:flex-row-reverse' : ''}`}
             >
-              <div className="w-48 h-48 md:w-64 md:h-64 rounded-2xl md:rounded-[2.5rem] overflow-hidden shrink-0 border-4 border-slate-50 shadow-lg group">
-                <img src={story.image} alt={story.name} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+              <div className="w-48 h-48 md:w-64 md:h-64 rounded-2xl md:rounded-[2.5rem] overflow-hidden shrink-0 border-4 border-slate-50 shadow-lg bg-gradient-to-br from-brand-primary to-teal-700 flex items-center justify-center">
+                <span className="text-4xl md:text-6xl font-display font-black text-white/90">{story.initials}</span>
               </div>
               <div className="flex-1 text-center md:text-left">
                 <div className="text-brand-primary mb-6">

@@ -1,5 +1,5 @@
 import { Link, Outlet, useLocation, Navigate } from 'react-router-dom';
-import { LayoutDashboard, Users, MessageSquare, LogOut, Menu, X, Bell, Briefcase } from 'lucide-react';
+import { LayoutDashboard, Users, MessageSquare, LogOut, Menu, X, Bell, Briefcase, MessageSquareText, BookOpen, Shield } from 'lucide-react';
 import { useState } from 'react';
 import { useAuth } from '../hooks/useAuth';
 
@@ -25,6 +25,10 @@ export default function Layout() {
     { name: 'Contact Inquiries', path: '/contacts', icon: Users },
     { name: 'Patient Feedback', path: '/feedbacks', icon: MessageSquare },
     { name: 'Jobs', path: '/jobs', icon: Briefcase },
+    { name: '—', path: '', icon: null }, // Divider
+    { name: 'Chat Tickets', path: '/chat-tickets', icon: MessageSquareText },
+    { name: 'FAQ Manager', path: '/faq-manager', icon: BookOpen },
+    { name: 'Audit Log', path: '/audit-logs', icon: Shield },
   ];
 
   return (
@@ -48,8 +52,12 @@ export default function Layout() {
         </div>
 
         <div className="flex-1 overflow-y-auto py-6 px-4 space-y-2">
-          {navItems.map((item) => {
+          {navItems.map((item, idx) => {
+            if (item.name === '—') {
+              return <hr key={`divider-${idx}`} className="my-3 border-slate-200" />;
+            }
             const isActive = location.pathname === item.path;
+            const Icon = item.icon;
             return (
               <Link
                 key={item.path}
@@ -61,7 +69,7 @@ export default function Layout() {
                     : 'text-slate-600 hover:bg-slate-50 hover:text-brand-primary'
                 }`}
               >
-                <item.icon size={20} />
+                {Icon && <Icon size={20} />}
                 {item.name}
               </Link>
             );

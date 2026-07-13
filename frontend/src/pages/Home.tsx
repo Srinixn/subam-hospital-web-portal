@@ -10,7 +10,7 @@ function CredentialsBridge() {
   return (
     <section className="bg-white border-b border-slate-100 relative z-10">
       <div className="container-custom">
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5">
+        <div className="grid grid-cols-3 sm:grid-cols-3 md:grid-cols-5">
           {[
             { value: "50+", label: "Hospital Beds" },
             { value: "8", label: "Specialities" },
@@ -20,10 +20,8 @@ function CredentialsBridge() {
           ].map((stat, idx) => (
             <div 
               key={stat.label} 
-              className={`py-6 md:py-10 text-center border-slate-100 
-                ${idx % 2 === 0 ? 'border-r' : ''} 
-                ${idx < 4 ? 'border-b' : ''} 
-                sm:border-0 sm:border-r sm:last:border-r-0`}
+              className={`py-6 md:py-10 text-center border-slate-100 border-r last:border-r-0 
+                ${idx >= 3 ? 'hidden sm:block' : ''}`}
             >
               <p className="text-2xl md:text-3xl font-display font-black text-brand-primary leading-none mb-1">{stat.value}</p>
               <p className="text-[9px] md:text-[10px] text-slate-400 font-bold uppercase tracking-[0.15em]">{stat.label}</p>
@@ -148,7 +146,7 @@ function AboutSection() {
           {/* Left Side: Images & Stats */}
           <div className="relative">
             {/* Background design element (teal shape) */}
-            <div className="absolute top-0 -left-12 w-[100%] h-full bg-brand-primary rounded-r-[3rem] -z-10 opacity-100 hidden sm:block" />
+            <div className="absolute top-0 -left-12 w-[100%] h-full bg-brand-primary rounded-r-[3rem] -z-10 opacity-100 hidden lg:block" />
             
             <div className="relative p-0 sm:p-4 md:p-8">
               <motion.div
@@ -405,6 +403,12 @@ function Testimonials() {
         </div>
 
         <div className="relative px-4">
+          {reviews.length === 0 ? (
+            <div className="text-center py-16">
+              <p className="text-slate-400 text-sm font-medium">Patient testimonials are being collected. Check back soon!</p>
+            </div>
+          ) : (
+            <>
           <div 
             ref={scrollRef}
             onScroll={handleScroll}
@@ -448,6 +452,8 @@ function Testimonials() {
               />
             ))}
           </div>
+            </>
+          )}
         </div>
       </div>
     </section>

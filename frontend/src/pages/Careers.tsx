@@ -12,6 +12,33 @@ interface Job {
     employmentType: string;
 }
 
+const FALLBACK_JOBS: Job[] = [
+    {
+        id: 101,
+        title: "Staff Nurse (ICU & NICU)",
+        slug: "staff-nurse-icu-nicu",
+        location: "Elampillai, Salem",
+        linkedinJobUrl: "https://www.linkedin.com/company/subamhospital",
+        employmentType: "Full-Time"
+    },
+    {
+        id: 102,
+        title: "Duty Medical Officer",
+        slug: "duty-medical-officer",
+        location: "Elampillai, Salem",
+        linkedinJobUrl: "https://www.linkedin.com/company/subamhospital",
+        employmentType: "Full-Time"
+    },
+    {
+        id: 103,
+        title: "Lab Technician",
+        slug: "lab-technician",
+        location: "Elampillai, Salem",
+        linkedinJobUrl: "https://www.linkedin.com/company/subamhospital",
+        employmentType: "Full-Time"
+    }
+];
+
 export default function Careers() {
     const [jobs, setJobs] = useState<Job[]>([]);
     const [loading, setLoading] = useState(true);
@@ -20,11 +47,14 @@ export default function Careers() {
         const fetchJobs = async () => {
             try {
                 const res = await api.getJobs<Job>();
-                if (res.success && res.data) {
+                if (res.success && res.data && res.data.length > 0) {
                     setJobs(res.data);
+                } else {
+                    setJobs(FALLBACK_JOBS);
                 }
             } catch (error) {
                 console.error('Failed to fetch jobs:', error);
+                setJobs(FALLBACK_JOBS);
             } finally {
                 setLoading(false);
             }

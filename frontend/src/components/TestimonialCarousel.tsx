@@ -9,7 +9,7 @@ const TESTIMONIALS = [
     service: "Obstetrics",
     content: "Subam Hospital is the best for women's care in Salem. Dr. Anitha is very kind and the way she explains things makes us feel very comfortable. The nursing care is also top-notch.",
     rating: 5,
-    image: "https://api.dicebear.com/7.x/avataaars/svg?seed=Buvaneswari"
+    initials: "BM"
   },
   {
     id: 2,
@@ -17,7 +17,7 @@ const TESTIMONIALS = [
     service: "Pediatrics",
     content: "We chose Subam for our baby's delivery and pediatric care. The Level III NICU facilities and the expert care provided by the doctors here are outstanding. Highly recommended.",
     rating: 5,
-    image: "https://api.dicebear.com/7.x/avataaars/svg?seed=Suresh"
+    initials: "SK"
   },
   {
     id: 3,
@@ -25,7 +25,7 @@ const TESTIMONIALS = [
     service: "Fertility",
     content: "The fertility treatment at Subam Hospital gave us hope and results. The staff is very supportive and the treatment protocol is very clear and ethical.",
     rating: 5,
-    image: "https://api.dicebear.com/7.x/avataaars/svg?seed=Meenakshi"
+    initials: "MS"
   }
 ];
 
@@ -73,11 +73,9 @@ export default function TestimonialCarousel() {
                 "{TESTIMONIALS[index].content}"
               </p>
               <div className="flex items-center justify-center gap-4">
-                <img 
-                  src={TESTIMONIALS[index].image} 
-                  alt={TESTIMONIALS[index].name} 
-                  className="w-10 h-10 sm:w-12 sm:h-12 rounded-full border-2 border-brand-primary p-0.5 object-cover" 
-                />
+                <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full border-2 border-brand-primary p-0.5 bg-gradient-to-br from-brand-primary to-teal-700 flex items-center justify-center shrink-0">
+                  <span className="text-white text-xs font-black">{TESTIMONIALS[index].initials}</span>
+                </div>
                 <div className="text-left">
                   <p className="font-bold text-white text-sm sm:text-base">{TESTIMONIALS[index].name}</p>
                   <p className="text-[9px] sm:text-[10px] font-bold text-brand-primary uppercase tracking-widest">{TESTIMONIALS[index].service} Patient</p>

@@ -6,6 +6,9 @@ import Dashboard from './pages/Dashboard';
 import Contacts from './pages/Contacts';
 import Feedbacks from './pages/Feedbacks';
 import Jobs from './pages/Jobs';
+import ChatTickets from './pages/ChatTickets';
+import FAQManager from './pages/FAQManager';
+import AuditLog from './pages/AuditLog';
 
 function App() {
   return (
@@ -18,6 +21,9 @@ function App() {
             <Route path="/contacts" element={<Contacts />} />
             <Route path="/feedbacks" element={<Feedbacks />} />
             <Route path="/jobs" element={<Jobs />} />
+            <Route path="/chat-tickets" element={<ChatTickets />} />
+            <Route path="/faq-manager" element={<FAQManager />} />
+            <Route path="/audit-logs" element={<AuditLog />} />
           </Route>
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
@@ -27,3 +33,4 @@ function App() {
 }
 
 export default App;
+

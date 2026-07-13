@@ -1,32 +1,30 @@
 import { motion, AnimatePresence } from 'motion/react';
-import { ArrowRight, ChevronRight, ChevronLeft, User, Calendar, MapPin, Activity } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 
 const SLIDES = [
   {
-    image: "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&q=80&w=2000",
+    image: "https://srinixnm.github.io/hospital-access/hospital.jpeg",
     tag: "Excellence in Tertiary Care",
     title: "Healthcare Reimagined for Salem.",
-    description: "Subam Hospital combines world-class medical expertise with deep compassionate care to serve our community with precision."
+    description: "Subam Hospital combines world-class medical expertise with deep compassionate care to serve our community with precision.",
+    position: "object-[center_35%]"
   },
   {
     image: "https://images.unsplash.com/photo-1551076805-e1869033e561?auto=format&fit=crop&q=80&w=2000",
     tag: "Patient-Centric Approach",
     title: "Technology that Heals.",
-    description: "Advanced diagnostic imaging and modular operating environments designed for optimal clinical outcomes and safety."
+    description: "Advanced diagnostic imaging and modular operating environments designed for optimal clinical outcomes and safety.",
+    position: "object-center"
   },
   {
     image: "https://images.unsplash.com/photo-1531983412531-1f49a365ffed?auto=format&fit=crop&q=80&w=2000",
     tag: "Nurturing Generations",
     title: "Nurturing Lives from the Start.",
-    description: "Specialized Level III Neonatal care and painless labor techniques for a safe and celebratory beginning to life."
+    description: "Specialized Level III Neonatal care and painless labor techniques for a safe and celebratory beginning to life.",
+    position: "object-center"
   }
-];
-
-const QUICK_ACTIONS = [
-  { icon: MapPin, label: "Find Location", desc: "Salem, Tamil Nadu", path: "/contact", color: "bg-teal-700" },
-  { icon: Activity, label: "Lab Reports", desc: "Secure Access", path: "/contact", color: "bg-teal-500" },
 ];
 
 export default function Hero() {
@@ -41,7 +39,7 @@ export default function Hero() {
   }, []);
 
   return (
-    <section className="relative h-[70vh] sm:h-[80vh] min-h-[500px] sm:min-h-[600px] w-full overflow-hidden">
+    <section className="relative h-[100svh] sm:h-[80vh] min-h-[560px] sm:min-h-[600px] w-full overflow-hidden" aria-label="Hero slideshow">
       <AnimatePresence initial={false}>
         <motion.div
           key={current}
@@ -51,17 +49,18 @@ export default function Hero() {
           transition={{ duration: 1.5, ease: "easeInOut" }}
           className="absolute inset-0"
         >
-          <div className="absolute inset-0 bg-gradient-to-r from-brand-dark/80 via-brand-dark/40 to-transparent z-10" />
-          <img 
-            src={SLIDES[current].image} 
+          {/* Mobile: gradient from bottom. Desktop: gradient from left */}
+          <div className="absolute inset-0 bg-gradient-to-t sm:bg-gradient-to-r from-brand-dark/90 via-brand-dark/50 to-brand-dark/10 sm:from-brand-dark/80 sm:via-brand-dark/40 sm:to-transparent z-10" />
+          <img
+            src={SLIDES[current].image}
             alt={SLIDES[current].title}
-            className="h-full w-full object-cover"
+            className={`h-full w-full object-cover ${SLIDES[current].position || 'object-center'}`}
           />
         </motion.div>
       </AnimatePresence>
 
-      {/* Content Overlay */}
-      <div className="absolute inset-0 z-20 flex items-center">
+      {/* Content Overlay — bottom-aligned on mobile, center on desktop */}
+      <div className="absolute inset-0 z-20 flex items-end sm:items-center pb-20 sm:pb-0">
         <div className="container-custom w-full">
           <div className="max-w-2xl">
             <AnimatePresence mode="wait">
@@ -72,24 +71,25 @@ export default function Hero() {
                 exit={{ opacity: 0, y: -10 }}
                 transition={{ duration: 0.8, ease: "easeOut" }}
               >
-                <div className="flex items-center gap-2 mb-4">
-                   <div className="h-0.5 w-10 bg-brand-primary" />
-                   <span className="text-white text-[9px] font-black uppercase tracking-[0.4em]">{SLIDES[current].tag}</span>
+                <div className="flex items-center gap-2 mb-3 sm:mb-4">
+                  <div className="h-0.5 w-8 sm:w-10 bg-brand-primary" />
+                  <span className="text-white text-[11px] sm:text-[9px] font-black uppercase tracking-[0.3em] sm:tracking-[0.4em]">{SLIDES[current].tag}</span>
                 </div>
-                
-                <h1 className="text-3xl sm:text-4xl md:text-5xl mb-4 leading-[1.1] tracking-tight font-display text-white max-w-lg">
-                   {SLIDES[current].title}
+
+                <h1 className="text-[1.7rem] sm:text-4xl md:text-5xl mb-3 sm:mb-4 leading-[1.15] tracking-tight font-display text-white max-w-lg">
+                  {SLIDES[current].title}
                 </h1>
 
-                <p className="text-xs md:text-sm text-slate-200 mb-6 leading-relaxed max-w-md font-medium opacity-90">
+                <p className="text-[13px] sm:text-xs md:text-sm text-slate-200 mb-5 sm:mb-6 leading-relaxed max-w-md font-medium opacity-90">
                   {SLIDES[current].description}
                 </p>
 
-                <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 items-stretch sm:items-center w-full sm:w-auto">
-                  <Link to="/services" className="px-6 h-12 bg-brand-primary text-white font-bold rounded-xl flex items-center justify-center hover:bg-teal-700 hover:shadow-xl transition-all text-xs tracking-wide shadow-teal-900/40">
-                    Explore Specialties <ArrowRight className="ml-2" size={16} />
+                {/* CTA Buttons — inline on mobile, not full-width stacked */}
+                <div className="flex flex-row gap-3 items-center">
+                  <Link to="/services" className="px-5 sm:px-6 h-11 sm:h-12 bg-brand-primary text-white font-bold rounded-xl flex items-center justify-center hover:bg-teal-700 hover:shadow-xl transition-all text-[11px] sm:text-xs tracking-wide shadow-teal-900/40 whitespace-nowrap">
+                    Explore Specialties <ArrowRight className="ml-1.5 sm:ml-2" size={14} />
                   </Link>
-                  <Link to="/about" className="px-6 h-12 bg-white/10 backdrop-blur-md border border-white/20 text-white font-bold rounded-xl flex items-center justify-center hover:bg-white/20 transition-all text-xs tracking-wide">
+                  <Link to="/about" className="px-5 sm:px-6 h-11 sm:h-12 bg-white/10 backdrop-blur-md border border-white/20 text-white font-bold rounded-xl flex items-center justify-center hover:bg-white/20 transition-all text-[11px] sm:text-xs tracking-wide whitespace-nowrap">
                     Our History
                   </Link>
                 </div>
@@ -99,20 +99,16 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* Floating Quick Actions Section removed per user request */}
-
-
-      {/* Slide Indicators */}
-      <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-30 flex flex-row md:flex-col md:top-1/2 md:right-12 md:bottom-auto md:left-auto md:-translate-y-1/2 gap-3 md:gap-4">
+      {/* Slide Indicators — bottom center on mobile, right side on desktop */}
+      <div className="absolute bottom-6 sm:bottom-8 left-1/2 -translate-x-1/2 z-30 flex flex-row md:flex-col md:top-1/2 md:right-12 md:bottom-auto md:left-auto md:-translate-y-1/2 md:translate-x-0 gap-2 md:gap-4">
         {SLIDES.map((_, i) => (
           <button
             key={i}
             onClick={() => setCurrent(i)}
-            className={`transition-all duration-500 rounded-full cursor-pointer ${
-              current === i 
-                ? "w-8 h-1.5 md:w-1.5 md:h-16 bg-brand-primary" 
-                : "w-2 h-1.5 md:w-1.5 md:h-6 bg-white/30"
-            }`}
+            className={`transition-all duration-500 rounded-full cursor-pointer ${current === i
+              ? "w-7 h-1.5 md:w-1.5 md:h-16 bg-brand-primary"
+              : "w-2 h-1.5 md:w-1.5 md:h-6 bg-white/30"
+              }`}
             aria-label={`Go to slide ${i + 1}`}
           />
         ))}
@@ -121,4 +117,3 @@ export default function Hero() {
     </section>
   );
 }
-

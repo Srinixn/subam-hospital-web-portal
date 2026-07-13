@@ -1,5 +1,5 @@
-import { motion } from 'motion/react';
-import { Phone, Menu, X, Calendar, User, Globe, Mail, Clock, Search, ChevronDown } from 'lucide-react';
+import { motion, AnimatePresence } from 'motion/react';
+import { Phone, Menu, X, Calendar, User, Globe, Mail, Clock, ChevronDown } from 'lucide-react';
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 
@@ -15,7 +15,7 @@ const NavItem = ({ item, scrolled, location }: any) => {
     >
       <Link 
         to={item.path}
-        className={`flex items-center gap-1 text-[10px] font-bold uppercase tracking-[0.1em] transition-all py-2 ${
+        className={`flex items-center gap-1 text-[11px] font-bold uppercase tracking-[0.1em] transition-all py-2 ${
           location.pathname === item.path 
             ? 'text-brand-primary' 
             : (scrolled || location.pathname !== '/' ? 'text-slate-600 hover:text-brand-primary' : 'text-white/90 hover:text-white')
@@ -73,8 +73,9 @@ export default function Header() {
     { name: 'Home', path: '/' },
     { 
       name: 'Management', 
-      path: '/about',
+      path: '/management',
       dropdown: [
+        { name: 'Management Team', path: '/management' },
         { name: 'About Us', path: '/about' },
         { name: 'Our Network', path: '/our-network' },
         { name: 'Our Team', path: '/doctors' },
@@ -148,46 +149,65 @@ export default function Header() {
         scrolled || location.pathname !== '/' ? 'bg-white shadow-premium py-2' : 'bg-white/10 backdrop-blur-md py-4'
       }`}>
         <div className="container-custom flex items-center justify-between">
-          {/* Logo */}
-          <Link to="/" className="flex items-center group cursor-pointer">
-            <div className={`transition-all duration-500 ${scrolled ? 'h-10 md:h-12' : 'h-12 md:h-14'}`}>
-              <img 
-                src="https://srinixnm.github.io/hospital-access/subam.png" 
-                alt="Subam Hospital Logo" 
-                className="h-full w-auto object-contain"
-              />
-            </div>
-          </Link>
-
-          {/* Desktop Nav */}
-          <nav className="hidden lg:flex items-center gap-6 xl:gap-8">
-            {navItems.map((item) => (
-              <NavItem key={item.name} item={item} scrolled={scrolled} location={location} />
-            ))}
-          </nav>
-
-          {/* Actions */}
-          <div className="hidden lg:flex items-center gap-4">
-            <button className={`p-2 transition-colors ${scrolled || location.pathname !== '/' ? 'text-slate-500 hover:text-brand-primary' : 'text-white/70 hover:text-white'}`}>
-              <Search size={18} />
-            </button>
-            <Link to="/contact" className="h-10 px-5 bg-brand-primary text-white font-bold rounded-lg text-[10px] flex items-center justify-center hover:bg-teal-700 transition-all uppercase tracking-widest">
-              Consult Now
-            </Link>
-          </div>
-
-          {/* Mobile Toggle */}
-          <button className={`lg:hidden p-2 ${scrolled || location.pathname !== '/' ? 'text-slate-800' : 'text-white'}`} onClick={() => setIsOpen(!isOpen)}>
-            {isOpen ? <X size={28} /> : <Menu size={28} />}
-          </button>
+           {/* Logo */}
+           <Link to="/" className="flex items-center group cursor-pointer">
+             <div className={`transition-all duration-500 ${scrolled ? 'h-10 md:h-12' : 'h-12 md:h-14'}`}>
+               <img 
+                 src="https://srinixnm.github.io/hospital-access/subam.png" 
+                 alt="Subam Hospital Logo" 
+                 className="h-full w-auto object-contain"
+               />
+             </div>
+           </Link>
+ 
+           {/* Desktop Nav */}
+           <nav className="hidden lg:flex items-center gap-6 xl:gap-8">
+             {navItems.map((item) => (
+               <NavItem key={item.name} item={item} scrolled={scrolled} location={location} />
+             ))}
+           </nav>
+ 
+           {/* Actions */}
+           <div className="hidden lg:flex items-center gap-4">
+             <Link to="/contact" className="h-10 px-5 bg-brand-primary text-white font-bold rounded-lg text-[11px] flex items-center justify-center hover:bg-teal-700 transition-all uppercase tracking-widest">
+               Consult Now
+             </Link>
+           </div>
+ 
+           {/* Mobile Actions & Toggle */}
+           <div className="flex lg:hidden items-center gap-1.5">
+             <Link 
+               to="/contact" 
+               className="h-8 px-3 bg-brand-primary text-white font-bold rounded-lg text-[10px] flex items-center justify-center hover:bg-teal-700 transition-all uppercase tracking-wider whitespace-nowrap"
+             >
+               Contact
+             </Link>
+             <a 
+               href="tel:+919092225481" 
+               className={`p-2 transition-colors ${scrolled || location.pathname !== '/' ? 'text-slate-700 hover:text-brand-primary' : 'text-white/80 hover:text-white'}`}
+               aria-label="Call Us"
+             >
+               <Phone size={18} />
+             </a>
+             <button 
+               className={`p-2 ${scrolled || location.pathname !== '/' ? 'text-slate-800' : 'text-white'}`} 
+               onClick={() => setIsOpen(!isOpen)}
+               aria-label="Toggle menu"
+             >
+               {isOpen ? <X size={24} /> : <Menu size={24} />}
+             </button>
+           </div>
         </div>
       </div>
 
       {/* Mobile Menu */}
+      <AnimatePresence>
       {isOpen && (
         <motion.div 
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -10 }}
+          transition={{ duration: 0.2 }}
           className="lg:hidden absolute top-full left-0 right-0 bg-white shadow-2xl p-4 sm:p-6 flex flex-col gap-1 border-t border-slate-100 max-h-[85vh] overflow-y-auto"
           style={{ paddingBottom: 'max(1rem, env(safe-area-inset-bottom, 0px))' }}
         >
@@ -259,6 +279,7 @@ export default function Header() {
           </div>
         </motion.div>
       )}
+      </AnimatePresence>
     </header>
   );
 }

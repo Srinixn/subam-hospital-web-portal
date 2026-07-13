@@ -247,7 +247,7 @@ export default function DoctorsPage({
               <h2 className="text-2xl sm:text-4xl md:text-5xl text-white mb-3 sm:mb-4 font-display">Join our clinical faculty</h2>
               <p className="text-teal-50 text-sm sm:text-lg opacity-85 leading-relaxed">We are looking for passionate specialists to join our award-winning team. Experience a culture of innovation and collaboration.</p>
             </div>
-            <Link to="/contact" className="h-14 px-10 bg-brand-dark text-white rounded-2xl font-bold flex items-center justify-center gap-3 hover:scale-105 transition-transform whitespace-nowrap shrink-0">
+            <Link to="/careers" className="h-14 px-10 bg-brand-dark text-white rounded-2xl font-bold flex items-center justify-center gap-3 hover:scale-105 transition-transform whitespace-nowrap shrink-0">
               <span>View Open Positions</span>
               <ArrowRight size={20} />
             </Link>

@@ -258,7 +258,7 @@ export default function Contact() {
 
             <div className="grid grid-cols-1 lg:grid-cols-5 gap-16 items-start">
                {/* Form */}
-               <div className="lg:col-span-3 bg-slate-50 rounded-[4rem] p-10 md:p-16 border border-slate-100">
+               <div className="lg:col-span-3 bg-slate-50 rounded-2xl sm:rounded-[3rem] lg:rounded-[4rem] p-6 sm:p-10 md:p-16 border border-slate-100">
                   {isSubmitted ? (
                      <motion.div 
                         initial={{ opacity: 0, scale: 0.95 }}
@@ -376,9 +376,14 @@ export default function Contact() {
                       loading="lazy"
                       title="Contact Location Map"
                     />
-                    <div className="absolute top-6 left-6 glass-card px-4 py-2 rounded-full text-[10px] font-black uppercase tracking-widest text-brand-dark">
+                    <a 
+                       href="https://maps.google.com/?q=11.6070,78.0042" 
+                       target="_blank" 
+                       rel="noopener noreferrer"
+                       className="absolute top-6 left-6 glass-card px-4 py-2 rounded-full text-[10px] font-black uppercase tracking-widest text-brand-dark hover:bg-white transition-colors cursor-pointer z-10"
+                    >
                        Open in Google Maps
-                    </div>
+                    </a>
                   </div>
 
                   <div className="space-y-8">
@@ -409,14 +414,14 @@ export default function Contact() {
       {/* Emergency Center */}
       <section className="py-24 bg-brand-dark overflow-hidden">
          <div className="container-custom">
-            <div className="bg-brand-primary rounded-[5rem] p-12 md:p-24 text-center text-white relative">
+            <div className="bg-brand-primary rounded-2xl sm:rounded-[3rem] md:rounded-[5rem] p-8 sm:p-12 md:p-24 text-center text-white relative">
                <div className="absolute inset-0 opacity-10 pointer-events-none">
                   <div className="h-full w-full bg-[radial-gradient(circle_at_center,_white_0%,transparent_70%)]" />
                </div>
-               <h2 className="text-4xl md:text-7xl mb-8 font-display">Medical Emergency?</h2>
-               <p className="text-teal-50 text-xl font-bold mb-12 max-w-xl mx-auto">Call our 24/7 Trauma response unit for immediate ambulance dispatch and critical care coordination.</p>
-               <a href="tel:+919092225481" className="inline-flex items-center gap-6 text-4xl md:text-6xl font-black hover:scale-105 transition-transform max-w-full">
-                  <Phone size={60} />
+               <h2 className="text-3xl sm:text-4xl md:text-7xl mb-6 sm:mb-8 font-display">Medical Emergency?</h2>
+               <p className="text-teal-50 text-base sm:text-xl font-bold mb-8 sm:mb-12 max-w-xl mx-auto">Call our 24/7 Trauma response unit for immediate ambulance dispatch and critical care coordination.</p>
+               <a href="tel:+919092225481" className="inline-flex items-center gap-3 sm:gap-6 text-2xl sm:text-4xl md:text-6xl font-black hover:scale-105 transition-transform max-w-full">
+                  <Phone className="w-8 h-8 sm:w-12 sm:h-12 md:w-[60px] md:h-[60px] shrink-0" />
                    <span>+91 90922 25481</span>
                </a>
             </div>

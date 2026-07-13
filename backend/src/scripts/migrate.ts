@@ -61,7 +61,7 @@ const MIGRATIONS: { name: string; sql: string }[] = [
   },
   {
     name: 'Drop deprecated tables (if they exist)',
-    sql: `DROP TABLE IF EXISTS applications, departments;`,
+    sql: `DROP TABLE IF EXISTS applications;`,
   },
   {
     name: 'Create jobs table',
@@ -82,6 +82,154 @@ const MIGRATIONS: { name: string; sql: string }[] = [
         UNIQUE INDEX idx_jobs_slug (slug),
         INDEX idx_jobs_status (status)
       ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+    `,
+  },
+
+  // ─────────────────────────────────────────
+  //  Chatbot System Tables
+  // ─────────────────────────────────────────
+
+  {
+    name: 'Create departments table',
+    sql: `
+      CREATE TABLE IF NOT EXISTS departments (
+        id            INT           AUTO_INCREMENT PRIMARY KEY,
+        name          VARCHAR(100)  NOT NULL,
+        description   TEXT          NULL,
+        is_active     TINYINT(1)    NOT NULL DEFAULT 1,
+        created_at    TIMESTAMP     NOT NULL DEFAULT CURRENT_TIMESTAMP,
+
+        UNIQUE INDEX idx_departments_name (name),
+        INDEX idx_departments_active (is_active)
+      ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+    `,
+  },
+  {
+    name: 'Create faq_documents table',
+    sql: `
+      CREATE TABLE IF NOT EXISTS faq_documents (
+        id              INT           AUTO_INCREMENT PRIMARY KEY,
+        title           VARCHAR(255)  NOT NULL,
+        content         TEXT          NOT NULL,
+        department_id   INT           NULL,
+        embedding_json  JSON          NULL COMMENT 'Float array for cosine similarity — computed in Node.js',
+        tags            VARCHAR(500)  NULL,
+        is_active       TINYINT(1)    NOT NULL DEFAULT 1,
+        created_at      TIMESTAMP     NOT NULL DEFAULT CURRENT_TIMESTAMP,
+        updated_at      TIMESTAMP     NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+
+        INDEX idx_faq_department (department_id),
+        INDEX idx_faq_active (is_active),
+        FULLTEXT INDEX idx_faq_search (title, content),
+
+        CONSTRAINT fk_faq_department
+          FOREIGN KEY (department_id)
+          REFERENCES departments(id)
+          ON DELETE SET NULL
+      ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+    `,
+  },
+  {
+    name: 'Create chat_tickets table',
+    sql: `
+      CREATE TABLE IF NOT EXISTS chat_tickets (
+        id              INT           AUTO_INCREMENT PRIMARY KEY,
+        name            VARCHAR(100)  NOT NULL,
+        email           VARCHAR(255)  NULL,
+        phone           VARCHAR(20)   NULL,
+        department_id   INT           NULL,
+        message         TEXT          NOT NULL,
+        file_path       VARCHAR(500)  NULL,
+        file_name       VARCHAR(255)  NULL,
+        status          ENUM('NEW', 'ASSIGNED', 'IN_PROGRESS', 'RESOLVED', 'ARCHIVED')
+                                      NOT NULL DEFAULT 'NEW',
+        assigned_to     INT           NULL,
+        privacy_consent TINYINT(1)    NOT NULL DEFAULT 0,
+        access_token    VARCHAR(64)   NULL,
+        sla_deadline    TIMESTAMP     NULL,
+        created_at      TIMESTAMP     NOT NULL DEFAULT CURRENT_TIMESTAMP,
+        updated_at      TIMESTAMP     NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+
+        INDEX idx_tickets_status (status),
+        INDEX idx_tickets_department (department_id),
+        INDEX idx_tickets_assigned (assigned_to),
+        INDEX idx_tickets_created (created_at DESC),
+        INDEX idx_tickets_sla (sla_deadline),
+
+        CONSTRAINT fk_tickets_department
+          FOREIGN KEY (department_id)
+          REFERENCES departments(id)
+          ON DELETE SET NULL,
+
+        CONSTRAINT fk_tickets_assigned
+          FOREIGN KEY (assigned_to)
+          REFERENCES admin_users(id)
+          ON DELETE SET NULL
+      ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+    `,
+  },
+  {
+    name: 'Create ticket_responses table',
+    sql: `
+      CREATE TABLE IF NOT EXISTS ticket_responses (
+        id          INT           AUTO_INCREMENT PRIMARY KEY,
+        ticket_id   INT           NOT NULL,
+        admin_id    INT           NULL,
+        message     TEXT          NOT NULL,
+        is_internal TINYINT(1)    NOT NULL DEFAULT 0 COMMENT 'True for internal notes, false for replies',
+        created_at  TIMESTAMP     NOT NULL DEFAULT CURRENT_TIMESTAMP,
+
+        INDEX idx_responses_ticket (ticket_id),
+        INDEX idx_responses_admin (admin_id),
+
+        CONSTRAINT fk_responses_ticket
+          FOREIGN KEY (ticket_id)
+          REFERENCES chat_tickets(id)
+          ON DELETE CASCADE,
+
+        CONSTRAINT fk_responses_admin
+          FOREIGN KEY (admin_id)
+          REFERENCES admin_users(id)
+          ON DELETE SET NULL
+      ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+    `,
+  },
+  {
+    name: 'Create audit_logs table',
+    sql: `
+      CREATE TABLE IF NOT EXISTS audit_logs (
+        id          INT           AUTO_INCREMENT PRIMARY KEY,
+        admin_id    INT           NULL,
+        action      VARCHAR(100)  NOT NULL,
+        entity      VARCHAR(100)  NOT NULL,
+        entity_id   INT           NULL,
+        details     JSON          NULL,
+        ip_address  VARCHAR(45)   NULL,
+        created_at  TIMESTAMP     NOT NULL DEFAULT CURRENT_TIMESTAMP,
+
+        INDEX idx_audit_admin (admin_id),
+        INDEX idx_audit_action (action),
+        INDEX idx_audit_entity (entity, entity_id),
+        INDEX idx_audit_created (created_at DESC),
+
+        CONSTRAINT fk_audit_admin
+          FOREIGN KEY (admin_id)
+          REFERENCES admin_users(id)
+          ON DELETE SET NULL
+      ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+    `,
+  },
+  {
+    name: 'Create auto-archive event for resolved tickets',
+    sql: `
+      CREATE EVENT IF NOT EXISTS auto_archive_resolved_tickets
+      ON SCHEDULE EVERY 1 DAY
+      STARTS CURRENT_TIMESTAMP
+      DO
+        UPDATE chat_tickets
+        SET status = 'ARCHIVED'
+        WHERE status = 'RESOLVED'
+          AND updated_at < DATE_SUB(NOW(), INTERVAL 180 DAY);
     `,
   },
 ];
@@ -106,9 +254,28 @@ async function migrate(): Promise<void> {
       // Ignore errors (e.g., table doesn't exist, or columns already altered)
     }
 
+    // Attempt to alter the chat_tickets table to add access_token column if missing
+    try {
+      await connection.query(`
+        ALTER TABLE chat_tickets
+        ADD COLUMN access_token VARCHAR(64) NULL;
+      `);
+      console.log('  ✓ Added access_token column to existing chat_tickets table.');
+    } catch (e: any) {
+      // Ignore error if column already exists (ER_DUP_FIELDNAME)
+    }
+
+    // Enable event scheduler for the auto-archive event
+    try {
+      await connection.query('SET GLOBAL event_scheduler = ON;');
+      console.log('  ✓ Event scheduler enabled.');
+    } catch (e: any) {
+      console.log('  ⓘ Could not enable event scheduler (may require SUPER privilege).');
+    }
+
     for (const migration of MIGRATIONS) {
       console.log(`  Running: ${migration.name}...`);
-      await connection.execute(migration.sql);
+      await connection.query(migration.sql);
       console.log(`  ✓ ${migration.name} — done`);
     }
 

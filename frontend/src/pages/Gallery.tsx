@@ -9,7 +9,7 @@ const GALLERY_ITEMS = [
   { id: 2, type: "image", category: "Diagnostics", url: "https://images.unsplash.com/photo-1579152276517-7507c992796e?auto=format&fit=crop&q=80&w=1200", title: "Advanced MRI Scanners" },
   { id: 3, type: "image", category: "Maternity", url: "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&q=80&w=1200", title: "Maternity Suite" },
   { id: 4, type: "image", category: "Medical Units", url: "https://images.unsplash.com/photo-1516549655169-df83a0774514?auto=format&fit=crop&q=80&w=1200", title: "Nursing Station" },
-  { id: 5, type: "video", category: "Events", url: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&q=80&w=1200", title: "Anniversary Celebration" },
+  { id: 5, type: "image", category: "Events", url: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&q=80&w=1200", title: "Anniversary Celebration" },
   { id: 6, type: "image", category: "Diagnostics", url: "https://images.unsplash.com/photo-1530497610245-94d3c16cda28?auto=format&fit=crop&q=80&w=1200", title: "Molecular Lab" },
 ];
 

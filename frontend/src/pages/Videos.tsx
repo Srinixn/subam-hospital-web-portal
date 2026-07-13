@@ -1,5 +1,5 @@
 import { motion } from 'motion/react';
-import { Play, Grid, ArrowLeft, Search, Clock } from 'lucide-react';
+import { Play, Grid, Clock, Film } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const VIDEOS = [
@@ -48,6 +48,26 @@ export default function Videos() {
           </Link>
         </div>
 
+        {/* Coming Soon Banner */}
+        <div className="mb-12 p-6 sm:p-10 rounded-2xl sm:rounded-3xl border border-white/10 bg-white/5 backdrop-blur-sm text-center">
+          <div className="h-16 w-16 bg-brand-primary/20 rounded-2xl flex items-center justify-center mx-auto mb-6">
+            <Film size={32} className="text-brand-primary" />
+          </div>
+          <h3 className="text-xl sm:text-2xl font-display text-white mb-3">Videos Coming Soon</h3>
+          <p className="text-slate-400 text-sm max-w-md mx-auto leading-relaxed">
+            We're currently producing high-quality video content. Subscribe to our YouTube channel to be notified when they go live.
+          </p>
+          <a 
+            href="https://www.youtube.com/@subamhospital" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 mt-6 px-6 h-11 bg-brand-primary text-white font-bold rounded-xl text-xs uppercase tracking-widest hover:bg-teal-700 transition-all"
+          >
+            Visit YouTube Channel
+          </a>
+        </div>
+
+        <h2 className="text-xl font-display text-slate-400 mb-8">Preview</h2>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {VIDEOS.map((video, i) => (
             <motion.div
@@ -56,7 +76,7 @@ export default function Videos() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: i * 0.1 }}
               viewport={{ once: true }}
-              className="group cursor-pointer"
+              className="group"
             >
               <div className="relative aspect-video rounded-3xl lg:rounded-[2.5rem] overflow-hidden mb-6">
                 <img 
@@ -65,12 +85,12 @@ export default function Videos() {
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                 />
                 <div className="absolute inset-0 bg-brand-dark/40 group-hover:bg-brand-dark/20 transition-all flex items-center justify-center">
-                  <div className="h-16 w-16 bg-white text-brand-primary rounded-full flex items-center justify-center shadow-2xl group-hover:scale-110 transition-transform">
+                  <div className="h-16 w-16 bg-white/20 backdrop-blur-sm text-white rounded-full flex items-center justify-center shadow-2xl group-hover:scale-110 transition-transform border border-white/30">
                     <Play fill="currentColor" size={24} />
                   </div>
                 </div>
-                <div className="absolute bottom-4 right-4 px-3 py-1 bg-brand-dark/80 backdrop-blur-md rounded-lg text-[10px] font-black">
-                   {video.duration}
+                <div className="absolute bottom-4 right-4 px-3 py-1 bg-brand-dark/80 backdrop-blur-md rounded-lg text-[10px] font-black flex items-center gap-1">
+                   <Clock size={10} /> {video.duration}
                 </div>
               </div>
               <span className="text-[10px] font-black text-brand-primary uppercase tracking-[0.2em] mb-2 block">{video.category}</span>

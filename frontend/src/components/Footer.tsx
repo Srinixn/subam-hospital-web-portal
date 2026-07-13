@@ -1,4 +1,4 @@
-import { Phone, Mail, MapPin, Facebook, Instagram, Twitter, Linkedin, Heart } from 'lucide-react';
+import { Phone, Mail, MapPin, Facebook, Instagram, Youtube, Linkedin, Heart } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 export default function Footer() {
@@ -23,8 +23,20 @@ export default function Footer() {
               Dedicated to providing exceptional healthcare services with compassion and innovation. Our mission is to heal and empower our community.
             </p>
             <div className="flex gap-4">
-              {[Facebook, Instagram, Twitter, Linkedin].map((Icon, i) => (
-                <a key={i} href="#" className="h-10 w-10 rounded-full border border-slate-800 flex items-center justify-center hover:bg-brand-primary hover:text-white hover:border-brand-primary transition-all">
+              {[
+                { Icon: Facebook, href: "https://www.facebook.com/subamhospital", label: "Facebook" },
+                { Icon: Instagram, href: "https://www.instagram.com/subamhospital", label: "Instagram" },
+                { Icon: Youtube, href: "https://www.youtube.com/@subamhospital", label: "YouTube" },
+                { Icon: Linkedin, href: "https://www.linkedin.com/company/subamhospital", label: "LinkedIn" },
+              ].map(({ Icon, href, label }) => (
+                <a 
+                  key={label} 
+                  href={href} 
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={`Follow us on ${label}`}
+                  className="h-10 w-10 rounded-full border border-slate-800 flex items-center justify-center hover:bg-brand-primary hover:text-white hover:border-brand-primary transition-all"
+                >
                   <Icon size={18} />
                 </a>
               ))}
@@ -52,6 +64,7 @@ export default function Footer() {
             <h4 className="text-white font-black text-[10px] uppercase tracking-[0.3em] mb-8 leading-none">Quick Links</h4>
             <ul className="space-y-4 text-sm font-medium">
               {[
+                { name: 'Management Team', path: '/management' },
                 { name: 'About Us', path: '/about' },
                 { name: 'Our Network', path: '/our-network' },
                 { name: 'Contact Us', path: '/contact' },
@@ -88,11 +101,6 @@ export default function Footer() {
           <p className="text-xs tracking-wider">
             © {currentYear} Subam Hospital. All Rights Reserved.
           </p>
-          <div className="flex items-center gap-6 text-xs tracking-wider">
-            <a href="#" className="hover:text-white">Privacy Policy</a>
-            <a href="#" className="hover:text-white">Terms of Service</a>
-            <a href="#" className="hover:text-white">Cookie Settings</a>
-          </div>
           <p className="text-[10px] flex items-center gap-1">
             Made with <Heart size={12} className="text-brand-primary" /> in Salem
           </p>
@@ -101,4 +109,3 @@ export default function Footer() {
     </footer>
   );
 }
-
