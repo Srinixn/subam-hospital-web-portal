@@ -6,7 +6,7 @@ A production hospital website created for my client, Subam Hospital, with connec
 
 ## Website Preview
 
-![Subam Hospital homepage](https://subamhospital.in/assert1/hero%20image/C9072T01.JPG)
+![Subam Hospital homepage](https://srinixnm.github.io/hospital-access/Screenshot%202026-10-11%20171514.png)
 
 ![Sunsrishti Fertility Center](https://subamhospital.in/assert1/home%20page/C9268T01.JPG)
 
