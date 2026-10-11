@@ -24,8 +24,8 @@ export const ARTICLES: ArticleItem[] = [
     category: "Maternal Care",
     title: "Understanding High-Risk Pregnancy: Tips for Expecting Mothers",
     excerpt: "Comprehensive guidance on managing complex pregnancies with modern medical interventions and lifestyle choices that protect both mother and child.",
-    content: "High-risk pregnancies require specialized monitoring and personalized care plans. At Subam Hospital, our maternal-fetal medicine team employs advanced screening protocols, regular ultrasound monitoring, and evidence-based interventions to ensure the best possible outcomes for both mother and baby. From gestational diabetes management to preeclampsia prevention, our comprehensive approach covers every aspect of complex pregnancy care.",
-    author: "Dr. Selvi Raju",
+    content: "High-risk pregnancies require specialized monitoring and personalized care plans. At Demo Hospital, our maternal-fetal medicine team employs advanced screening protocols, regular ultrasound monitoring, and evidence-based interventions to ensure the best possible outcomes for both mother and baby. From gestational diabetes management to preeclampsia prevention, our comprehensive approach covers every aspect of complex pregnancy care.",
+    author: "Dr. A. Example",
     authorRole: "Consultant Gynaecologist",
     date: "May 12, 2024",
     readTime: "6 min read",
@@ -36,10 +36,10 @@ export const ARTICLES: ArticleItem[] = [
   {
     id: 2,
     category: "Surgical Innovation",
-    title: "Advancements in Minimal Access Surgery at Subam Hospital",
+    title: "Advancements in Minimal Access Surgery at Demo Hospital",
     excerpt: "A deep dive into how laparoscopic techniques are reducing recovery times and improving surgical precision for our patients across multiple specialities.",
-    content: "Minimal access surgery has transformed patient outcomes at our facility. Our surgeons perform complex gynaecological, general surgical, and fertility procedures through keyhole incisions — resulting in less post-operative pain, shorter hospital stays, and faster return to daily life. With state-of-the-art HD laparoscopic towers and trained surgical teams, we bring world-class surgical care to Salem.",
-    author: "Dr. K. Raju",
+    content: "Minimal access surgery has transformed patient outcomes at our facility. Our surgeons perform complex gynaecological, general surgical, and fertility procedures through keyhole incisions — resulting in less post-operative pain, shorter hospital stays, and faster return to daily life. With state-of-the-art HD laparoscopic towers and trained surgical teams, we bring world-class surgical care to Example City.",
+    author: "Dr. A. Example",
     authorRole: "Consultant General Surgeon",
     date: "May 08, 2024",
     readTime: "8 min read",
@@ -53,7 +53,7 @@ export const ARTICLES: ArticleItem[] = [
     title: "Newborn Care 101: What Every New Parent Should Know",
     excerpt: "Essential tips from our neonatal experts on navigating the first few weeks of your baby's life with confidence and clinical awareness.",
     content: "The first 28 days of a newborn's life are the most critical. Our neonatal team provides comprehensive guidance on feeding schedules, sleep safety, jaundice awareness, vaccination timelines, and recognizing early warning signs. With our Level III NICU capabilities, we ensure that even the most vulnerable newborns receive the highest standard of care from their very first breath.",
-    author: "Dr. S. Poovizhi",
+    author: "Dr. A. Example",
     authorRole: "Consultant Paediatrician",
     date: "April 28, 2024",
     readTime: "5 min read",
@@ -65,9 +65,9 @@ export const ARTICLES: ArticleItem[] = [
     id: 4,
     category: "Fertility",
     title: "IVF Success Rates: What You Should Know Before Starting Treatment",
-    excerpt: "An honest look at fertility treatment success factors, preparation tips, and how our Sunsrishti Fertility Centre supports couples on their journey to parenthood.",
+    excerpt: "An honest look at fertility treatment success factors, preparation tips, and how our Example Fertility Centre supports couples on their journey to parenthood.",
     content: "In vitro fertilization success depends on multiple factors including age, underlying conditions, and treatment protocols. Our fertility specialists use advanced embryo culture systems, genetic screening, and personalized hormonal protocols to maximize success rates. This article demystifies the IVF journey — from initial consultation through embryo transfer — so couples can make informed decisions with confidence.",
-    author: "Dr. A. Priyadharshini",
+    author: "Dr. A. Example",
     authorRole: "Fertility Specialist",
     date: "April 15, 2024",
     readTime: "7 min read",
@@ -81,7 +81,7 @@ export const ARTICLES: ArticleItem[] = [
     title: "PCOS Management: A Holistic Approach to Women's Wellness",
     excerpt: "Understanding Polycystic Ovary Syndrome through the lens of modern gynaecology — combining medical treatment with lifestyle interventions for lasting results.",
     content: "PCOS affects nearly 1 in 10 women of reproductive age. Our gynaecology team takes a holistic approach to management, combining hormonal therapy, nutritional counselling, exercise guidance, and regular monitoring. Early diagnosis and consistent management can significantly improve fertility outcomes, metabolic health, and overall quality of life for women living with PCOS.",
-    author: "Dr. Selvi Raju",
+    author: "Dr. A. Example",
     authorRole: "Consultant Gynaecologist",
     date: "March 22, 2024",
     readTime: "6 min read",
@@ -152,7 +152,7 @@ export default function Articles() {
             transition={{ delay: 0.2 }}
             className="text-lg text-slate-400 font-medium leading-relaxed max-w-2xl mb-14"
           >
-            Clinical wisdom, patient education, and healthcare innovations — authored by 
+            Clinical wisdom, patient education, and healthcare innovations — authored by
             our specialist doctors and care teams for the communities we serve.
           </motion.p>
         </div>
@@ -327,9 +327,9 @@ export default function Articles() {
                   <span className="text-brand-primary italic">best medicine</span>
                 </h2>
                 <p className="text-slate-400 text-sm leading-relaxed">
-                  Our doctors and nursing teams regularly publish clinical insights and patient 
-                  education articles to help you make informed healthcare decisions. Stay connected 
-                  with the latest from Subam Hospital.
+                  Our doctors and nursing teams regularly publish clinical insights and patient
+                  education articles to help you make informed healthcare decisions. Stay connected
+                  with the latest from Demo Hospital.
                 </p>
               </div>
 

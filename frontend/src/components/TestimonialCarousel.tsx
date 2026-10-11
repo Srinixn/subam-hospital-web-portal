@@ -7,7 +7,7 @@ const TESTIMONIALS = [
     id: 1,
     name: "Buvaneswari M.",
     service: "Obstetrics",
-    content: "Subam Hospital is the best for women's care in Salem. Dr. Anitha is very kind and the way she explains things makes us feel very comfortable. The nursing care is also top-notch.",
+    content: "Demo Hospital is the best for women's care in Example City. Dr. A. Example is very kind and the way she explains things makes us feel very comfortable. The nursing care is also top-notch.",
     rating: 5,
     initials: "BM"
   },
@@ -15,7 +15,7 @@ const TESTIMONIALS = [
     id: 2,
     name: "Suresh Kumar",
     service: "Pediatrics",
-    content: "We chose Subam for our baby's delivery and pediatric care. The Level III NICU facilities and the expert care provided by the doctors here are outstanding. Highly recommended.",
+    content: "We chose Demo for our baby's delivery and pediatric care. The Level III NICU facilities and the expert care provided by the doctors here are outstanding. Highly recommended.",
     rating: 5,
     initials: "SK"
   },
@@ -23,7 +23,7 @@ const TESTIMONIALS = [
     id: 3,
     name: "Meenakshi S.",
     service: "Fertility",
-    content: "The fertility treatment at Subam Hospital gave us hope and results. The staff is very supportive and the treatment protocol is very clear and ethical.",
+    content: "The fertility treatment at Demo Hospital gave us hope and results. The staff is very supportive and the treatment protocol is very clear and ethical.",
     rating: 5,
     initials: "MS"
   }
@@ -44,9 +44,9 @@ export default function TestimonialCarousel() {
       <div className="absolute top-0 left-0 w-full h-full opacity-5">
         <Quote size={400} className="text-white absolute -top-20 -left-20" />
       </div>
-      
+
       <div className="container-custom relative z-10 text-center">
-        <motion.span 
+        <motion.span
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           className="text-brand-primary font-bold tracking-widest text-xs sm:text-sm uppercase mb-4 block"
@@ -84,14 +84,14 @@ export default function TestimonialCarousel() {
             </motion.div>
           </AnimatePresence>
 
-          <button 
+          <button
             onClick={() => setIndex((prev) => (prev - 1 + TESTIMONIALS.length) % TESTIMONIALS.length)}
             className="absolute -left-12 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full border border-white/20 hidden md:flex items-center justify-center text-white hover:bg-white hover:text-slate-900 transition-all shadow-lg cursor-pointer"
             aria-label="Previous testimonial"
           >
             <ChevronLeft size={24} />
           </button>
-          <button 
+          <button
             onClick={() => setIndex((prev) => (prev + 1) % TESTIMONIALS.length)}
             className="absolute -right-12 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full border border-white/20 hidden md:flex items-center justify-center text-white hover:bg-white hover:text-slate-900 transition-all shadow-lg cursor-pointer"
             aria-label="Next testimonial"
@@ -99,7 +99,7 @@ export default function TestimonialCarousel() {
             <ChevronRight size={24} />
           </button>
         </div>
-        
+
         <div className="flex justify-center gap-2 mt-8 sm:mt-10">
           {TESTIMONIALS.map((_, i) => (
             <button

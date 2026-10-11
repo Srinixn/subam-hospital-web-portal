@@ -27,7 +27,7 @@ export default function PregnancyCare() {
       <div className="container-custom">
         {/* Hero Section */}
         <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center mb-24">
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, x: -30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
@@ -47,19 +47,19 @@ export default function PregnancyCare() {
           </motion.div>
 
           <div className="relative">
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.8, delay: 0.2 }}
               className="aspect-[4/3] sm:aspect-[4/5] rounded-3xl lg:rounded-[3.5rem] overflow-hidden shadow-premium border-8 border-white bg-slate-100"
             >
-              <img 
-                src="https://images.unsplash.com/photo-1510972527921-ce03766a1cf1?auto=format&fit=crop&q=80&w=1200" 
+              <img
+                src="https://images.unsplash.com/photo-1510972527921-ce03766a1cf1?auto=format&fit=crop&q=80&w=1200"
                 alt="Antenatal Pregnancy Care"
                 className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
               />
             </motion.div>
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
@@ -102,7 +102,7 @@ export default function PregnancyCare() {
         </section>
 
         {/* Info Banner Section */}
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -118,7 +118,7 @@ export default function PregnancyCare() {
             </div>
             <h2 className="text-3xl md:text-4xl font-display mb-6 leading-tight">Safe Pregnancy Journey Guided by Professional Obstetricians</h2>
             <p className="text-lg text-slate-500 mb-10 leading-relaxed">
-              At Subam Hospital, our goal is to ensure a safe pregnancy experience through continuous monitoring, advanced diagnostic support, and expert medical care. We focus on both physical and emotional well-being, helping mothers stay confident and well-prepared for delivery. Our dedicated obstetric team is available to provide 24/7 support for any pregnancy-related concerns, ensuring safety at every stage of pregnancy.
+              At Demo Hospital, our goal is to ensure a safe pregnancy experience through continuous monitoring, advanced diagnostic support, and expert medical care. We focus on both physical and emotional well-being, helping mothers stay confident and well-prepared for delivery. Our dedicated obstetric team is available to provide 24/7 support for any pregnancy-related concerns, ensuring safety at every stage of pregnancy.
             </p>
             <Link to="/contact" className="btn-primary inline-flex h-14 px-10 text-base">
               <span>Start Antenatal Program</span>

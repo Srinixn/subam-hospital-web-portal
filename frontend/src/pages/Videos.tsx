@@ -6,7 +6,7 @@ const VIDEOS = [
   {
     id: 1,
     title: "Understanding Laparoscopic Surgery",
-    desc: "A detailed guide on how minimally invasive surgery works at Subam Hospital.",
+    desc: "A detailed guide on how minimally invasive surgery works at Demo Hospital.",
     thumbnail: "https://images.unsplash.com/photo-1551076805-e1869033e561?auto=format&fit=crop&q=80&w=1200",
     duration: "4:20",
     category: "Explainers"
@@ -57,9 +57,9 @@ export default function Videos() {
           <p className="text-slate-400 text-sm max-w-md mx-auto leading-relaxed">
             We're currently producing high-quality video content. Subscribe to our YouTube channel to be notified when they go live.
           </p>
-          <a 
-            href="https://www.youtube.com/@subamhospital" 
-            target="_blank" 
+          <a
+            href="https://www.youtube.com/@examplehospital"
+            target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 mt-6 px-6 h-11 bg-brand-primary text-white font-bold rounded-xl text-xs uppercase tracking-widest hover:bg-teal-700 transition-all"
           >
@@ -79,8 +79,8 @@ export default function Videos() {
               className="group"
             >
               <div className="relative aspect-video rounded-3xl lg:rounded-[2.5rem] overflow-hidden mb-6">
-                <img 
-                  src={video.thumbnail} 
+                <img
+                  src={video.thumbnail}
                   alt={video.title}
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                 />

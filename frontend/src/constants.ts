@@ -100,7 +100,7 @@ export const SERVICES: Service[] = [
 export const DOCTORS: Doctor[] = [
   {
     id: '1',
-    name: 'Dr. K. Raj',
+    name: 'Dr. A. Example',
     specialty: 'Consultant General Surgeon',
     qualifications: 'MBBS, MS, FMAS, DMAS',
     experience: '12+ Years',
@@ -109,7 +109,7 @@ export const DOCTORS: Doctor[] = [
   },
   {
     id: '2',
-    name: 'Dr. Selvi Raju',
+    name: 'Dr. A. Example',
     specialty: 'Consultant Gynaecologist & Infertility Specialist',
     qualifications: 'MBBS, MD(OG), DRM, Fellowship in Reproductive Medicine',
     experience: '12+ Years',
@@ -135,14 +135,14 @@ export const DEPARTMENT_DOCTORS: DepartmentDoctors[] = [
     doctors: [
       {
         id: 'og-1',
-        name: 'Dr. Selvi Raju',
+        name: 'Dr. A. Example',
         role: 'Consultant Gynaecologist & Infertility Specialist',
         qualifications: 'MBBS, MD (OG), DRM (Germany), Fellowship in Reproductive Medicine (IOCG Certified)',
         image: 'https://images.unsplash.com/photo-1559839734-2b71f1536783?auto=format&fit=crop&q=80&w=400'
       },
       {
         id: 'og-2',
-        name: 'Dr. A. Priyadharshini',
+        name: 'Dr. A. Example',
         role: 'Consultant Gynaecologist & Infertility Specialist',
         qualifications: 'MBBS, DGO',
         image: 'https://images.unsplash.com/photo-1594824813573-246434de83fb?auto=format&fit=crop&q=80&w=400'
@@ -154,14 +154,14 @@ export const DEPARTMENT_DOCTORS: DepartmentDoctors[] = [
     doctors: [
       {
         id: 'ped-1',
-        name: 'Dr. S. Poovizhi',
+        name: 'Dr. A. Example',
         role: 'Consultant Paediatrician',
         qualifications: 'MBBS, DCH',
         image: 'https://images.unsplash.com/photo-1614608682850-e0d6ed316d47?auto=format&fit=crop&q=80&w=400'
       },
       {
         id: 'ped-2',
-        name: 'Dr. Saravana Balaji',
+        name: 'Dr. A. Example',
         role: 'Consultant Paediatrician',
         qualifications: 'MBBS, DCH',
         image: 'https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&q=80&w=400'
@@ -173,14 +173,14 @@ export const DEPARTMENT_DOCTORS: DepartmentDoctors[] = [
     doctors: [
       {
         id: 'rad-1',
-        name: 'Dr. R. Sathiya Narayanan',
+        name: 'Dr. A. Example',
         role: 'Consultant Fetal Medicine',
         qualifications: 'DMRD., DNB (RD)',
         image: 'https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?auto=format&fit=crop&q=80&w=400'
       },
       {
         id: 'rad-2',
-        name: 'Dr. V. Ramya',
+        name: 'Dr. A. Example',
         role: 'Consultant Radiologist',
         qualifications: 'DMRD., DNB (RD)',
         image: 'https://images.unsplash.com/photo-1591604021695-0c69b7c05981?auto=format&fit=crop&q=80&w=400'
@@ -192,7 +192,7 @@ export const DEPARTMENT_DOCTORS: DepartmentDoctors[] = [
     doctors: [
       {
         id: 'gm-1',
-        name: 'Dr. P. Sathesh',
+        name: 'Dr. A. Example',
         role: 'Consultant Physician & Diabetologist',
         qualifications: 'MBBS, DNB (General Medicine)',
         image: 'https://images.unsplash.com/photo-1537368910025-700350fe46c7?auto=format&fit=crop&q=80&w=400'
@@ -204,7 +204,7 @@ export const DEPARTMENT_DOCTORS: DepartmentDoctors[] = [
     doctors: [
       {
         id: 'gs-1',
-        name: 'Dr. K. Raju',
+        name: 'Dr. A. Example',
         role: 'Consultant General, Laparoscopic & Endoscopic Surgeon',
         qualifications: 'MS, FMAS, DMAS',
         image: 'https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?auto=format&fit=crop&q=80&w=400'
@@ -223,7 +223,7 @@ export const DEPARTMENT_DOCTORS: DepartmentDoctors[] = [
       },
       {
         id: 'ane-2',
-        name: 'Dr. Arun Balaji',
+        name: 'Dr. A. Example',
         role: 'Consultant Anaesthetist',
         qualifications: 'MD, DA',
         image: 'https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&q=80&w=400'
@@ -235,7 +235,7 @@ export const DEPARTMENT_DOCTORS: DepartmentDoctors[] = [
     doctors: [
       {
         id: 'ortho-1',
-        name: 'Dr. R. P. Dinesh',
+        name: 'Dr. A. Example',
         role: 'Joint Replacement Surgeon',
         qualifications: 'MBBS, MS (Ortho), Fellowship in Arthroscopy and Joint Replacement',
         image: 'https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?auto=format&fit=crop&q=80&w=400'
@@ -247,7 +247,7 @@ export const DEPARTMENT_DOCTORS: DepartmentDoctors[] = [
     doctors: [
       {
         id: 'neph-1',
-        name: 'Dr. G. Senthilnathan',
+        name: 'Dr. A. Example',
         role: 'Consultant Nephrologist & Renal Transplant Physician',
         qualifications: 'MD (General Medicine), DrNB (Nephrology)',
         image: 'https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&q=80&w=400'
@@ -259,7 +259,7 @@ export const DEPARTMENT_DOCTORS: DepartmentDoctors[] = [
     doctors: [
       {
         id: 'derm-1',
-        name: 'Dr. Yuvasri G.',
+        name: 'Dr. A. Example G.',
         role: 'Consultant Dermatologist',
         qualifications: 'MD (DVL)',
         image: 'https://images.unsplash.com/photo-1594824813573-246434de83fb?auto=format&fit=crop&q=80&w=400'
@@ -271,7 +271,7 @@ export const DEPARTMENT_DOCTORS: DepartmentDoctors[] = [
     doctors: [
       {
         id: 'card-1',
-        name: 'Dr. D. Vinoth Kumar',
+        name: 'Dr. A. Example',
         role: 'Consultant Interventional Cardiologist',
         qualifications: 'MBBS, MD (Gen. Med.), DM (Cardiology)',
         image: 'https://images.unsplash.com/photo-1537368910025-700350fe46c7?auto=format&fit=crop&q=80&w=400'
@@ -283,7 +283,7 @@ export const DEPARTMENT_DOCTORS: DepartmentDoctors[] = [
     doctors: [
       {
         id: 'uro-1',
-        name: 'Dr. Barani A. D.',
+        name: 'Dr. A. Example A. D.',
         role: 'Consultant Urologist',
         qualifications: 'MS, M.Ch (Urology)',
         image: 'https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?auto=format&fit=crop&q=80&w=400'
@@ -295,7 +295,7 @@ export const DEPARTMENT_DOCTORS: DepartmentDoctors[] = [
     doctors: [
       {
         id: 'psych-1',
-        name: 'Dr. P. Obuli Jayaraman',
+        name: 'Dr. A. Example',
         role: 'Consultant Psychiatrist',
         qualifications: 'MBBS, DPM',
         image: 'https://images.unsplash.com/photo-1537368910025-700350fe46c7?auto=format&fit=crop&q=80&w=400'
@@ -307,19 +307,19 @@ export const DEPARTMENT_DOCTORS: DepartmentDoctors[] = [
     doctors: [
       {
         id: 'ih-1',
-        name: 'Dr. G. Pavithra',
+        name: 'Dr. A. Example',
         role: 'Resident Medical Officer',
         image: 'https://images.unsplash.com/photo-1594824813573-246434de83fb?auto=format&fit=crop&q=80&w=400'
       },
       {
         id: 'ih-2',
-        name: 'Dr. S. Gowtham',
+        name: 'Dr. A. Example',
         role: 'Resident Medical Officer',
         image: 'https://images.unsplash.com/photo-1537368910025-700350fe46c7?auto=format&fit=crop&q=80&w=400'
       },
       {
         id: 'ih-3',
-        name: 'Dr. Preethi',
+        name: 'Dr. A. Example',
         role: 'Resident Medical Officer',
         image: 'https://images.unsplash.com/photo-1614608682850-e0d6ed316d47?auto=format&fit=crop&q=80&w=400'
       }

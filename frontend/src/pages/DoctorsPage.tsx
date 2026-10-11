@@ -29,8 +29,8 @@ interface DoctorsPageProps {
   bgImage?: string;
 }
 
-export default function DoctorsPage({ 
-  bgImage = "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&q=80&w=2000" 
+export default function DoctorsPage({
+  bgImage = "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&q=80&w=2000"
 }: DoctorsPageProps) {
   const [activeDept, setActiveDept] = useState<string | null>(null);
   const navRef = useRef<HTMLDivElement>(null);
@@ -57,7 +57,7 @@ export default function DoctorsPage({
       {/* ━━ Hero (compact) ━━ */}
       <section className="bg-brand-dark py-12 sm:py-20 md:py-24 relative overflow-hidden">
         {bgImage && (
-          <div 
+          <div
             className="absolute inset-0 bg-cover bg-center"
             style={{ backgroundImage: `url(${bgImage})` }}
           />
@@ -66,17 +66,17 @@ export default function DoctorsPage({
         <div className="absolute inset-0 opacity-20 pointer-events-none">
           <div className="h-full w-full bg-[radial-gradient(circle_at_top_right,_var(--tw-gradient-stops))] from-brand-primary via-transparent to-transparent" />
         </div>
-        
+
         <div className="container-custom relative z-10">
           <div className="max-w-4xl">
-            <motion.span 
+            <motion.span
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               className="text-brand-primary font-bold tracking-[0.3em] text-xs uppercase mb-3 sm:mb-4 block"
             >
               Our Medical Team
             </motion.span>
-            <motion.h1 
+            <motion.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl text-white mb-4 sm:mb-6 font-display leading-[1.1] sm:leading-[0.95]"

@@ -5,10 +5,10 @@ import { HeartPulse, Microscope, Activity, ArrowRight, Shield, CheckCircle2, Awa
 const institutions = [
   {
     name: "Hospital",
-    brand: "SUBAM",
-    fullName: "Subam Hospital",
+    brand: "DEMO",
+    fullName: "Demo Hospital",
     tagline: "Women's & Pregnancy Care Center",
-    desc: "Subam Hospital is specialized in women's healthcare and pregnancy care, providing comprehensive maternity, gynaecology, prenatal, and postnatal services for mothers and children.",
+    desc: "Demo Hospital is specialized in women's healthcare and pregnancy care, providing comprehensive maternity, gynaecology, prenatal, and postnatal services for mothers and children.",
     features: [
       "Comprehensive Obstetric & Prenatal Care",
       "High-Risk Pregnancy Management",
@@ -16,18 +16,18 @@ const institutions = [
       "Post-Natal Recovery & Wellness Hub"
     ],
     image: "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&q=80&w=1200",
-    logoUrl: "https://srinixnm.github.io/hospital-access/subam.png",
-    path: "/subam-hospital",
+    logoUrl: "https://placehold.co/320x100?text=Demo+Hospital",
+    path: "/demo-hospital",
     color: "bg-white",
     accent: "text-brand-primary",
     border: "border-teal-100"
   },
   {
     name: "Fertility Center",
-    brand: "SUNSRISHTI",
-    fullName: "Sunsrishti Fertility Center",
+    brand: "EXAMPLE",
+    fullName: "Example Fertility Center",
     tagline: "Advanced IVF & Reproductive Medicine",
-    desc: "Sunsrishti Fertility Center is a dedicated center for IVF (In Vitro Fertilization), ICSI, IUI, and advanced reproductive treatments, bringing hope to aspiring parents.",
+    desc: "Example Fertility Center is a dedicated center for IVF (In Vitro Fertilization), ICSI, IUI, and advanced reproductive treatments, bringing hope to aspiring parents.",
     features: [
       "Clean-Room Embryology Labs",
       "Advanced ICSI & Laser Hatching",
@@ -35,18 +35,18 @@ const institutions = [
       "Genetic Counseling & Testing"
     ],
     image: "https://images.unsplash.com/photo-1551076805-e1869033e561?auto=format&fit=crop&q=80&w=1200",
-    logoUrl: "https://srinixnm.github.io/hospital-access/image.png",
-    path: "/sunsrishti-fertility-center",
+    logoUrl: "https://placehold.co/320x100?text=Example+Fertility",
+    path: "/example-fertility-center",
     color: "bg-slate-50",
     accent: "text-brand-primary",
     border: "border-slate-200"
   },
   {
     name: "Multispeciality Hospital",
-    brand: "SUNSRISHTI",
-    fullName: "Sunsrishti Multispeciality Hospital",
+    brand: "EXAMPLE",
+    fullName: "Example Multispeciality Hospital",
     tagline: "Comprehensive Multi-Specialty Services",
-    desc: "Sunsrishti Multispeciality Hospital provides general medicine, general surgery, orthopaedics, skin care, dermatology, and a complete range of healthcare services for all patients.",
+    desc: "Example Multispeciality Hospital provides general medicine, general surgery, orthopaedics, skin care, dermatology, and a complete range of healthcare services for all patients.",
     features: [
       "General Medicine & General Surgery",
       "Orthopaedic & Joint Care",
@@ -54,8 +54,8 @@ const institutions = [
       "Advanced Diagnostic Imaging"
     ],
     image: "https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&q=80&w=1200",
-    logoUrl: "https://srinixnm.github.io/hospital-access/sunsrishti.png",
-    path: "/sunsrishti-multispeciality-hospital",
+    logoUrl: "https://placehold.co/320x100?text=Example+Hospital",
+    path: "/example-multispeciality-hospital",
     color: "bg-white",
     accent: "text-brand-dark",
     border: "border-slate-100"
@@ -68,7 +68,7 @@ export default function OurNetwork() {
       {/* Header Section */}
       <section className="mb-12 sm:mb-24">
         <div className="container-custom">
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
@@ -80,7 +80,7 @@ export default function OurNetwork() {
             </div>
             <h1 className="text-4xl sm:text-6xl md:text-7xl mb-6 sm:mb-8 leading-[1.1] sm:leading-[1.0] tracking-tight font-light font-display">Integrated <br /><span className="font-bold text-brand-dark">Healthcare Network</span></h1>
             <p className="text-base sm:text-lg text-slate-500 leading-relaxed max-w-2xl font-medium">
-              Operating a fully coordinated clinical network across Salem. Each center is specialized yet unified under one philosophy of clinical excellence and patient safety.
+              Operating a fully coordinated clinical network across Example City. Each center is specialized yet unified under one philosophy of clinical excellence and patient safety.
             </p>
           </motion.div>
         </div>
@@ -103,10 +103,10 @@ export default function OurNetwork() {
                   <div className="relative">
                     <div className="absolute -inset-6 bg-slate-100 rounded-[3rem] -z-10 rotate-1 hidden sm:block" />
                     <div className="rounded-2xl sm:rounded-[3rem] shadow-premium w-full aspect-[4/3] overflow-hidden border border-slate-100">
-                      <img 
-                        src={hospital.image} 
-                        alt={hospital.fullName} 
-                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-103" 
+                      <img
+                        src={hospital.image}
+                        alt={hospital.fullName}
+                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-103"
                       />
                     </div>
                     <div className="absolute top-4 left-4 sm:top-8 sm:left-8 bg-white p-3 sm:p-6 rounded-xl sm:rounded-[2rem] shadow-2xl border border-slate-55">
@@ -129,14 +129,14 @@ export default function OurNetwork() {
                         {hospital.brand} Portfolio
                      </span>
                   </div>
-                  
+
                   <h2 className="text-2xl sm:text-3xl md:text-5xl font-display font-black text-brand-dark mb-3 sm:mb-4">{hospital.fullName}</h2>
                   <p className="text-brand-primary font-bold text-xs sm:text-sm tracking-wider uppercase mb-4 sm:mb-6">{hospital.tagline}</p>
-                  
+
                   <p className="text-slate-500 text-xs sm:text-sm leading-relaxed mb-6 sm:mb-10 font-medium">
                     {hospital.desc}
                   </p>
-                  
+
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 mb-8 sm:mb-12">
                     {hospital.features.map((feature) => (
                       <div key={feature} className="flex items-start gap-3">
@@ -148,8 +148,8 @@ export default function OurNetwork() {
                     ))}
                   </div>
 
-                  <Link 
-                    to={hospital.path} 
+                  <Link
+                    to={hospital.path}
                     className="inline-flex items-center justify-center gap-3 px-8 h-14 bg-brand-dark text-white font-bold rounded-xl text-[10px] uppercase tracking-widest hover:bg-brand-primary transition-all shadow-xl shadow-brand-dark/10 w-full sm:w-fit cursor-pointer"
                   >
                     Explore Center <ArrowRight size={16} />

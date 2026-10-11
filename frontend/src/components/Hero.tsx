@@ -5,10 +5,10 @@ import { useState, useEffect } from 'react';
 
 const SLIDES = [
   {
-    image: "https://srinixnm.github.io/hospital-access/hospital.jpeg",
+    image: "https://placehold.co/1200x700?text=Demo+Hospital",
     tag: "Excellence in Tertiary Care",
-    title: "Healthcare Reimagined for Salem.",
-    description: "Subam Hospital combines world-class medical expertise with deep compassionate care to serve our community with precision.",
+    title: "Healthcare Reimagined for Example City.",
+    description: "Demo Hospital combines world-class medical expertise with deep compassionate care to serve our community with precision.",
     position: "object-[center_35%]"
   },
   {

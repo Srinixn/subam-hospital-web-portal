@@ -75,7 +75,7 @@ export function createApp(): express.Express {
 
   // ── Sessions ──
   app.use(session({
-    name: 'subam.sid',
+    name: 'demo.sid',
     secret: process.env.SESSION_SECRET || 'dev-secret-change-me',
     store: sessionStore,
     resave: false,

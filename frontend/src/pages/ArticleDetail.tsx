@@ -29,7 +29,7 @@ const getExtendedContent = (id: number) => {
           "Gestational complications such as preeclampsia or gestational diabetes",
           "Multiple births (twins, triplets, or more)"
         ],
-        clinicalGuidance: "At Subam Hospital, our maternal-fetal medicine team employs advanced screening protocols, regular high-resolution ultrasound monitoring, and evidence-based interventions to ensure the best possible outcomes for both mother and baby. From gestational diabetes management to preeclampsia prevention, our comprehensive approach covers every aspect of complex pregnancy care.",
+        clinicalGuidance: "At Demo Hospital, our maternal-fetal medicine team employs advanced screening protocols, regular high-resolution ultrasound monitoring, and evidence-based interventions to ensure the best possible outcomes for both mother and baby. From gestational diabetes management to preeclampsia prevention, our comprehensive approach covers every aspect of complex pregnancy care.",
         conclusion: "With modern medical advancements and regular monitoring, most mothers with high-risk pregnancies go on to deliver healthy babies. Close collaboration with your healthcare team is key to navigating this journey successfully."
       };
     case 2:
@@ -42,7 +42,7 @@ const getExtendedContent = (id: number) => {
           "Shorter hospital stays and faster return to work or daily routine",
           "Reduced risk of infection and post-surgical complications"
         ],
-        clinicalGuidance: "Minimal access surgery has transformed patient outcomes at our facility. Our surgeons perform complex gynaecological, general surgical, and fertility procedures through keyhole incisions — resulting in less post-operative pain, shorter hospital stays, and faster return to daily life. With state-of-the-art HD laparoscopic towers and trained surgical teams, we bring world-class surgical care to Salem.",
+        clinicalGuidance: "Minimal access surgery has transformed patient outcomes at our facility. Our surgeons perform complex gynaecological, general surgical, and fertility procedures through keyhole incisions — resulting in less post-operative pain, shorter hospital stays, and faster return to daily life. With state-of-the-art HD laparoscopic towers and trained surgical teams, we bring world-class surgical care to Example City.",
         conclusion: "Our commitment to surgical innovation ensures you receive treatment that is not only highly effective but also minimizes discomfort and shortens your path to recovery."
       };
     case 3:
@@ -250,7 +250,7 @@ export default function ArticleDetail() {
                       Need Personalized Care?
                     </h3>
                     <p className="text-slate-400 text-xs leading-relaxed mb-6">
-                      Schedule a consultation with our experienced clinical specialists, including <strong>{article.author}</strong>, at Subam Hospital.
+                      Schedule a consultation with our experienced clinical specialists, including <strong>{article.author}</strong>, at Demo Hospital.
                     </p>
                   </div>
                   <div className="space-y-3">
@@ -282,7 +282,7 @@ export default function ArticleDetail() {
                 <div className="h-px bg-slate-200/60 my-4" />
                 <div className="flex justify-between items-center text-xs font-bold text-slate-400 uppercase tracking-wider">
                   <span>Author: {article.author}</span>
-                  <span className="text-brand-primary">Subam Hospital</span>
+                  <span className="text-brand-primary">Demo Hospital</span>
                 </div>
               </div>
             </div>

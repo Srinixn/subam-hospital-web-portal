@@ -55,7 +55,7 @@ export default function FertilityCare() {
       <div className="container-custom">
         {/* Hero Section */}
         <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center mb-24">
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, x: -30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
@@ -65,7 +65,7 @@ export default function FertilityCare() {
               Fertility <br /><span className="text-brand-primary italic">Care.</span>
             </h1>
             <p className="text-lg text-slate-500 font-medium leading-relaxed mb-6">
-              Fertility care focuses on the diagnosis, evaluation, and treatment of couples facing difficulty in conceiving. At Subam Hospital, our Fertility Care Centre provides comprehensive and compassionate support to help couples achieve their dream of parenthood through advanced reproductive medicine and personalized treatment plans.
+              Fertility care focuses on the diagnosis, evaluation, and treatment of couples facing difficulty in conceiving. At Demo Hospital, our Fertility Care Centre provides comprehensive and compassionate support to help couples achieve their dream of parenthood through advanced reproductive medicine and personalized treatment plans.
             </p>
             <p className="text-base text-slate-500 font-medium leading-relaxed mb-8 border-l-4 border-brand-primary/30 pl-4 italic">
               Our approach combines medical expertise, modern technology, and emotional support to identify the underlying causes of infertility and provide the most suitable treatment options for each couple.
@@ -78,19 +78,19 @@ export default function FertilityCare() {
           </motion.div>
 
           <div className="relative">
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.8, delay: 0.2 }}
               className="aspect-[4/3] sm:aspect-[4/5] rounded-3xl lg:rounded-[3.5rem] overflow-hidden shadow-premium border-8 border-white bg-slate-100"
             >
-              <img 
-                src="https://images.unsplash.com/photo-1559757175-5700dde675bc?auto=format&fit=crop&q=80&w=1200" 
+              <img
+                src="https://images.unsplash.com/photo-1559757175-5700dde675bc?auto=format&fit=crop&q=80&w=1200"
                 alt="Fertility Care Center"
                 className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
               />
             </motion.div>
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
@@ -120,7 +120,7 @@ export default function FertilityCare() {
                 const isEven = idx % 2 === 0;
                 return (
                   <div key={step.step} className="relative flex flex-col md:flex-row md:items-center">
-                    
+
                     {/* Timeline Node point */}
                     <div className="absolute left-8 md:left-1/2 top-4 md:top-auto h-12 w-12 rounded-full bg-brand-primary text-white flex items-center justify-center font-bold text-sm -translate-x-1/2 z-10 border-4 border-white shadow-md">
                       {idx + 1}
@@ -144,7 +144,7 @@ export default function FertilityCare() {
                         <p className="text-sm text-slate-500 leading-relaxed mb-6">
                           {step.desc}
                         </p>
-                        
+
                         {/* Phase Services List */}
                         <div className={`flex flex-col gap-3 ${isEven ? 'md:items-end' : 'md:items-start'}`}>
                           {step.services.map((service) => (
@@ -167,7 +167,7 @@ export default function FertilityCare() {
         </section>
 
         {/* Info Banner Section */}
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -183,7 +183,7 @@ export default function FertilityCare() {
             </div>
             <h2 className="text-3xl md:text-4xl font-display mb-6 leading-tight">Advanced Reproductive Techniques Combined with Compassionate Support</h2>
             <p className="text-lg text-slate-500 mb-10 leading-relaxed">
-              At Subam Hospital, we understand the emotional journey of infertility and provide supportive care in a comfortable and confidential environment. Our fertility specialists work closely with couples to ensure clarity, guidance, and the best possible treatment outcomes. Our goal is to combine advanced reproductive techniques with compassionate care, helping families grow with confidence and hope.
+              At Demo Hospital, we understand the emotional journey of infertility and provide supportive care in a comfortable and confidential environment. Our fertility specialists work closely with couples to ensure clarity, guidance, and the best possible treatment outcomes. Our goal is to combine advanced reproductive techniques with compassionate care, helping families grow with confidence and hope.
             </p>
             <Link to="/contact" className="btn-primary inline-flex h-14 px-10 text-base">
               <span>Connect with Fertility Team</span>

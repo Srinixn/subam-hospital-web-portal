@@ -14,9 +14,9 @@ const SALT_ROUNDS = 12;
 
 // Default admin credentials — change the password after first login!
 const DEFAULT_ADMIN = {
-  name: 'Hospital Manager',
-  email: 'admin@subamhospital.com',
-  password: 'Subam@2026',
+  name: 'Demo Admin',
+  email: 'admin@example.com',
+  password: 'Demo@2026',
 };
 
 // ─────────────────────────────────────────
@@ -45,25 +45,25 @@ const DEPARTMENTS = [
 const FAQ_ENTRIES = [
   {
     title: 'Hospital Visiting Hours',
-    content: 'Subam Hospital visiting hours are:\n* **General Wards**: 10:00 AM to 12:00 PM and 4:00 PM to 6:00 PM daily.\n* **ICU**: 11:00 AM to 11:30 AM and 5:00 PM to 5:30 PM (max 2 visitors).\n* **NICU**: Decided by the treating doctor.\n\nPlease note that visiting policies may change during pandemic or outbreak situations.',
+    content: 'Demo Hospital visiting hours are:\n* **General Wards**: 10:00 AM to 12:00 PM and 4:00 PM to 6:00 PM daily.\n* **ICU**: 11:00 AM to 11:30 AM and 5:00 PM to 5:30 PM (max 2 visitors).\n* **NICU**: Decided by the treating doctor.\n\nPlease note that visiting policies may change during pandemic or outbreak situations.',
     department: 'General Inquiry',
     tags: 'visiting hours,visit,timing,visitor,ICU,NICU',
   },
   {
     title: 'Hospital Location and Address',
-    content: 'Subam Hospital is situated at the following address:\n* **Address**: No. 6/1, Kakapalayam Main Road, Elampillai, Salem – 637502, Tamil Nadu, India.\n* **Landmark**: Conveniently located opposite the Elampillai Bus Stand.\n* **Parking**: Free dedicated parking spaces are available on-site.',
+    content: 'Demo Hospital is situated at the following address:\n* **Address**: No. 6/1, Example Main Road, Example Town, Example City – 000000, Example State, India.\n* **Landmark**: Conveniently located opposite the Example Town Bus Stand.\n* **Parking**: Free dedicated parking spaces are available on-site.',
     department: 'General Inquiry',
-    tags: 'location,address,directions,map,where,salem',
+    tags: 'location,address,directions,map,where,example-city',
   },
   {
     title: 'Contact and Emergency Numbers',
-    content: 'You can contact Subam Hospital using the details below:\n* **General & Appointments**: +91 90922 25481 / +91 90922 25482\n* **Emergency Desk**: Same numbers (operates 24 hours, 7 days a week)\n* **Official Email**: info@subamhospital.com',
+    content: 'You can contact Demo Hospital using the details below:\n* **General & Appointments**: +00 00000 00000\n* **Emergency Desk**: Same numbers (operates 24 hours, 7 days a week)\n* **Official Email**: info@example.com',
     department: 'General Inquiry',
     tags: 'phone,call,contact,emergency,number,helpline',
   },
   {
     title: 'How to Book an Appointment',
-    content: 'You can book an appointment at Subam Hospital in several ways:\n* **Phone Call**: Call us at **+91 90922 25481** or **+91 90922 25482**.\n* **Website**: Submit a query using the Contact form on our site.\n* **In-Person**: Visit the reception desk on the Ground Floor.\n* **Virtual Assistant**: Complete the fallback form in this chat widget.\n\n*OPD appointments are scheduled from Monday to Saturday, 9:00 AM - 1:00 PM and 4:00 PM - 8:00 PM.*',
+    content: 'You can book an appointment at Demo Hospital in several ways:\n* **Phone Call**: Call us at **+00 00000 00000** or **+00 00000 00000**.\n* **Website**: Submit a query using the Contact form on our site.\n* **In-Person**: Visit the reception desk on the Ground Floor.\n* **Virtual Assistant**: Complete the fallback form in this chat widget.\n\n*OPD appointments are scheduled from Monday to Saturday, 9:00 AM - 1:00 PM and 4:00 PM - 8:00 PM.*',
     department: 'General Inquiry',
     tags: 'appointment,book,schedule,booking,consultation,walk-in',
   },
@@ -75,25 +75,25 @@ const FAQ_ENTRIES = [
   },
   {
     title: 'Billing and Payment Methods',
-    content: 'Subam Hospital accepts multiple secure payment channels:\n* **UPI & Digital**: GPay, PhonePe, Paytm, and all banking apps.\n* **Cards**: All major Credit and Debit cards (Visa, Mastercard, RuPay).\n* **Cash**: Accepted at all counter billing desks.\n* **Net Banking**: Available for inpatient balance settlements.\n\n*For billing questions, please visit the main accounts desk on the Ground Floor.*',
+    content: 'Demo Hospital accepts multiple secure payment channels:\n* **UPI & Digital**: GPay, PhonePe, Paytm, and all banking apps.\n* **Cards**: All major Credit and Debit cards (Visa, Mastercard, RuPay).\n* **Cash**: Accepted at all counter billing desks.\n* **Net Banking**: Available for inpatient balance settlements.\n\n*For billing questions, please visit the main accounts desk on the Ground Floor.*',
     department: 'General Inquiry',
     tags: 'billing,payment,insurance,cashless,UPI,card,TPA,cost',
   },
   {
     title: 'Insurance and Cashless Hospitalization',
-    content: 'For cashless insurance claims at Subam Hospital:\n* **TPA Desk**: Located on the Ground Floor near reception.\n* **Documents Needed**: Health Insurance Card, Policy Document, and a valid photo ID (Aadhaar/PAN).\n* **Pre-Auth**: Our desk handles all pre-authorization procedures directly with your provider.\n\n*Note: Out-of-pocket charges might apply for procedural exclusions or room category upgrades.*',
+    content: 'For cashless insurance claims at Demo Hospital:\n* **TPA Desk**: Located on the Ground Floor near reception.\n* **Documents Needed**: Health Insurance Card, Policy Document, and a valid photo ID (Aadhaar/PAN).\n* **Pre-Auth**: Our desk handles all pre-authorization procedures directly with your provider.\n\n*Note: Out-of-pocket charges might apply for procedural exclusions or room category upgrades.*',
     department: 'General Inquiry',
     tags: 'insurance,cashless,TPA,health insurance,policy,claim',
   },
   {
     title: 'Hospital Facilities Overview',
-    content: 'Subam Hospital features modern healthcare facilities:\n* **Capacity**: 50+ bed multi-speciality setup.\n* **Neonatal ICU**: Specialized Level III NICU for premature infants.\n* **Diagnostics**: Full-service diagnostic radiology (Ultrasound, Doppler, X-ray) and pathology lab.\n* **Emergency Care**: 24/7 emergency services, critical ICU, and a 24/7 in-house pharmacy.\n* **Rooms**: Premium air-conditioned private rooms and clean semi-private wards.',
+    content: 'Demo Hospital features modern healthcare facilities:\n* **Capacity**: 50+ bed multi-speciality setup.\n* **Neonatal ICU**: Specialized Level III NICU for premature infants.\n* **Diagnostics**: Full-service diagnostic radiology (Ultrasound, Doppler, X-ray) and pathology lab.\n* **Emergency Care**: 24/7 emergency services, critical ICU, and a 24/7 in-house pharmacy.\n* **Rooms**: Premium air-conditioned private rooms and clean semi-private wards.',
     department: 'General Inquiry',
     tags: 'facilities,rooms,ICU,NICU,OT,pharmacy,lab,bed,amenities',
   },
   {
     title: 'Obstetrics Department',
-    content: 'Our Obstetrics department offers high-quality pregnancy and maternal care:\n* **Pre-natal Monitoring**: Regular milestone checks, gestational checks, and blood diagnostics.\n* **Delivery Services**: Normal deliveries, painless labor (epidural), and cesarean sections.\n* **Specialist Care**: High-risk pregnancy management and continuous fetal monitoring.\n* **Leadership**: Headed by Dr. Selvi Raju (MBBS, MD OG, Fellowship in Reproductive Medicine) with over 25,000 deliveries.',
+    content: 'Our Obstetrics department offers high-quality pregnancy and maternal care:\n* **Pre-natal Monitoring**: Regular milestone checks, gestational checks, and blood diagnostics.\n* **Delivery Services**: Normal deliveries, painless labor (epidural), and cesarean sections.\n* **Specialist Care**: High-risk pregnancy management and continuous fetal monitoring.\n* **Leadership**: Headed by Dr. A. Example (MBBS, MD OG, Fellowship in Reproductive Medicine) with over 25,000 deliveries.',
     department: 'Obstetrics',
     tags: 'obstetrics,pregnancy,delivery,cesarean,c-section,prenatal,high-risk',
   },
@@ -105,19 +105,19 @@ const FAQ_ENTRIES = [
   },
   {
     title: 'Paediatrics Department',
-    content: 'Our Paediatrics department provides pediatric care from birth to adolescence:\n* **Newborn Care**: Screenings, vaccinations, and neonatal follow-ups.\n* **Development**: Growth tracking, dietary counseling, and physical milestone monitoring.\n* **Specialists**: Led by experienced paediatricians Dr. S. Poovizhi and Dr. Saravana Balaji.',
+    content: 'Our Paediatrics department provides pediatric care from birth to adolescence:\n* **Newborn Care**: Screenings, vaccinations, and neonatal follow-ups.\n* **Development**: Growth tracking, dietary counseling, and physical milestone monitoring.\n* **Specialists**: Led by experienced paediatricians Dr. A. Example and Dr. A. Example.',
     department: 'Paediatrics',
     tags: 'paediatrics,pediatrics,children,child,baby,vaccination,immunization,growth',
   },
   {
     title: 'Radiology and Diagnostic Imaging',
-    content: 'Our Radiology unit features state-of-the-art diagnostic imaging:\n* **Fetal Medicine**: Milestone scans including NT scan, Anomaly scan, and Growth scan.\n* **Ultrasound**: High-resolution 2D/3D/4D ultrasound and Color Doppler scans.\n* **General Imaging**: Digital radiography and pathology services.\n* **Expertise**: Headed by Dr. R. Sathiya Narayanan (DMRD, DNB RD), specialist in Fetal Medicine.',
+    content: 'Our Radiology unit features state-of-the-art diagnostic imaging:\n* **Fetal Medicine**: Milestone scans including NT scan, Anomaly scan, and Growth scan.\n* **Ultrasound**: High-resolution 2D/3D/4D ultrasound and Color Doppler scans.\n* **General Imaging**: Digital radiography and pathology services.\n* **Expertise**: Headed by Dr. A. Example (DMRD, DNB RD), specialist in Fetal Medicine.',
     department: 'Radiology',
     tags: 'radiology,ultrasound,scan,X-ray,imaging,doppler,fetal medicine,NT scan',
   },
   {
     title: 'Fertility Care and IVF',
-    content: 'Sunsrishti Fertility Center provides advanced reproductive medicine:\n* **Treatments**: IVF (In Vitro Fertilization), IUI (Intrauterine Insemination), and ICSI.\n* **Evaluation**: Complete fertility diagnostics for both male and female partners.\n* **Advanced Care**: Egg freezing, hormone treatments, and embryology lab support.\n\n*All consultations are fully confidential. Call +91 90922 25481 to book a slot.*',
+    content: 'Example Fertility Center provides advanced reproductive medicine:\n* **Treatments**: IVF (In Vitro Fertilization), IUI (Intrauterine Insemination), and ICSI.\n* **Evaluation**: Complete fertility diagnostics for both male and female partners.\n* **Advanced Care**: Egg freezing, hormone treatments, and embryology lab support.\n\n*All consultations are fully confidential. Call +00 00000 00000 to book a slot.*',
     department: 'Fertility Care',
     tags: 'fertility,IVF,IUI,ICSI,infertility,reproductive,conception,egg freezing',
   },
@@ -141,13 +141,13 @@ const FAQ_ENTRIES = [
   },
   {
     title: 'Hospital Working Hours and OPD Timings',
-    content: 'Subam Hospital timings and hours:\n* **Emergency Services**: Open 24 Hours, 7 Days a week\n* **OPD Consultation**: Monday to Saturday, 9:00 AM - 1:00 PM & 4:00 PM - 8:00 PM\n* **Sunday OPD**: Closed (Emergencies handled via ER)\n* **Pharmacy**: Open 24/7\n* **Laboratory**: 24/7 for emergency tests; routine collections from 7:00 AM - 9:00 PM',
+    content: 'Demo Hospital timings and hours:\n* **Emergency Services**: Open 24 Hours, 7 Days a week\n* **OPD Consultation**: Monday to Saturday, 9:00 AM - 1:00 PM & 4:00 PM - 8:00 PM\n* **Sunday OPD**: Closed (Emergencies handled via ER)\n* **Pharmacy**: Open 24/7\n* **Laboratory**: 24/7 for emergency tests; routine collections from 7:00 AM - 9:00 PM',
     department: 'General Inquiry',
     tags: 'OPD,timings,working hours,schedule,open,closed,pharmacy,lab',
   },
   {
     title: 'List of Departments and Specialities',
-    content: 'Subam Hospital offers services across the following specialities:\n* **Obstetrics & Gynaecology**\n* **Paediatrics & Newborn Care (NICU)**\n* **Radiology & Fetal Medicine**\n* **General Surgery** (Laparoscopic & Endoscopic)\n* **General Medicine & Diabetology**\n* **Cardiology**\n* **Orthopaedics**\n* **Fertility Care** (via Sunsrishti Fertility Center)\n\nEach department is staffed by qualified medical specialists.',
+    content: 'Demo Hospital offers services across the following specialities:\n* **Obstetrics & Gynaecology**\n* **Paediatrics & Newborn Care (NICU)**\n* **Radiology & Fetal Medicine**\n* **General Surgery** (Laparoscopic & Endoscopic)\n* **General Medicine & Diabetology**\n* **Cardiology**\n* **Orthopaedics**\n* **Fertility Care** (via Example Fertility Center)\n\nEach department is staffed by qualified medical specialists.',
     department: 'General Inquiry',
     tags: 'departments,specialities,services,list,what departments',
   },
@@ -159,7 +159,7 @@ const FAQ_ENTRIES = [
   },
   {
     title: 'Admission Process',
-    content: 'To get admitted at Subam Hospital:\n* **Consultation**: Get an admission recommendation from our OPD doctor.\n* **Counter Visit**: Go to the Admission Counter near the reception.\n* **Documents**: Provide a valid photo ID and health insurance details.\n* **Room Choice**: Choose your room type (General Ward, Semi-Private, Private AC).\n* **Form & Deposit**: Complete the admission form and pay the advance deposit.\n\n*Note: Emergency admissions are handled directly and immediately through our 24/7 ER.*',
+    content: 'To get admitted at Demo Hospital:\n* **Consultation**: Get an admission recommendation from our OPD doctor.\n* **Counter Visit**: Go to the Admission Counter near the reception.\n* **Documents**: Provide a valid photo ID and health insurance details.\n* **Room Choice**: Choose your room type (General Ward, Semi-Private, Private AC).\n* **Form & Deposit**: Complete the admission form and pay the advance deposit.\n\n*Note: Emergency admissions are handled directly and immediately through our 24/7 ER.*',
     department: 'General Inquiry',
     tags: 'admission,admit,hospitalization,room,ward,process,check-in',
   },
@@ -171,7 +171,7 @@ const FAQ_ENTRIES = [
   },
   {
     title: 'Ambulance Services',
-    content: 'Subam Hospital Ambulance Services details:\n* **Hotline**: Call **+91 90922 25481** (available 24/7)\n* **Capabilities**: Fully equipped with Basic Life Support (BLS) equipment.\n* **Government Units**: For advanced trauma/cardiac transfer, call government service at **108**.',
+    content: 'Demo Hospital Ambulance Services details:\n* **Hotline**: Call **+00 00000 00000** (available 24/7)\n* **Capabilities**: Fully equipped with Basic Life Support (BLS) equipment.\n* **Government Units**: For advanced trauma/cardiac transfer, call government service at **108**.',
     department: 'General Inquiry',
     tags: 'ambulance,emergency transport,108,pickup,critical',
   },
@@ -188,26 +188,26 @@ const FAQ_ENTRIES = [
     tags: 'wifi,internet,amenities,TV,AC,room facilities',
   },
   {
-    title: 'About Subam Hospital',
-    content: 'About Subam Hospital history and milestones:\n* **Established**: Founded in 2013 in Salem, Tamil Nadu, by Dr. K. Raj and Dr. Selvi Raju.\n* **Capacity**: Expanded from a small clinic into a 50+ bed women\'s and multi-speciality hospital.\n* **Network**: Three core branches in Salem (Subam Hospital, Sun Srishti Speciality, Sunsrishti Fertility Center).\n* **Track Record**: Successfully delivered over 25,000 babies over 12+ years of service.',
+    title: 'About Demo Hospital',
+    content: 'About Demo Hospital history and milestones:\n* **Established**: Founded in 2013 in Example City, Example State, by Dr. A. Example and Dr. A. Example.\n* **Capacity**: Expanded from a small clinic into a 50+ bed women\'s and multi-speciality hospital.\n* **Network**: Three core branches in Example City (Demo Hospital, Sun Srishti Speciality, Example Fertility Center).\n* **Track Record**: Successfully delivered over 25,000 babies over 12+ years of service.',
     department: 'General Inquiry',
     tags: 'about,history,founded,established,story,Dr Raj,Dr Selvi',
   },
   {
     title: 'Our Hospital Network',
-    content: 'Subam Hospital healthcare network branches:\n* **Subam Hospital**: Focuses on Obstetrics, Gynecology, and Paediatrics.\n* **Sun Srishti Speciality**: Multi-speciality hospital for General Medicine, Surgery, and Orthopaedics.\n* **Sunsrishti Fertility Center**: Specialized IVF & Reproductive Medicine facility.',
+    content: 'Demo Hospital healthcare network branches:\n* **Demo Hospital**: Focuses on Obstetrics, Gynecology, and Paediatrics.\n* **Sun Srishti Speciality**: Multi-speciality hospital for General Medicine, Surgery, and Orthopaedics.\n* **Example Fertility Center**: Specialized IVF & Reproductive Medicine facility.',
     department: 'General Inquiry',
-    tags: 'network,branches,Sun Srishti,Sunsrishti,institutions,hospitals',
+    tags: 'network,branches,Sun Srishti,Example,institutions,hospitals',
   },
   {
     title: 'Feedback and Complaints',
-    content: 'How to share feedback or register complaints:\n* **Online Form**: Go to the Feedback section (/feedback) on our website.\n* **Patient Relations**: Speak directly to the Patient Relations Officer at reception.\n* **Email**: Send queries to info@subamhospital.com.\n* **Hotline**: Call us at +91 90922 25481.\n\n*All complaints are audited and resolved within 48 hours.*',
+    content: 'How to share feedback or register complaints:\n* **Online Form**: Go to the Feedback section (/feedback) on our website.\n* **Patient Relations**: Speak directly to the Patient Relations Officer at reception.\n* **Email**: Send queries to info@example.com.\n* **Hotline**: Call us at +00 00000 00000.\n\n*All complaints are audited and resolved within 48 hours.*',
     department: 'General Inquiry',
     tags: 'feedback,complaint,suggestion,review,experience,improve',
   },
   {
-    title: 'Careers at Subam Hospital',
-    content: 'Join our healthcare and administration team:\n* **Openings**: Current listings are updated on our Careers (/careers) page.\n* **Applications**: Click the apply button to submit via our LinkedIn jobs pipeline.\n* **Direct Mail**: Send resumes directly to info@subamhospital.com.\n* **Roles**: Open to doctors, nursing staff, technicians, and admin personnel.',
+    title: 'Careers at Demo Hospital',
+    content: 'Join our healthcare and administration team:\n* **Openings**: Current listings are updated on our Careers (/careers) page.\n* **Applications**: Click the apply button to submit via our LinkedIn jobs pipeline.\n* **Direct Mail**: Send resumes directly to info@example.com.\n* **Roles**: Open to doctors, nursing staff, technicians, and admin personnel.',
     department: 'General Inquiry',
     tags: 'career,job,hiring,vacancy,apply,recruitment,work',
   },
@@ -219,7 +219,7 @@ const FAQ_ENTRIES = [
   },
   {
     title: 'General Surgery Services',
-    content: 'Laparoscopic and general surgery procedures:\n* **Minimally Invasive**: Keyhole laparoscopic surgeries for Gallbladder, Appendix, and Hernia.\n* **General Procedures**: Thyroid removal, breast lump excision, and varicose vein therapy.\n* **Endoscopy**: Diagnostic upper and lower GI endoscopies.\n* **Leadership**: Directed by Dr. K. Raju (MS, FMAS, DMAS) with 12+ years of surgical experience.',
+    content: 'Laparoscopic and general surgery procedures:\n* **Minimally Invasive**: Keyhole laparoscopic surgeries for Gallbladder, Appendix, and Hernia.\n* **General Procedures**: Thyroid removal, breast lump excision, and varicose vein therapy.\n* **Endoscopy**: Diagnostic upper and lower GI endoscopies.\n* **Leadership**: Directed by Dr. A. Example (MS, FMAS, DMAS) with 12+ years of surgical experience.',
     department: 'General Surgery',
     tags: 'surgery,laparoscopic,endoscopic,hernia,gallbladder,appendix,thyroid',
   },

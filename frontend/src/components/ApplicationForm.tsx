@@ -77,7 +77,7 @@ export default function ApplicationForm({ jobId }: ApplicationFormProps) {
         <CheckCircle2 size={64} className="mx-auto text-green-500 mb-6" />
         <h3 className="text-2xl font-bold text-green-900 mb-2">Application Submitted!</h3>
         <p className="text-green-700 max-w-md mx-auto">
-          Thank you for applying to Subam Hospital. Our HR team will review your application and get back to you soon.
+          Thank you for applying to Demo Hospital. Our HR team will review your application and get back to you soon.
         </p>
       </div>
     );
@@ -94,7 +94,7 @@ export default function ApplicationForm({ jobId }: ApplicationFormProps) {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div>
           <label className="block text-sm font-bold text-slate-700 mb-2">First Name *</label>
-          <input 
+          <input
             type="text" name="firstName" required
             className="w-full text-base h-14 px-4 bg-white border border-slate-200 rounded-xl focus:ring-2 focus:ring-brand-primary/20 focus:border-brand-primary transition-all outline-none"
             value={formData.firstName} onChange={handleChange}
@@ -102,7 +102,7 @@ export default function ApplicationForm({ jobId }: ApplicationFormProps) {
         </div>
         <div>
           <label className="block text-sm font-bold text-slate-700 mb-2">Last Name *</label>
-          <input 
+          <input
             type="text" name="lastName" required
             className="w-full text-base h-14 px-4 bg-white border border-slate-200 rounded-xl focus:ring-2 focus:ring-brand-primary/20 focus:border-brand-primary transition-all outline-none"
             value={formData.lastName} onChange={handleChange}
@@ -113,7 +113,7 @@ export default function ApplicationForm({ jobId }: ApplicationFormProps) {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div>
           <label className="block text-sm font-bold text-slate-700 mb-2">Email Address *</label>
-          <input 
+          <input
             type="email" name="email" required
             className="w-full text-base h-14 px-4 bg-white border border-slate-200 rounded-xl focus:ring-2 focus:ring-brand-primary/20 focus:border-brand-primary transition-all outline-none"
             value={formData.email} onChange={handleChange}
@@ -121,7 +121,7 @@ export default function ApplicationForm({ jobId }: ApplicationFormProps) {
         </div>
         <div>
           <label className="block text-sm font-bold text-slate-700 mb-2">Phone Number *</label>
-          <input 
+          <input
             type="tel" name="phone" required
             className="w-full text-base h-14 px-4 bg-white border border-slate-200 rounded-xl focus:ring-2 focus:ring-brand-primary/20 focus:border-brand-primary transition-all outline-none"
             value={formData.phone} onChange={handleChange}
@@ -131,7 +131,7 @@ export default function ApplicationForm({ jobId }: ApplicationFormProps) {
 
       <div>
         <label className="block text-sm font-bold text-slate-700 mb-2">Years of Experience *</label>
-        <input 
+        <input
           type="number" min="0" name="experienceYears" required
           className="w-full text-base h-14 px-4 bg-white border border-slate-200 rounded-xl focus:ring-2 focus:ring-brand-primary/20 focus:border-brand-primary transition-all outline-none"
           value={formData.experienceYears} onChange={handleChange}
@@ -141,8 +141,8 @@ export default function ApplicationForm({ jobId }: ApplicationFormProps) {
       <div>
         <label className="block text-sm font-bold text-slate-700 mb-2">Resume (PDF, DOC, DOCX - Max 5MB) *</label>
         <div className="relative">
-          <input 
-            type="file" 
+          <input
+            type="file"
             accept=".pdf,.doc,.docx,application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document"
             required
             onChange={handleFileChange}
@@ -157,8 +157,8 @@ export default function ApplicationForm({ jobId }: ApplicationFormProps) {
         </div>
       </div>
 
-      <button 
-        type="submit" 
+      <button
+        type="submit"
         disabled={loading}
         className="w-full h-14 bg-brand-primary text-white font-bold rounded-xl hover:bg-teal-700 transition-colors flex items-center justify-center disabled:opacity-70"
       >

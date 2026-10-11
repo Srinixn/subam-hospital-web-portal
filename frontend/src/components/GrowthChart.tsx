@@ -77,10 +77,10 @@ const growthData: GrowthNode[] = [
     year: 2024,
     deliveries: "80–90",
     avgDeliveries: 85,
-    title: "Sunsrishti Speciality Hospital",
-    milestone: "Launched Sunsrishti Speciality Hospital — equipped with modern ICU, advanced trauma care, laparoscopic surgery services, and endoscopic procedures for high-quality specialized treatment.",
+    title: "Example Speciality Hospital",
+    milestone: "Launched Example Speciality Hospital — equipped with modern ICU, advanced trauma care, laparoscopic surgery services, and endoscopic procedures for high-quality specialized treatment.",
     details: [
-      "Launched Sunsrishti Speciality Hospital to offer high-quality specialized treatment",
+      "Launched Example Speciality Hospital to offer high-quality specialized treatment",
       "Equipped with modern Intensive Care Units and advanced trauma care setups",
       "Introduced advanced laparoscopic surgery services and endoscopic procedures"
     ],
@@ -95,7 +95,7 @@ const growthData: GrowthNode[] = [
     title: "IVF Centre Launch",
     milestone: "Established our state-of-the-art IVF Centre with advanced fertility treatment technologies and experienced specialists dedicated to helping couples achieve parenthood.",
     details: [
-      "Established state-of-the-art Sunsrishti IVF Centre in Salem",
+      "Established state-of-the-art Example IVF Centre in Example City",
       "Introduced advanced fertility treatments including IVF, ICSI, and IUI",
       "Achieved clinical growth of 100–150 monthly deliveries across our network"
     ],
@@ -147,7 +147,7 @@ export default function GrowthChart() {
             A Decade of Growth & Milestones
           </h2>
           <p className="text-slate-500 text-xs md:text-sm font-medium leading-relaxed px-4">
-            From our founding in 2013 as a dedicated maternal clinic to Salem's trusted multi-specialty healthcare network, explore our growth in monthly deliveries and medical services.
+            From our founding in 2013 as a dedicated maternal clinic to Example City's trusted multi-specialty healthcare network, explore our growth in monthly deliveries and medical services.
           </p>
         </div>
 

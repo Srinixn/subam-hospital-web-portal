@@ -8,26 +8,26 @@ const NavItem = ({ item, scrolled, location }: any) => {
   const hasDropdown = 'dropdown' in item;
 
   return (
-    <div 
+    <div
       className="relative group"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      <Link 
+      <Link
         to={item.path}
         className={`flex items-center gap-1 text-[11px] font-bold uppercase tracking-[0.1em] transition-all py-2 ${
-          location.pathname === item.path 
-            ? 'text-brand-primary' 
+          location.pathname === item.path
+            ? 'text-brand-primary'
             : (scrolled || location.pathname !== '/' ? 'text-slate-600 hover:text-brand-primary' : 'text-white/90 hover:text-white')
         }`}
       >
         {item.name}
         {hasDropdown && <span className="text-[8px] opacity-50 ml-1">▼</span>}
       </Link>
-      
+
       {hasDropdown && isHovered && (
         <div className="absolute top-full left-0 pt-2 -mt-1 group-hover:block z-50">
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 4 }}
             animate={{ opacity: 1, y: 0 }}
             className="min-w-[240px] bg-white rounded-xl shadow-premium border border-slate-100 overflow-hidden py-3"
@@ -71,8 +71,8 @@ export default function Header() {
 
   const navItems = [
     { name: 'Home', path: '/' },
-    { 
-      name: 'Management', 
+    {
+      name: 'Management',
       path: '/management',
       dropdown: [
         { name: 'Management Team', path: '/management' },
@@ -82,8 +82,8 @@ export default function Header() {
         { name: 'Success Stories', path: '/success-stories' }
       ]
     },
-    { 
-      name: 'Specialities', 
+    {
+      name: 'Specialities',
       path: '/services',
       dropdown: [
         { name: 'Obstetrics', path: '/specialities/obstetrics' },
@@ -97,16 +97,16 @@ export default function Header() {
       ]
     },
     { name: 'Facilities', path: '/facilities' },
-    { 
-      name: 'Gallery', 
+    {
+      name: 'Gallery',
       path: '/gallery',
       dropdown: [
         { name: 'Images', path: '/gallery' },
         { name: 'Videos', path: '/videos' }
       ]
     },
-    { 
-      name: 'Articles', 
+    {
+      name: 'Articles',
       path: '/articles',
       dropdown: [
         { name: 'Health Blogs', path: '/blogs' },
@@ -119,7 +119,7 @@ export default function Header() {
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50" style={{ paddingTop: 'env(safe-area-inset-top, 0px)' }}>
-      {/* Top Bar - Very Subam style */}
+      {/* Top Bar - Very Demo style */}
       <div className={`hidden lg:block transition-all duration-300 ${
         scrolled || location.pathname !== '/' ? 'h-0 opacity-0 overflow-hidden' : 'bg-brand-dark py-2'
       }`}>
@@ -127,11 +127,11 @@ export default function Header() {
           <div className="flex items-center gap-6">
             <div className="flex items-center gap-2 text-[9px] font-bold text-white/60 tracking-wider">
               <Mail size={10} className="text-brand-primary" />
-              <a href="mailto:hospitalsubam@gmail.com" className="hover:text-white transition-colors">hospitalsubam@gmail.com</a>
+              <a href="mailto:hello@example.com" className="hover:text-white transition-colors">hello@example.com</a>
             </div>
             <div className="flex items-center gap-2 text-[9px] font-bold text-white/60 tracking-wider">
               <Phone size={10} className="text-brand-primary" />
-              <a href="tel:+919092225481" className="hover:text-white transition-colors">+91 90922 25481</a>
+              <a href="tel:+00000000000" className="hover:text-white transition-colors">+00 00000 00000</a>
             </div>
             <div className="flex items-center gap-2 text-[9px] font-bold text-white/60 tracking-wider">
               <Clock size={10} className="text-brand-primary" />
@@ -139,7 +139,7 @@ export default function Header() {
             </div>
           </div>
           <div className="flex items-center gap-4">
-             <Link to="/about" className="text-[9px] font-bold text-white/80 hover:text-white transition-colors uppercase tracking-widest">About Subam Hospital</Link>
+             <Link to="/about" className="text-[9px] font-bold text-white/80 hover:text-white transition-colors uppercase tracking-widest">About Demo Hospital</Link>
           </div>
         </div>
       </div>
@@ -152,45 +152,45 @@ export default function Header() {
            {/* Logo */}
            <Link to="/" className="flex items-center group cursor-pointer">
              <div className={`transition-all duration-500 ${scrolled ? 'h-10 md:h-12' : 'h-12 md:h-14'}`}>
-               <img 
-                 src="https://srinixnm.github.io/hospital-access/subam.png" 
-                 alt="Subam Hospital Logo" 
+               <img
+                 src="https://placehold.co/320x100?text=Demo+Hospital"
+                 alt="Demo Hospital Logo"
                  className="h-full w-auto object-contain"
                />
              </div>
            </Link>
- 
+
            {/* Desktop Nav */}
            <nav className="hidden lg:flex items-center gap-6 xl:gap-8">
              {navItems.map((item) => (
                <NavItem key={item.name} item={item} scrolled={scrolled} location={location} />
              ))}
            </nav>
- 
+
            {/* Actions */}
            <div className="hidden lg:flex items-center gap-4">
              <Link to="/contact" className="h-10 px-5 bg-brand-primary text-white font-bold rounded-lg text-[11px] flex items-center justify-center hover:bg-teal-700 transition-all uppercase tracking-widest">
                Consult Now
              </Link>
            </div>
- 
+
            {/* Mobile Actions & Toggle */}
            <div className="flex lg:hidden items-center gap-1.5">
-             <Link 
-               to="/contact" 
+             <Link
+               to="/contact"
                className="h-8 px-3 bg-brand-primary text-white font-bold rounded-lg text-[10px] flex items-center justify-center hover:bg-teal-700 transition-all uppercase tracking-wider whitespace-nowrap"
              >
                Contact
              </Link>
-             <a 
-               href="tel:+919092225481" 
+             <a
+               href="tel:+00000000000"
                className={`p-2 transition-colors ${scrolled || location.pathname !== '/' ? 'text-slate-700 hover:text-brand-primary' : 'text-white/80 hover:text-white'}`}
                aria-label="Call Us"
              >
                <Phone size={18} />
              </a>
-             <button 
-               className={`p-2 ${scrolled || location.pathname !== '/' ? 'text-slate-800' : 'text-white'}`} 
+             <button
+               className={`p-2 ${scrolled || location.pathname !== '/' ? 'text-slate-800' : 'text-white'}`}
                onClick={() => setIsOpen(!isOpen)}
                aria-label="Toggle menu"
              >
@@ -203,7 +203,7 @@ export default function Header() {
       {/* Mobile Menu */}
       <AnimatePresence>
       {isOpen && (
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -10 }}
@@ -224,7 +224,7 @@ export default function Header() {
                   <ChevronDown size={16} className={`transition-transform duration-200 ${openDropdown === item.name ? 'rotate-180' : ''}`} />
                 </button>
               ) : (
-                <Link 
+                <Link
                   to={item.path}
                   onClick={() => setIsOpen(false)}
                   className={`text-sm font-bold py-3 flex items-center justify-between ${
@@ -235,7 +235,7 @@ export default function Header() {
                 </Link>
               )}
               {item.dropdown && openDropdown === item.name && (
-                <motion.div 
+                <motion.div
                   initial={{ opacity: 0, height: 0 }}
                   animate={{ opacity: 1, height: 'auto' }}
                   className="pl-4 flex flex-col border-l-2 border-brand-primary/20 mb-2 overflow-hidden"
@@ -266,14 +266,14 @@ export default function Header() {
             </div>
           ))}
           <div className="pt-4 mt-4 border-t border-slate-100 space-y-3">
-             <Link 
-               to="/contact" 
+             <Link
+               to="/contact"
                onClick={() => setIsOpen(false)}
                className="flex items-center justify-center gap-2 bg-brand-primary text-white font-bold py-3.5 rounded-xl text-xs w-full uppercase tracking-widest"
              >
                Consult Now
              </Link>
-             <a href="tel:+919092225481" className="flex items-center justify-center gap-2 bg-red-600 text-white font-bold py-3.5 rounded-xl text-xs w-full">
+             <a href="tel:+00000000000" className="flex items-center justify-center gap-2 bg-red-600 text-white font-bold py-3.5 rounded-xl text-xs w-full">
                <Phone size={16} /> ER Hotline
              </a>
           </div>

@@ -80,7 +80,7 @@ export default function Dashboard() {
     <div className="space-y-8">
       <div>
         <h1 className="text-3xl font-bold text-slate-800 mb-2">Welcome Back!</h1>
-        <p className="text-slate-500">Here's what's happening at Subam Hospital today.</p>
+        <p className="text-slate-500">Here's what's happening at Demo Hospital today.</p>
       </div>
 
       <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">

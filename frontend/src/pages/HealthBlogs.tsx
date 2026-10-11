@@ -164,7 +164,7 @@ export default function HealthBlogs() {
               transition={{ delay: 0.2 }}
               className="text-lg text-slate-500 font-medium leading-relaxed max-w-2xl mb-10"
             >
-              A hand-picked directory of the most trusted pregnancy, parenting, and women's 
+              A hand-picked directory of the most trusted pregnancy, parenting, and women's
               wellness resources on the web — reviewed and recommended by our clinical team.
             </motion.p>
 
@@ -368,14 +368,14 @@ export default function HealthBlogs() {
                   Know a trusted wellness <span className="italic">resource?</span>
                 </h2>
                 <p className="text-teal-100/80 text-sm leading-relaxed">
-                  If you follow a premium health resource or evidence-based parenting blog that would benefit 
-                  other mothers and families, please let us know so our clinical team can review and add it 
+                  If you follow a premium health resource or evidence-based parenting blog that would benefit
+                  other mothers and families, please let us know so our clinical team can review and add it
                   to this curated directory.
                 </p>
               </div>
 
               <a
-                href="mailto:hospitalsubam@gmail.com?subject=Suggested Wellness Blog Resource"
+                href="mailto:hello@example.com?subject=Suggested Wellness Blog Resource"
                 className="h-14 px-10 bg-white text-brand-primary rounded-2xl font-bold flex items-center gap-3 hover:scale-105 transition-transform whitespace-nowrap shrink-0 shadow-xl shadow-brand-dark/10 text-sm"
               >
                 <Heart size={18} className="fill-brand-primary" />

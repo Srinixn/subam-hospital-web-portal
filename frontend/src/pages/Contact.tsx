@@ -82,8 +82,8 @@ export default function Contact() {
       icon: Phone,
       title: "Direct Helpline",
       details: [
-        { label: "+91 90922 25481 (Reception)", link: "tel:+919092225481" },
-        { label: "+91 95857 11112 (OP Appointment)", link: "tel:+919585711112" }
+        { label: "+00 00000 00000 (Reception)", link: "tel:+00000000000" },
+        { label: "+91 95857 11112 (OP Appointment)", link: "tel:+910000000000" }
       ],
       color: "bg-teal-50 text-brand-primary"
     },
@@ -91,8 +91,8 @@ export default function Contact() {
       icon: Mail,
       title: "Email Support",
       details: [
-        { label: "hospitalsubam@gmail.com", link: "mailto:hospitalsubam@gmail.com" },
-        { label: "subamsunsrishti@gmail.com", link: "mailto:subamsunsrishti@gmail.com" }
+        { label: "hello@example.com", link: "mailto:hello@example.com" },
+        { label: "hello@example.com", link: "mailto:hello@example.com" }
       ],
       color: "bg-orange-50 text-brand-secondary"
     },
@@ -100,8 +100,8 @@ export default function Contact() {
       icon: MapPin,
       title: "Our Location",
       details: [
-        { label: "Kakapalayam Main Road Opp", link: null },
-        { label: "Elampillai - 637502", link: null }
+        { label: "Example Main Road Opp", link: null },
+        { label: "Example Town - 000000", link: null }
       ],
       color: "bg-purple-50 text-brand-accent"
     }
@@ -110,57 +110,57 @@ export default function Contact() {
   const departmentContacts = [
     {
       name: "Reception & Helpdesk",
-      numbers: ["9092225481"],
+      numbers: ["0000000000"],
       icon: Headphones,
       desc: "For general inquiries, admission process, and visitor information."
     },
     {
       name: "OP Appointment",
-      numbers: ["9092225482", "9585711112"],
+      numbers: ["0000000000", "0000000000"],
       icon: Calendar,
       desc: "Book and schedule outpatient consultations with our medical specialists."
     },
     {
       name: "Scan & Ultrasound",
-      numbers: ["9092225483"],
+      numbers: ["0000000000"],
       icon: Phone,
       desc: "Schedule ultrasound, X-ray, and diagnostic radiology scans.",
       timing: "10:00 AM - 4:00 PM"
     },
     {
       name: "IVF & Fertility Care",
-      numbers: ["9092225486"],
+      numbers: ["0000000000"],
       icon: Baby,
       desc: "Direct contact for fertility treatments, counseling, and IVF support."
     },
     {
       name: "Pediatric OP",
-      numbers: ["9092225489"],
+      numbers: ["0000000000"],
       icon: Baby,
       desc: "Consultations and wellness checkups for infants, children, and teens.",
       timing: "Morning: 9:00 AM - 1:00 PM & Evening: 5:00 PM - 7:00 PM"
     },
     {
       name: "Pharmacy",
-      numbers: ["9092225484"],
+      numbers: ["0000000000"],
       icon: Pill,
       desc: "Inquire about medicine availability, home delivery, or prescription orders."
     },
     {
       name: "Clinical Lab",
-      numbers: ["9092225488"],
+      numbers: ["0000000000"],
       icon: FlaskConical,
       desc: "Check lab test report status, sample collection times, and test list."
     },
     {
       name: "Administrative Office",
-      numbers: ["9092225485"],
+      numbers: ["0000000000"],
       icon: Building,
       desc: "For corporate billing, insurance claims, and administrative matters."
     },
     {
       name: "Management & Digital Marketing",
-      numbers: ["9092225487"],
+      numbers: ["0000000000"],
       icon: TrendingUp,
       desc: "For partnerships, business operations, media queries, and marketing."
     }
@@ -192,11 +192,11 @@ export default function Contact() {
                        <info.icon size={32} />
                     </div>
                     <h3 className="text-2xl mb-4">{info.title}</h3>
-                    {info.details.map((detail, j) => 
+                    {info.details.map((detail, j) =>
                       detail.link ? (
-                        <a 
-                          key={j} 
-                          href={detail.link} 
+                        <a
+                          key={j}
+                          href={detail.link}
                           className="block text-slate-500 hover:text-brand-primary font-medium mb-1 transition-colors"
                         >
                           {detail.label}
@@ -219,8 +219,8 @@ export default function Contact() {
 
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {departmentContacts.map((dept, idx) => (
-                  <div 
-                    key={idx} 
+                  <div
+                    key={idx}
                     className="bg-white rounded-[2rem] p-8 border border-slate-100 hover:border-brand-primary/20 hover:shadow-premium transition-all duration-300 flex flex-col justify-between"
                   >
                     <div>
@@ -238,10 +238,10 @@ export default function Contact() {
                         </div>
                       )}
                     </div>
-                    
+
                     <div className="flex flex-col gap-2 mt-auto">
                       {dept.numbers.map((num) => (
-                        <a 
+                        <a
                           key={num}
                           href={`tel:+91${num}`}
                           className="flex items-center justify-between px-4 py-3 bg-slate-50 hover:bg-brand-primary hover:text-white rounded-2xl transition-all duration-200 group/btn"
@@ -260,7 +260,7 @@ export default function Contact() {
                {/* Form */}
                <div className="lg:col-span-3 bg-slate-50 rounded-2xl sm:rounded-[3rem] lg:rounded-[4rem] p-6 sm:p-10 md:p-16 border border-slate-100">
                   {isSubmitted ? (
-                     <motion.div 
+                     <motion.div
                         initial={{ opacity: 0, scale: 0.95 }}
                         animate={{ opacity: 1, scale: 1 }}
                         className="text-center py-16 px-6"
@@ -272,7 +272,7 @@ export default function Contact() {
                         <p className="text-slate-500 text-lg max-w-md mx-auto mb-10 leading-relaxed">
                            Your inquiry has been submitted successfully. Our team will get back to you within 24 hours.
                         </p>
-                        <button 
+                        <button
                            onClick={() => setIsSubmitted(false)}
                            className="btn-primary px-8 h-14 text-xs font-bold uppercase tracking-widest"
                         >
@@ -291,39 +291,39 @@ export default function Contact() {
                            <div className="grid md:grid-cols-2 gap-8">
                               <div className="space-y-2">
                                  <label className="text-xs font-black text-slate-400 uppercase tracking-widest pl-2">Full Name</label>
-                                 <input 
+                                 <input
                                     value={formData.fullName}
                                     onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
-                                    className={`w-full h-16 bg-white border ${errors.fullName ? 'border-red-500 focus:ring-red-500/20' : 'border-slate-200 focus:ring-brand-primary/20'} rounded-2xl px-6 focus:outline-none focus:ring-2`} 
-                                    placeholder="John Doe" 
+                                    className={`w-full h-16 bg-white border ${errors.fullName ? 'border-red-500 focus:ring-red-500/20' : 'border-slate-200 focus:ring-brand-primary/20'} rounded-2xl px-6 focus:outline-none focus:ring-2`}
+                                    placeholder="John Doe"
                                  />
                                  {errors.fullName && <p className="text-red-500 text-xs mt-1 pl-2 font-medium">{errors.fullName}</p>}
                               </div>
                               <div className="space-y-2">
                                  <label className="text-xs font-black text-slate-400 uppercase tracking-widest pl-2">Phone Number</label>
-                                 <input 
+                                 <input
                                     value={formData.phone}
                                     onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                                    className={`w-full h-16 bg-white border ${errors.phone ? 'border-red-500 focus:ring-red-500/20' : 'border-slate-200 focus:ring-brand-primary/20'} rounded-2xl px-6 focus:outline-none focus:ring-2`} 
-                                    placeholder="+91 00000 00000" 
+                                    className={`w-full h-16 bg-white border ${errors.phone ? 'border-red-500 focus:ring-red-500/20' : 'border-slate-200 focus:ring-brand-primary/20'} rounded-2xl px-6 focus:outline-none focus:ring-2`}
+                                    placeholder="+91 00000 00000"
                                  />
                                  {errors.phone && <p className="text-red-500 text-xs mt-1 pl-2 font-medium">{errors.phone}</p>}
                               </div>
                            </div>
                            <div className="space-y-2">
                               <label className="text-xs font-black text-slate-400 uppercase tracking-widest pl-2">Email Address</label>
-                              <input 
+                              <input
                                  value={formData.email}
                                  onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                                 className={`w-full h-16 bg-white border ${errors.email ? 'border-red-500 focus:ring-red-500/20' : 'border-slate-200 focus:ring-brand-primary/20'} rounded-2xl px-6 focus:outline-none focus:ring-2`} 
-                                 placeholder="john@example.com" 
+                                 className={`w-full h-16 bg-white border ${errors.email ? 'border-red-500 focus:ring-red-500/20' : 'border-slate-200 focus:ring-brand-primary/20'} rounded-2xl px-6 focus:outline-none focus:ring-2`}
+                                 placeholder="john@example.com"
                               />
                               {errors.email && <p className="text-red-500 text-xs mt-1 pl-2 font-medium">{errors.email}</p>}
                            </div>
                            <div className="space-y-2">
                               <label className="text-xs font-black text-slate-400 uppercase tracking-widest pl-2">Your Inquiry</label>
                               <div className="relative">
-                                 <select 
+                                 <select
                                     value={formData.inquiryType}
                                     onChange={(e) => setFormData({ ...formData, inquiryType: e.target.value })}
                                     className="w-full h-16 bg-white border border-slate-200 rounded-2xl px-6 focus:outline-none focus:ring-2 focus:ring-brand-primary/20 appearance-none"
@@ -345,15 +345,15 @@ export default function Contact() {
                            </div>
                            <div className="space-y-2">
                               <label className="text-xs font-black text-slate-400 uppercase tracking-widest pl-2">Detailed Message</label>
-                              <textarea 
+                              <textarea
                                  value={formData.message}
                                  onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                                 className={`w-full h-40 bg-white border ${errors.message ? 'border-red-500 focus:ring-red-500/20' : 'border-slate-200 focus:ring-brand-primary/20'} rounded-3xl p-6 focus:outline-none focus:ring-2 resize-none`} 
-                                 placeholder="Describe your requirement in detail..." 
+                                 className={`w-full h-40 bg-white border ${errors.message ? 'border-red-500 focus:ring-red-500/20' : 'border-slate-200 focus:ring-brand-primary/20'} rounded-3xl p-6 focus:outline-none focus:ring-2 resize-none`}
+                                 placeholder="Describe your requirement in detail..."
                               />
                               {errors.message && <p className="text-red-500 text-xs mt-1 pl-2 font-medium">{errors.message}</p>}
                            </div>
-                           <button 
+                           <button
                               disabled={isSubmitting}
                               className="btn-primary w-full h-16 text-lg flex items-center justify-center gap-3 disabled:opacity-75 cursor-pointer"
                            >
@@ -367,18 +367,18 @@ export default function Contact() {
                {/* Map Placeholder & Trust */}
                <div className="lg:col-span-2 space-y-12">
                   <div className="rounded-[3rem] overflow-hidden shadow-2xl relative aspect-square bg-slate-200">
-                     <iframe 
-                      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3917.464!2d78.0042!3d11.6070!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTHCsDM2JzI1LjIiTiA3OMKwMDAnMTUuMSJF!5e0!3m2!1sen!2sin!4v1716117600000!5m2!1sen!2sin" 
-                      width="100%" 
-                      height="100%" 
-                      style={{ border: 0 }} 
-                      allowFullScreen 
+                     <iframe
+                      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3917.464!2d78.0042!3d11.6070!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTHCsDM2JzI1LjIiTiA3OMKwMDAnMTUuMSJF!5e0!3m2!1sen!2sin!4v1716117600000!5m2!1sen!2sin"
+                      width="100%"
+                      height="100%"
+                      style={{ border: 0 }}
+                      allowFullScreen
                       loading="lazy"
                       title="Contact Location Map"
                     />
-                    <a 
-                       href="https://maps.google.com/?q=11.6070,78.0042" 
-                       target="_blank" 
+                    <a
+                       href="https://maps.google.com/?q=11.6070,78.0042"
+                       target="_blank"
                        rel="noopener noreferrer"
                        className="absolute top-6 left-6 glass-card px-4 py-2 rounded-full text-[10px] font-black uppercase tracking-widest text-brand-dark hover:bg-white transition-colors cursor-pointer z-10"
                     >
@@ -420,9 +420,9 @@ export default function Contact() {
                </div>
                <h2 className="text-3xl sm:text-4xl md:text-7xl mb-6 sm:mb-8 font-display">Medical Emergency?</h2>
                <p className="text-teal-50 text-base sm:text-xl font-bold mb-8 sm:mb-12 max-w-xl mx-auto">Call our 24/7 Trauma response unit for immediate ambulance dispatch and critical care coordination.</p>
-               <a href="tel:+919092225481" className="inline-flex items-center gap-3 sm:gap-6 text-2xl sm:text-4xl md:text-6xl font-black hover:scale-105 transition-transform max-w-full">
+               <a href="tel:+00000000000" className="inline-flex items-center gap-3 sm:gap-6 text-2xl sm:text-4xl md:text-6xl font-black hover:scale-105 transition-transform max-w-full">
                   <Phone className="w-8 h-8 sm:w-12 sm:h-12 md:w-[60px] md:h-[60px] shrink-0" />
-                   <span>+91 90922 25481</span>
+                   <span>+00 00000 00000</span>
                </a>
             </div>
          </div>

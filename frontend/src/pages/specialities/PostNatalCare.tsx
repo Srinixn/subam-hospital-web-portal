@@ -27,7 +27,7 @@ export default function PostNatalCare() {
       <div className="container-custom">
         {/* Hero Section */}
         <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center mb-24">
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, x: -30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
@@ -37,7 +37,7 @@ export default function PostNatalCare() {
               Postnatal <br /><span className="text-brand-primary italic">Care.</span>
             </h1>
             <p className="text-lg text-slate-500 font-medium leading-relaxed mb-6">
-              Postnatal care refers to the medical and emotional care provided to a mother and her newborn baby immediately after delivery and during the recovery period. At Subam Hospital, our Postnatal Care services are designed to ensure a safe recovery for the mother and healthy development for the newborn.
+              Postnatal care refers to the medical and emotional care provided to a mother and her newborn baby immediately after delivery and during the recovery period. At Demo Hospital, our Postnatal Care services are designed to ensure a safe recovery for the mother and healthy development for the newborn.
             </p>
             <p className="text-base text-slate-500 font-medium leading-relaxed mb-8 border-l-4 border-brand-primary/30 pl-4 italic">
               The postnatal period is a crucial stage where both mother and baby need continuous monitoring, guidance, and support. Our experienced medical team provides comprehensive care to help mothers recover comfortably and to ensure proper newborn adaptation to life outside the womb.
@@ -50,19 +50,19 @@ export default function PostNatalCare() {
           </motion.div>
 
           <div className="relative">
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.8, delay: 0.2 }}
               className="aspect-[4/3] sm:aspect-[4/5] rounded-3xl lg:rounded-[3.5rem] overflow-hidden shadow-premium border-8 border-white bg-slate-100"
             >
-              <img 
-                src="https://images.unsplash.com/photo-1544126592-807daa215a05?auto=format&fit=crop&q=80&w=1200" 
+              <img
+                src="https://images.unsplash.com/photo-1544126592-807daa215a05?auto=format&fit=crop&q=80&w=1200"
                 alt="Postnatal Care and Recovery"
                 className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
               />
             </motion.div>
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
@@ -105,7 +105,7 @@ export default function PostNatalCare() {
         </section>
 
         {/* Info Banner Section */}
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -121,7 +121,7 @@ export default function PostNatalCare() {
             </div>
             <h2 className="text-3xl md:text-4xl font-display mb-6 leading-tight">Transition into Motherhood Safely, Healthy, and Comfortably</h2>
             <p className="text-lg text-slate-500 mb-10 leading-relaxed">
-              At Subam Hospital, we focus on providing gentle, compassionate, and continuous care during the postnatal period. Our goal is to support mothers in regaining strength, building confidence in newborn care, and ensuring the overall well-being of both mother and baby. We are committed to making the transition into motherhood safe, healthy, and comfortable through expert medical supervision and personalized care.
+              At Demo Hospital, we focus on providing gentle, compassionate, and continuous care during the postnatal period. Our goal is to support mothers in regaining strength, building confidence in newborn care, and ensuring the overall well-being of both mother and baby. We are committed to making the transition into motherhood safe, healthy, and comfortable through expert medical supervision and personalized care.
             </p>
             <Link to="/contact" className="btn-primary inline-flex h-14 px-10 text-base">
               <span>Connect with Postnatal Team</span>

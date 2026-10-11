@@ -15,9 +15,9 @@ import ArticleDetail from './pages/ArticleDetail';
 import Careers from './pages/Careers';
 import OurNetwork from './pages/OurNetwork';
 import Management from './pages/Management';
-import SunsrishtiMultispecialityHospital from './pages/hospitals/SunsrishtiMultispecialityHospital';
-import SunsrishtiFertilityCenter from './pages/hospitals/SunsrishtiFertilityCenter';
-import SubamHospital from './pages/hospitals/SubamHospital';
+import ExampleMultispecialityHospital from './pages/hospitals/ExampleMultispecialityHospital';
+import ExampleFertilityCenter from './pages/hospitals/ExampleFertilityCenter';
+import DemoHospital from './pages/hospitals/DemoHospital';
 import Obstetrics from './pages/specialities/Obstetrics';
 import Gynecology from './pages/specialities/Gynecology';
 import Radiology from './pages/specialities/Radiology';
@@ -36,41 +36,41 @@ import TicketView from './pages/TicketView';
 
 /* ── Page title map for SEO ── */
 const PAGE_TITLES: Record<string, string> = {
-  '/': 'Subam Hospital | Best Maternity & Women\'s Hospital in Salem, Tamil Nadu',
-  '/services': 'Our Specialities — Obstetrics, Gynaecology, Paediatrics | Subam Hospital',
-  '/doctors': 'Our Medical Team — Expert Doctors & Specialists | Subam Hospital Salem',
-  '/about': 'About Subam Hospital — 12+ Years of Trusted Healthcare in Salem',
-  '/management': 'Management Team — Dr. K. Raj & Dr. Selvi Raju | Subam Hospital',
-  '/contact': 'Contact Us — Book Consultation, Emergency Helpline | Subam Hospital',
-  '/feedback': 'Patient Feedback — Share Your Experience | Subam Hospital Salem',
-  '/facilities': 'Hospital Facilities — Modern ICU, OT, NICU | Subam Hospital',
-  '/success-stories': 'Patient Success Stories & Testimonials | Subam Hospital Salem',
-  '/gallery': 'Hospital Gallery — Images & Infrastructure | Subam Hospital',
-  '/videos': 'Video Guides — Health Education & Hospital Tours | Subam Hospital',
-  '/articles': 'Medical Articles — Expert Health Insights | Subam Hospital',
-  '/blogs': 'Health Blogs — Pregnancy, Fertility & Wellness Resources | Subam Hospital',
-  '/journals': 'Medical Journals — Clinical Research & Publications | Subam Hospital',
-  '/careers': 'Careers — Join Our Healthcare Team | Subam Hospital Salem',
-  '/our-network': 'Our Network — Subam & Sunsrishti Healthcare Institutions | Salem',
-  '/subam-hospital': 'Subam Hospital — Women\'s & Pregnancy Care Center | Salem',
-  '/sunsrishti-fertility-center': 'Sunsrishti Fertility Center — IVF & Reproductive Medicine | Salem',
-  '/sunsrishti-multispeciality-hospital': 'Sunsrishti Multispeciality Hospital — General & Speciality Care | Salem',
-  '/specialities/obstetrics': 'Obstetrics Department — Pregnancy & Delivery Care | Subam Hospital',
-  '/specialities/gynecology': 'Gynaecology Department — Women\'s Health Services | Subam Hospital',
-  '/specialities/radiology': 'Radiology Department — Diagnostic Imaging Services | Subam Hospital',
-  '/specialities/pediatrics': 'Paediatrics Department — Child Healthcare | Subam Hospital',
-  '/specialities/newborn-care': 'Newborn Care & Level III NICU | Subam Hospital Salem',
-  '/specialities/fertility': 'Fertility Care & IVF Treatment | Sunsrishti Fertility Center',
-  '/specialities/pregnancy-care': 'Antenatal (Pregnancy) Care Program | Subam Hospital',
-  '/specialities/post-natal': 'Postnatal Care — Postpartum Recovery Support | Subam Hospital',
+  '/': 'Demo Hospital | Best Maternity & Women\'s Hospital in Example City, Example State',
+  '/services': 'Our Specialities — Obstetrics, Gynaecology, Paediatrics | Demo Hospital',
+  '/doctors': 'Our Medical Team — Expert Doctors & Specialists | Demo Hospital Example City',
+  '/about': 'About Demo Hospital — 12+ Years of Trusted Healthcare in Example City',
+  '/management': 'Management Team — Dr. A. Example & Dr. A. Example | Demo Hospital',
+  '/contact': 'Contact Us — Book Consultation, Emergency Helpline | Demo Hospital',
+  '/feedback': 'Patient Feedback — Share Your Experience | Demo Hospital Example City',
+  '/facilities': 'Hospital Facilities — Modern ICU, OT, NICU | Demo Hospital',
+  '/success-stories': 'Patient Success Stories & Testimonials | Demo Hospital Example City',
+  '/gallery': 'Hospital Gallery — Images & Infrastructure | Demo Hospital',
+  '/videos': 'Video Guides — Health Education & Hospital Tours | Demo Hospital',
+  '/articles': 'Medical Articles — Expert Health Insights | Demo Hospital',
+  '/blogs': 'Health Blogs — Pregnancy, Fertility & Wellness Resources | Demo Hospital',
+  '/journals': 'Medical Journals — Clinical Research & Publications | Demo Hospital',
+  '/careers': 'Careers — Join Our Healthcare Team | Demo Hospital Example City',
+  '/our-network': 'Our Network — Demo & Example Healthcare Institutions | Example City',
+  '/demo-hospital': 'Demo Hospital — Women\'s & Pregnancy Care Center | Example City',
+  '/example-fertility-center': 'Example Fertility Center — IVF & Reproductive Medicine | Example City',
+  '/example-multispeciality-hospital': 'Example Multispeciality Hospital — General & Speciality Care | Example City',
+  '/specialities/obstetrics': 'Obstetrics Department — Pregnancy & Delivery Care | Demo Hospital',
+  '/specialities/gynecology': 'Gynaecology Department — Women\'s Health Services | Demo Hospital',
+  '/specialities/radiology': 'Radiology Department — Diagnostic Imaging Services | Demo Hospital',
+  '/specialities/pediatrics': 'Paediatrics Department — Child Healthcare | Demo Hospital',
+  '/specialities/newborn-care': 'Newborn Care & Level III NICU | Demo Hospital Example City',
+  '/specialities/fertility': 'Fertility Care & IVF Treatment | Example Fertility Center',
+  '/specialities/pregnancy-care': 'Antenatal (Pregnancy) Care Program | Demo Hospital',
+  '/specialities/post-natal': 'Postnatal Care — Postpartum Recovery Support | Demo Hospital',
 };
 
 const PAGE_DESCRIPTIONS: Record<string, string> = {
-  '/': 'Subam Hospital, Salem — Leading maternity & women\'s hospital with 25,000+ deliveries, Level III NICU, IVF centre, and 24/7 emergency care. Trusted by families across Tamil Nadu.',
-  '/services': 'Explore our 8 specialities: Obstetrics, Gynaecology, Paediatrics, Radiology, Fertility Care, Newborn Care, Antenatal and Postnatal Care at Subam Hospital, Salem.',
-  '/doctors': 'Meet our team of 20+ specialist doctors across 13 departments including Obstetrics, General Surgery, Cardiology, Orthopaedics, and more at Subam Hospital, Salem.',
-  '/about': 'Learn about Subam Hospital\'s journey from a small clinic in 2013 to Salem\'s trusted multi-specialty healthcare institution with 50+ beds and advanced facilities.',
-  '/contact': 'Contact Subam Hospital Salem — Call +91 90922 25481 for appointments, emergencies, and enquiries. Located at Kakapalayam Main Road, Elampillai, Salem 637502.',
+  '/': 'Demo Hospital, Example City — Leading maternity & women\'s hospital with 25,000+ deliveries, Level III NICU, IVF centre, and 24/7 emergency care. Trusted by families across Example State.',
+  '/services': 'Explore our 8 specialities: Obstetrics, Gynaecology, Paediatrics, Radiology, Fertility Care, Newborn Care, Antenatal and Postnatal Care at Demo Hospital, Example City.',
+  '/doctors': 'Meet our team of 20+ specialist doctors across 13 departments including Obstetrics, General Surgery, Cardiology, Orthopaedics, and more at Demo Hospital, Example City.',
+  '/about': 'Learn about Demo Hospital\'s journey from a small clinic in 2013 to Example City\'s trusted multi-specialty healthcare institution with 50+ beds and advanced facilities.',
+  '/contact': 'Contact Demo Hospital Example City — Call +00 00000 00000 for appointments, emergencies, and enquiries. Located at Example Main Road, Example Town, Example City 000000.',
 };
 
 function ScrollToTop() {
@@ -85,7 +85,7 @@ function ScrollToTop() {
 function PageMeta() {
   const { pathname } = useLocation();
   useEffect(() => {
-    const title = PAGE_TITLES[pathname] || 'Subam Hospital | Best Maternity Hospital in Salem';
+    const title = PAGE_TITLES[pathname] || 'Demo Hospital | Best Maternity Hospital in Example City';
     document.title = title;
 
     const desc = PAGE_DESCRIPTIONS[pathname];
@@ -119,7 +119,7 @@ export default function App() {
       <PageMeta />
       <div className="min-h-screen">
         <Header />
-        
+
         <main>
           <Routes>
             <Route path="/" element={<Home />} />
@@ -148,9 +148,9 @@ export default function App() {
             <Route path="/journals" element={<MedicalJournals />} />
             <Route path="/careers" element={<Careers />} />
             <Route path="/our-network" element={<OurNetwork />} />
-            <Route path="/sunsrishti-multispeciality-hospital" element={<SunsrishtiMultispecialityHospital />} />
-            <Route path="/sunsrishti-fertility-center" element={<SunsrishtiFertilityCenter />} />
-            <Route path="/subam-hospital" element={<SubamHospital />} />
+            <Route path="/example-multispeciality-hospital" element={<ExampleMultispecialityHospital />} />
+            <Route path="/example-fertility-center" element={<ExampleFertilityCenter />} />
+            <Route path="/demo-hospital" element={<DemoHospital />} />
             <Route path="/ticket-view" element={<TicketView />} />
             <Route path="*" element={
               <div className="pt-32 pb-24 text-center container-custom min-h-[60vh] flex flex-col items-center justify-center">
@@ -161,14 +161,14 @@ export default function App() {
             } />
           </Routes>
         </main>
-        
+
         <Footer />
 
         {/* Chatbot Widget — available on all pages */}
         <ChatWidget />
 
         {/* Floating Scroll-to-Top — only visible after scrolling */}
-        <button 
+        <button
           onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
           className={`fixed right-4 bottom-4 sm:right-6 sm:bottom-6 w-11 h-11 sm:w-14 sm:h-14 bg-white text-slate-800 rounded-full shadow-xl flex items-center justify-center hover:scale-110 active:scale-95 transition-all duration-300 z-40 border border-slate-100 cursor-pointer ${
             showScrollTop ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4 pointer-events-none'

@@ -162,7 +162,7 @@ async function processWithAI(message: string): Promise<ChatResponse> {
     .map((d, i) => `[Source ${i + 1}: ${d.item.title}]\n${d.item.content}`)
     .join('\n\n---\n\n');
 
-  const systemPrompt = `You are a helpful hospital information assistant for Subam Hospital, Salem, Tamil Nadu.
+  const systemPrompt = `You are a helpful hospital information assistant for Demo Hospital, Example City, Example State.
 You ONLY provide general hospital information based on the context provided below.
 You do NOT provide medical advice, diagnoses, prescriptions, or treatment recommendations.
 Keep responses concise (2-4 sentences), professional, and friendly.
@@ -227,7 +227,7 @@ export async function keywordSearch(message: string): Promise<ChatResponse> {
     const titleLower = doc.title.toLowerCase();
     const contentLower = doc.content.toLowerCase();
     const tagsLower = (doc.tags || '').toLowerCase();
-    
+
     let score = 0;
     for (const word of queryWords) {
       let wordScore = 0;
@@ -242,7 +242,7 @@ export async function keywordSearch(message: string): Promise<ChatResponse> {
       }
       score += wordScore;
     }
-    
+
     // Normalize score against max possible score for this query (weight 5.0 per query word)
     const normalizedScore = score / (5.0 * queryWords.length);
     return { doc, score: normalizedScore };

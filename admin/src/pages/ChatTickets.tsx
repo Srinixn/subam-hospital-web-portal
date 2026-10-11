@@ -1,6 +1,6 @@
 /**
  * ChatTickets.tsx — Admin dashboard for chatbot ticket management
- * 
+ *
  * Features:
  * - Paginated data table with status badges
  * - Filters: status, department, search

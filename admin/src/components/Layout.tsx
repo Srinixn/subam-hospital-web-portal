@@ -35,7 +35,7 @@ export default function Layout() {
     <div className="min-h-screen flex bg-slate-50">
       {/* Mobile Sidebar Overlay */}
       {sidebarOpen && (
-        <div 
+        <div
           className="fixed inset-0 bg-slate-800/50 z-40 lg:hidden"
           onClick={() => setSidebarOpen(false)}
         />
@@ -44,9 +44,9 @@ export default function Layout() {
       {/* Sidebar */}
       <aside className={`fixed inset-y-0 left-0 z-50 w-64 bg-white border-r border-slate-200 transform transition-transform duration-300 lg:translate-x-0 lg:static lg:w-72 flex flex-col ${sidebarOpen ? 'translate-x-0' : '-translate-x-full'}`}>
         <div className="h-20 flex items-center px-8 border-b border-slate-100">
-          <img 
-            src="https://srinixnm.github.io/hospital-access/subam.png" 
-            alt="Subam Hospital" 
+          <img
+            src="https://placehold.co/320x100?text=Demo+Hospital"
+            alt="Demo Hospital"
             className="h-10 w-auto object-contain"
           />
         </div>
@@ -64,8 +64,8 @@ export default function Layout() {
                 to={item.path}
                 onClick={() => setSidebarOpen(false)}
                 className={`flex items-center gap-3 px-4 py-3 rounded-xl font-medium transition-colors ${
-                  isActive 
-                    ? 'bg-brand-primary text-white shadow-sm' 
+                  isActive
+                    ? 'bg-brand-primary text-white shadow-sm'
                     : 'text-slate-600 hover:bg-slate-50 hover:text-brand-primary'
                 }`}
               >
@@ -86,7 +86,7 @@ export default function Layout() {
               <p className="text-xs text-slate-500 truncate">{user.email}</p>
             </div>
           </div>
-          <button 
+          <button
             onClick={logout}
             className="w-full flex items-center gap-3 px-4 py-3 text-red-600 hover:bg-red-50 rounded-xl font-medium transition-colors"
           >
@@ -101,7 +101,7 @@ export default function Layout() {
         {/* Top Header */}
         <header className="h-20 bg-white border-b border-slate-200 flex items-center justify-between px-6 lg:px-10 shrink-0">
           <div className="flex items-center gap-4">
-            <button 
+            <button
               onClick={() => setSidebarOpen(true)}
               className="p-2 text-slate-500 hover:text-slate-800 lg:hidden"
             >

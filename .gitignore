@@ -26,6 +26,11 @@ admin/.env
 admin/.env.local
 backend/.env
 backend/.env.local
+backend/.env copy
+
+# User-submitted files (never commit client or patient uploads)
+backend/uploads/tickets/*
+!backend/uploads/tickets/.gitkeep
 
 # ─────────────────────────────────────────────
 #  Logs

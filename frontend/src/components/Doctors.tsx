@@ -8,14 +8,14 @@ export default function Doctors() {
       <div className="container-custom">
         <div className="flex flex-col sm:flex-row justify-between items-start sm:items-end mb-10 sm:mb-16 gap-4 sm:gap-6">
           <div className="max-w-2xl">
-            <motion.span 
+            <motion.span
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               className="text-brand-secondary font-bold tracking-widest text-xs sm:text-sm uppercase"
             >
               Expert Team
             </motion.span>
-            <motion.h2 
+            <motion.h2
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               className="text-2xl sm:text-4xl md:text-5xl mt-2 sm:mt-4"
@@ -23,7 +23,7 @@ export default function Doctors() {
               Meet our world-class medical specialists
             </motion.h2>
           </div>
-          <motion.button 
+          <motion.button
             whileHover={{ x: 5 }}
             className="flex items-center gap-2 text-brand-primary font-bold transition-all text-sm sm:text-base cursor-pointer"
           >
@@ -44,9 +44,9 @@ export default function Doctors() {
             >
               <div className="relative group shrink-0">
                 <div className="w-full sm:w-48 h-64 rounded-2xl overflow-hidden">
-                  <img 
-                    src={doctor.image} 
-                    alt={doctor.name} 
+                  <img
+                    src={doctor.image}
+                    alt={doctor.name}
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                   />
                 </div>
@@ -65,7 +65,7 @@ export default function Doctors() {
                   <p className="text-slate-500 text-xs sm:text-sm mb-4 leading-relaxed line-clamp-2">
                     Highly experienced in {doctor.specialty.toLowerCase()} with a focus on patient-centered surgical outcomes.
                   </p>
-                  
+
                   <div className="flex flex-wrap gap-y-3 gap-x-6">
                     <div className="flex flex-col">
                       <span className="text-[10px] font-bold text-slate-400 uppercase">Education</span>

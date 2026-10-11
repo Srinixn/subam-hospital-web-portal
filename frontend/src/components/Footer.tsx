@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
-  
+
   return (
     <footer className="bg-slate-900 pt-16 md:pt-24 pb-8 md:pb-12 text-slate-400">
       <div className="container-custom">
@@ -11,9 +11,9 @@ export default function Footer() {
           <div className="space-y-6">
             <Link to="/" className="flex items-center gap-2">
               <div className="h-8 transition-transform hover:scale-105">
-                <img 
-                  src="https://srinixnm.github.io/hospital-access/subam.png" 
-                  alt="Subam Hospital Logo" 
+                <img
+                  src="https://placehold.co/320x100?text=Demo+Hospital"
+                  alt="Demo Hospital Logo"
                   className="h-full w-auto object-contain brightness-0 invert opacity-80"
                   referrerPolicy="no-referrer"
                 />
@@ -24,14 +24,14 @@ export default function Footer() {
             </p>
             <div className="flex gap-4">
               {[
-                { Icon: Facebook, href: "https://www.facebook.com/subamhospital", label: "Facebook" },
-                { Icon: Instagram, href: "https://www.instagram.com/subamhospital", label: "Instagram" },
-                { Icon: Youtube, href: "https://www.youtube.com/@subamhospital", label: "YouTube" },
-                { Icon: Linkedin, href: "https://www.linkedin.com/company/subamhospital", label: "LinkedIn" },
+                { Icon: Facebook, href: "https://www.facebook.com/examplehospital", label: "Facebook" },
+                { Icon: Instagram, href: "https://www.instagram.com/examplehospital", label: "Instagram" },
+                { Icon: Youtube, href: "https://www.youtube.com/@examplehospital", label: "YouTube" },
+                { Icon: Linkedin, href: "https://www.linkedin.com/company/examplehospital", label: "LinkedIn" },
               ].map(({ Icon, href, label }) => (
-                <a 
-                  key={label} 
-                  href={href} 
+                <a
+                  key={label}
+                  href={href}
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={`Follow us on ${label}`}
@@ -83,15 +83,15 @@ export default function Footer() {
             <ul className="space-y-5 text-sm font-medium">
               <li className="flex items-start gap-4">
                 <MapPin size={18} className="text-brand-primary shrink-0" />
-                <span className="leading-relaxed">Magudanchavadi - Elampillai Rd, Elampillai, Salem, Tamil Nadu 637502</span>
+                <span className="leading-relaxed">Magudanchavadi - Example Town Rd, Example Town, Example City, Example State 000000</span>
               </li>
               <li className="flex items-center gap-4">
                 <Phone size={18} className="text-brand-primary shrink-0" />
-                <a href="tel:+919092225481" className="hover:text-brand-primary transition-colors">+91 90922 25481</a>
+                <a href="tel:+00000000000" className="hover:text-brand-primary transition-colors">+00 00000 00000</a>
               </li>
               <li className="flex items-center gap-4">
                 <Mail size={18} className="text-brand-primary shrink-0" />
-                <a href="mailto:hospitalsubam@gmail.com" className="hover:text-brand-primary transition-colors">hospitalsubam@gmail.com</a>
+                <a href="mailto:hello@example.com" className="hover:text-brand-primary transition-colors">hello@example.com</a>
               </li>
             </ul>
           </div>
@@ -99,10 +99,10 @@ export default function Footer() {
 
         <div className="border-t border-slate-800 pt-8 flex flex-col items-center gap-4 md:flex-row md:justify-between md:gap-6">
           <p className="text-xs tracking-wider">
-            © {currentYear} Subam Hospital. All Rights Reserved.
+            © {currentYear} Demo Hospital. All Rights Reserved.
           </p>
           <p className="text-[10px] flex items-center gap-1">
-            Made with <Heart size={12} className="text-brand-primary" /> in Salem
+            Made with <Heart size={12} className="text-brand-primary" /> in Example City
           </p>
         </div>
       </div>

@@ -27,7 +27,7 @@ export class JobService {
     title: string;
     description: string;
     requirements: string;
-    location: 'Sun Srishti Speciality Hospital' | 'Sunsrishti Fertility Center' | 'Subam Hospital';
+    location: 'Sun Srishti Speciality Hospital' | 'Example Fertility Center' | 'Demo Hospital';
     employmentType: 'Full-time' | 'Part-time' | 'Contract';
     status: 'Draft' | 'Published' | 'Closed';
     linkedinJobUrl: string;
@@ -47,7 +47,7 @@ export class JobService {
 
   async updateJob(id: number, data: Partial<Omit<Job, 'id' | 'createdAt' | 'updatedAt' | 'slug'>>): Promise<boolean> {
     let slug: string | undefined = undefined;
-    
+
     if (data.title) {
        slug = generateSlug(data.title);
        let count = 1;

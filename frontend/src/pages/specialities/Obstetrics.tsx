@@ -26,7 +26,7 @@ export default function Obstetrics() {
       <div className="container-custom">
         {/* Hero Section */}
         <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center mb-24">
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, x: -30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
@@ -46,19 +46,19 @@ export default function Obstetrics() {
           </motion.div>
 
           <div className="relative">
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.8, delay: 0.2 }}
               className="aspect-[4/3] sm:aspect-[4/5] rounded-3xl lg:rounded-[3.5rem] overflow-hidden shadow-premium border-8 border-white bg-slate-100"
             >
-              <img 
-                src="https://images.unsplash.com/photo-1531983412531-1f49a365ffed?auto=format&fit=crop&q=80&w=1200" 
+              <img
+                src="https://images.unsplash.com/photo-1531983412531-1f49a365ffed?auto=format&fit=crop&q=80&w=1200"
                 alt="Obstetrics and Maternity Care"
                 className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
               />
             </motion.div>
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
@@ -101,7 +101,7 @@ export default function Obstetrics() {
         </section>
 
         {/* Info Banner Section */}
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -117,7 +117,7 @@ export default function Obstetrics() {
             </div>
             <h2 className="text-3xl md:text-4xl font-display mb-6 leading-tight">Advanced Facilities and Compassionate Maternity Care</h2>
             <p className="text-lg text-slate-500 mb-10 leading-relaxed">
-              With modern labour rooms, fully equipped operation theatres, advanced diagnostic facilities, and 24/7 emergency support, Subam Hospital strives to provide safe, comprehensive, and high-quality maternity care for every mother and newborn. Our goal is to support women through their pregnancy journey with expert medical care, comfort, and confidence, ensuring the best possible outcomes for both mother and child.
+              With modern labour rooms, fully equipped operation theatres, advanced diagnostic facilities, and 24/7 emergency support, Demo Hospital strives to provide safe, comprehensive, and high-quality maternity care for every mother and newborn. Our goal is to support women through their pregnancy journey with expert medical care, comfort, and confidence, ensuring the best possible outcomes for both mother and child.
             </p>
             <Link to="/contact" className="btn-primary inline-flex h-14 px-10 text-base">
               <span>Consult an Obstetrician</span>

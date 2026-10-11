@@ -48,7 +48,7 @@ export default function Feedbacks() {
   const toggleReadStatus = async (id: number, currentStatus: boolean) => {
     try {
       setFeedbacks(feedbacks.map(f => f.id === id ? { ...f, isRead: !currentStatus } : f));
-      
+
       await fetchApi(`admin/feedbacks/${id}/read`, {
         method: 'PATCH',
         body: JSON.stringify({ isRead: !currentStatus })
@@ -63,10 +63,10 @@ export default function Feedbacks() {
     return (
       <div className="flex gap-1">
         {[1, 2, 3, 4, 5].map((star) => (
-          <Star 
-            key={star} 
-            size={14} 
-            className={star <= rating ? 'fill-amber-400 text-amber-400' : 'text-slate-200'} 
+          <Star
+            key={star}
+            size={14}
+            className={star <= rating ? 'fill-amber-400 text-amber-400' : 'text-slate-200'}
           />
         ))}
       </div>
@@ -80,9 +80,9 @@ export default function Feedbacks() {
           <h1 className="text-2xl font-bold text-slate-800">Patient Feedback</h1>
           <p className="text-sm text-slate-500">Manage patient reviews and suggestions.</p>
         </div>
-        
+
         <div className="flex flex-col sm:flex-row gap-4 w-full md:w-auto">
-          <select 
+          <select
             value={filterRating}
             onChange={(e) => { setFilterRating(e.target.value); setPage(1); }}
             className="h-10 bg-white border border-slate-200 rounded-lg px-4 text-sm font-medium focus:outline-none focus:ring-2 focus:ring-brand-primary/20 focus:border-brand-primary"
@@ -94,7 +94,7 @@ export default function Feedbacks() {
             <option value="2">2 Stars</option>
             <option value="1">1 Star</option>
           </select>
-          <select 
+          <select
             value={filterRead}
             onChange={(e) => { setFilterRead(e.target.value); setPage(1); }}
             className="h-10 bg-white border border-slate-200 rounded-lg px-4 text-sm font-medium focus:outline-none focus:ring-2 focus:ring-brand-primary/20 focus:border-brand-primary"
@@ -136,7 +136,7 @@ export default function Feedbacks() {
                 feedbacks.map((feedback) => (
                   <tr key={feedback.id} className={`hover:bg-slate-50 transition-colors ${!feedback.isRead ? 'bg-brand-primary/5' : ''}`}>
                     <td className="px-6 py-4">
-                      <button 
+                      <button
                         onClick={() => toggleReadStatus(feedback.id, feedback.isRead)}
                         className={`p-1 rounded-full transition-colors ${feedback.isRead ? 'text-slate-400 hover:text-slate-600' : 'text-brand-primary hover:text-teal-800'}`}
                         title={feedback.isRead ? "Mark as unread" : "Mark as read"}
@@ -173,7 +173,7 @@ export default function Feedbacks() {
             </tbody>
           </table>
         </div>
-        
+
         {/* Pagination */}
         {!loading && totalPages > 1 && (
           <div className="px-6 py-4 border-t border-slate-200 flex items-center justify-between bg-slate-50">
@@ -181,14 +181,14 @@ export default function Feedbacks() {
               Page <span className="font-bold text-slate-800">{page}</span> of <span className="font-bold text-slate-800">{totalPages}</span>
             </span>
             <div className="flex gap-2">
-              <button 
+              <button
                 onClick={() => setPage(p => Math.max(1, p - 1))}
                 disabled={page === 1}
                 className="p-2 rounded-lg border border-slate-200 bg-white text-slate-500 hover:bg-slate-50 hover:text-slate-800 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
               >
                 <ChevronLeft size={18} />
               </button>
-              <button 
+              <button
                 onClick={() => setPage(p => Math.min(totalPages, p + 1))}
                 disabled={page === totalPages}
                 className="p-2 rounded-lg border border-slate-200 bg-white text-slate-500 hover:bg-slate-50 hover:text-slate-800 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"

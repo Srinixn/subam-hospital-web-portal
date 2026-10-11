@@ -20,9 +20,9 @@ export default function Management() {
   const rajuExperience = [
     {
       role: "Founder & Director / Consultant Surgeon",
-      hospital: "Subam Multispeciality Hospital",
+      hospital: "Demo Multispeciality Hospital",
       period: "2015 – Present",
-      description: "Co-established Subam Multispeciality Hospital. Introduced state-of-the-art general surgery, trauma units, and laparoscopic surgical services."
+      description: "Co-established Demo Multispeciality Hospital. Introduced state-of-the-art general surgery, trauma units, and laparoscopic surgical services."
     },
     {
       role: "Consultant General Surgeon",
@@ -72,12 +72,12 @@ export default function Management() {
   const milestones = [
     {
       year: "2025",
-      title: "Sunsrishti Fertility Centre (Salem)",
-      desc: "Established a dedicated, state-of-the-art IVF and fertility care block within Subam Hospital to provide complete embryology and reproductive treatments under one roof."
+      title: "Example Fertility Centre (Example City)",
+      desc: "Established a dedicated, state-of-the-art IVF and fertility care block within Demo Hospital to provide complete embryology and reproductive treatments under one roof."
     },
     {
       year: "2024",
-      title: "Sunsrishti Speciality Hospital",
+      title: "Example Speciality Hospital",
       desc: "Expanded community services with a specialized wing offering modern ICU care, advanced trauma resuscitation, and advanced laparoscopic surgical procedures."
     },
     {
@@ -87,21 +87,21 @@ export default function Management() {
     },
     {
       year: "2015",
-      title: "Subam Multispeciality Hospital",
+      title: "Demo Multispeciality Hospital",
       desc: "Expanded the original maternity clinical setup into a 20-bedded women's care hospital, developing a dedicated surgical and obstetric infrastructure."
     }
   ];
 
   return (
     <div className="min-h-screen bg-slate-50/40 pt-24 pb-16 sm:pb-24">
-      
+
       {/* ──────────────────────────────────────────────────────
           HERO HEADER
           ────────────────────────────────────────────────────── */}
       <section className="relative py-16 sm:py-24 overflow-hidden bg-brand-dark text-white rounded-b-[2rem] sm:rounded-b-[3.5rem] shadow-lg">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_30%,rgba(13,148,136,0.12),transparent)]" />
         <div className="absolute top-0 right-0 w-1/3 h-full bg-brand-primary/5 -skew-x-12 translate-x-1/4 pointer-events-none" />
-        
+
         <div className="container-custom relative z-10 text-center max-w-3xl">
           <motion.div
             initial={{ opacity: 0, y: 15 }}
@@ -115,7 +115,7 @@ export default function Management() {
               Clinical Excellence & <span className="italic text-brand-primary">Medical Governance</span>
             </h1>
             <p className="text-slate-300 text-sm sm:text-base md:text-lg leading-relaxed max-w-2xl mx-auto font-medium">
-              Subam Hospital is guided by pioneering medical directors whose clinical competence, academic qualifications, and ethical values shape our standard of care.
+              Demo Hospital is guided by pioneering medical directors whose clinical competence, academic qualifications, and ethical values shape our standard of care.
             </p>
           </motion.div>
         </div>
@@ -132,7 +132,7 @@ export default function Management() {
             viewport={{ once: true }}
             className="text-base sm:text-lg md:text-xl text-slate-600 leading-relaxed font-medium"
           >
-            Our governance framework focuses on delivering safe, accessible, and ethical medical care. By coordinating advanced surgical capabilities with specialized maternal-infant services, our directors ensure Subam Hospital operates at the forefront of healthcare standards.
+            Our governance framework focuses on delivering safe, accessible, and ethical medical care. By coordinating advanced surgical capabilities with specialized maternal-infant services, our directors ensure Demo Hospital operates at the forefront of healthcare standards.
           </motion.p>
         </div>
       </section>
@@ -142,8 +142,8 @@ export default function Management() {
           ────────────────────────────────────────────────────── */}
       <section className="container-custom py-12 border-t border-slate-200/60">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
-          
-          {/* Dr. Raju Card */}
+
+          {/* Dr. A. Example */}
           <div className="lg:col-span-5 lg:sticky lg:top-32 space-y-6">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -152,18 +152,18 @@ export default function Management() {
               className="bg-white rounded-3xl border border-slate-100 shadow-premium p-4"
             >
               <div className="aspect-[3/4] rounded-2xl overflow-hidden bg-slate-100 mb-6 relative">
-                <img 
-                  src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&q=80&w=800" 
-                  alt="Dr. Raju"
+                <img
+                  src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&q=80&w=800"
+                  alt="Dr. A. Example"
                   className="w-full h-full object-cover object-top"
                 />
                 <div className="absolute top-4 right-4 bg-brand-primary/90 text-white text-[9px] font-bold uppercase tracking-widest px-3 py-1.5 rounded-lg shadow-sm">
                   Founder & Director
                 </div>
               </div>
-              
+
               <div className="px-3 pb-4">
-                <h2 className="text-3xl font-display text-brand-dark mb-1">Dr. Raju</h2>
+                <h2 className="text-3xl font-display text-brand-dark mb-1">Dr. A. Example</h2>
                 <p className="text-brand-primary font-bold uppercase tracking-widest text-[10px] mb-4">
                   General & Laparoscopic Surgeon
                 </p>
@@ -193,7 +193,7 @@ export default function Management() {
             </motion.blockquote>
           </div>
 
-          {/* Dr. Raju Academic Credentials */}
+          {/* Dr. A. Example */}
           <div className="lg:col-span-7 space-y-12">
             <motion.div
               initial={{ opacity: 0, x: 20 }}
@@ -205,7 +205,7 @@ export default function Management() {
                 Clinical Biography
               </h3>
               <p className="text-slate-600 text-sm sm:text-base leading-relaxed font-medium">
-                Dr. Raju leads the general surgery and laparoscopy divisions at Subam Hospital. With an outstanding academic record as a medical gold medalist, he is dedicated to expanding advanced minimal access surgical procedures within Salem, ensuring shorter recovery times and clinical safety for patients.
+                Dr. A. Example leads the general surgery and laparoscopy divisions at Demo Hospital. With an outstanding academic record as a medical gold medalist, he is dedicated to expanding advanced minimal access surgical procedures within Example City, ensuring shorter recovery times and clinical safety for patients.
               </p>
             </motion.div>
 
@@ -243,7 +243,7 @@ export default function Management() {
                   <Shield size={20} className="text-brand-primary" /> Postgraduate & Minimal Access Specialization
                 </h4>
                 <p className="text-slate-600 text-xs sm:text-sm leading-relaxed mb-4 font-medium">
-                  Focused on implementing modern laparoscopic procedures, Dr. Raju holds dual certifications in Minimal Access Surgery, focusing on tissue preservation and outpatient surgical recovery.
+                  Focused on implementing modern laparoscopic procedures, Dr. A. Example holds dual certifications in Minimal Access Surgery, focusing on tissue preservation and outpatient surgical recovery.
                 </p>
                 <div className="bg-white border border-teal-100/50 rounded-xl p-4">
                   <p className="text-xs font-bold text-brand-primary uppercase tracking-wider">FMAS & DMAS (2014)</p>
@@ -281,12 +281,12 @@ export default function Management() {
       </section>
 
       {/* ──────────────────────────────────────────────────────
-          DR. SELVI RAJU CLINICAL PORTFOLIO
+          DR. A. EXAMPLE CLINICAL PORTFOLIO
           ────────────────────────────────────────────────────── */}
       <section className="container-custom py-16 sm:py-24 border-t border-slate-200/60">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
-          
-          {/* Dr. Selvi Raju Academic Credentials */}
+
+          {/* Dr. A. Example */}
           <div className="lg:col-span-7 order-2 lg:order-1 space-y-12">
             <motion.div
               initial={{ opacity: 0, x: -20 }}
@@ -298,7 +298,7 @@ export default function Management() {
                 Clinical Biography
               </h3>
               <p className="text-slate-600 text-sm sm:text-base leading-relaxed font-medium">
-                Dr. Selvi Raju is an accomplished Obstetrician, Gynaecologist, and reproductive specialist with extensive clinical training in Germany. She has driven maternal welfare initiatives, rural neonatal healthcare availability, and advanced IVF treatments, establishing Subam Hospital's clinical reputation.
+                Dr. A. Example is an accomplished Obstetrician, Gynaecologist, and reproductive specialist with extensive clinical training in Germany. She has driven maternal welfare initiatives, rural neonatal healthcare availability, and advanced IVF treatments, establishing Demo Hospital's clinical reputation.
               </p>
             </motion.div>
 
@@ -313,7 +313,7 @@ export default function Management() {
               </h3>
               <div className="space-y-4 text-slate-600 text-sm sm:text-base leading-relaxed font-medium">
                 <p>
-                  In <strong>2009</strong>, Dr. Selvi Raju joined the academic faculty as an <strong>Assistant Professor</strong> at Mohan Kumaramangalam Medical College, Salem. Over her career, she has integrated teaching with clinical interventions in underserved communities to advance public maternal health.
+                  In <strong>2009</strong>, Dr. A. Example joined the academic faculty as an <strong>Assistant Professor</strong> at Example Medical College, Example City. Over her career, she has integrated teaching with clinical interventions in underserved communities to advance public maternal health.
                 </p>
               </div>
             </motion.div>
@@ -341,7 +341,7 @@ export default function Management() {
             </motion.div>
           </div>
 
-          {/* Dr. Selvi Raju Card */}
+          {/* Dr. A. Example */}
           <div className="lg:col-span-5 order-1 lg:order-2 lg:sticky lg:top-32 space-y-6">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -350,22 +350,22 @@ export default function Management() {
               className="bg-white rounded-3xl border border-slate-100 shadow-premium p-4"
             >
               <div className="aspect-[3/4] rounded-2xl overflow-hidden bg-slate-100 mb-6 relative">
-                <img 
-                  src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&q=80&w=800" 
-                  alt="Dr. Selvi Raju"
+                <img
+                  src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&q=80&w=800"
+                  alt="Dr. A. Example"
                   className="w-full h-full object-cover object-top"
                 />
                 <div className="absolute top-4 right-4 bg-brand-secondary/90 text-white text-[9px] font-bold uppercase tracking-widest px-3 py-1.5 rounded-lg shadow-sm">
                   Founder & Director
                 </div>
               </div>
-              
+
               <div className="px-3 pb-4">
-                <h2 className="text-3xl font-display text-brand-dark mb-1">Dr. Selvi Raju</h2>
+                <h2 className="text-3xl font-display text-brand-dark mb-1">Dr. A. Example</h2>
                 <p className="text-brand-secondary font-bold uppercase tracking-widest text-[10px] mb-4">
                   Obstetrics, Gynaecology & Fertility Specialist
                 </p>
-                
+
                 <div className="h-px bg-slate-100 my-4" />
                 <div className="space-y-3">
                   <div className="flex items-center gap-3 text-slate-600">
@@ -392,7 +392,7 @@ export default function Management() {
               className="border-l-4 border-brand-secondary pl-6 py-4 bg-brand-secondary/5 rounded-r-2xl"
             >
               <p className="text-sm font-display text-brand-dark leading-relaxed italic">
-                "Clinical accuracy and emotional support are equally crucial in women's health. We aim to bring global reproductive therapies and compassionate maternity solutions to Salem."
+                "Clinical accuracy and emotional support are equally crucial in women's health. We aim to bring global reproductive therapies and compassionate maternity solutions to Example City."
               </p>
             </motion.blockquote>
           </div>
@@ -414,8 +414,8 @@ export default function Management() {
 
           <div className="relative border-l border-slate-200/80 ml-3 md:ml-6 space-y-12">
             {milestones.map((mil, idx) => (
-              <motion.div 
-                key={idx} 
+              <motion.div
+                key={idx}
                 initial={{ opacity: 0, y: 15 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -425,7 +425,7 @@ export default function Management() {
                 <div className="absolute -left-[9px] md:-left-[10px] top-1.5 h-4.5 w-4.5 rounded-full bg-white border border-brand-primary flex items-center justify-center shadow-sm">
                   <div className="h-2 w-2 rounded-full bg-brand-primary" />
                 </div>
-                
+
                 <span className="text-sm font-display font-black text-brand-primary tracking-wide">{mil.year}</span>
                 <h4 className="text-lg font-bold text-brand-dark mt-1 leading-snug">{mil.title}</h4>
                 <p className="text-xs sm:text-sm text-slate-500 mt-2 leading-relaxed font-medium">{mil.desc}</p>

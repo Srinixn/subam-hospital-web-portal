@@ -5,16 +5,16 @@ import { Link } from 'react-router-dom';
 const STORIES = [
   {
     name: "Buvaneswari M.",
-    location: "Elampillai, Salem",
+    location: "Example Town, Example City",
     specialty: "Maternity",
-    content: "Subam Hospital is the best for women's care in Salem. Dr. Anitha is very kind and the way she explains things makes us feel very comfortable. The nursing care is also top-notch.",
+    content: "Demo Hospital is the best for women's care in Example City. Dr. A. Example is very kind and the way she explains things makes us feel very comfortable. The nursing care is also top-notch.",
     initials: "BM"
   },
   {
     name: "Suresh Kumar",
-    location: "Salem",
+    location: "Example City",
     specialty: "Pediatrics",
-    content: "We chose Subam for our baby's delivery and pediatric care. The Level III NICU facilities and the expert care provided by the doctors here are outstanding. Highly recommended.",
+    content: "We chose Demo for our baby's delivery and pediatric care. The Level III NICU facilities and the expert care provided by the doctors here are outstanding. Highly recommended.",
     initials: "SK"
   },
   {

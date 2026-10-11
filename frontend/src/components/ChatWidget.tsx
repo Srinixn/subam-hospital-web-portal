@@ -1,6 +1,6 @@
 /**
  * ChatWidget.tsx — Self-contained floating chatbot widget
- * 
+ *
  * Features:
  * - Floating action button with pulse animation
  * - Slide-in chat panel with typing indicator
@@ -14,7 +14,7 @@ import { useState, useRef, useEffect, useCallback, type FormEvent } from 'react'
 import './ChatWidget.css';
 
 const API_BASE = import.meta.env.VITE_API_BASE_URL || 'http://localhost:4000/api';
-const EMERGENCY_PHONE = '+91 90922 25481';
+const EMERGENCY_PHONE = '+00 00000 00000';
 
 // ─────────────────────────────────────────
 //  Types
@@ -163,7 +163,7 @@ export default function ChatWidget() {
       const welcome: ChatMessage = {
         id: `welcome-${Date.now()}`,
         role: 'bot',
-        content: `Hello! I am **Subam Care Bot**, your friendly virtual assistant. 🩺👋\n\nI can help you with:\n* Checking **Visiting Hours** & directions\n* Listing speciality **Departments**\n* Explaining how to **Book Appointments**\n* Checking support **Ticket Status**\n* Submitting requests to our staff\n\n*Note: I provide general hospital information. If you have a medical emergency, please call **${EMERGENCY_PHONE}** immediately.*`,
+        content: `Hello! I am **Demo Care Bot**, your friendly virtual assistant. 🩺👋\n\nI can help you with:\n* Checking **Visiting Hours** & directions\n* Listing speciality **Departments**\n* Explaining how to **Book Appointments**\n* Checking support **Ticket Status**\n* Submitting requests to our staff\n\n*Note: I provide general hospital information. If you have a medical emergency, please call **${EMERGENCY_PHONE}** immediately.*`,
         timestamp: new Date(),
       };
       setMessages([welcome]);
@@ -199,7 +199,7 @@ export default function ChatWidget() {
         const botMsg: ChatMessage = {
           id: `bot-${Date.now()}`,
           role: 'bot',
-          content: `🔒 **Confidentiality Notice**\n\nFor patient privacy compliance, ticket details can only be viewed using the secure tracking link provided to you upon submission.\n\nIf you have lost your secure link, please check your browser history or contact our support desk directly at **+91 90922 25481**.`,
+          content: `🔒 **Confidentiality Notice**\n\nFor patient privacy compliance, ticket details can only be viewed using the secure tracking link provided to you upon submission.\n\nIf you have lost your secure link, please check your browser history or contact our support desk directly at **+00 00000 00000**.`,
           timestamp: new Date(),
         };
         setMessages((prev) => [...prev, botMsg]);
@@ -427,16 +427,16 @@ export default function ChatWidget() {
       if (matchIndex > lastIndex) {
         parts.push(text.substring(lastIndex, matchIndex));
       }
-      
+
       const linkText = match[1];
       const linkUrl = match[2];
       const isInternal = linkUrl.startsWith('/');
-      
+
       if (isInternal) {
         parts.push(
-          <a 
-            key={`link-${matchIndex}`} 
-            href={linkUrl} 
+          <a
+            key={`link-${matchIndex}`}
+            href={linkUrl}
             className="text-teal-600 dark:text-teal-400 font-bold hover:underline"
             onClick={(e) => {
               e.preventDefault();
@@ -448,18 +448,18 @@ export default function ChatWidget() {
         );
       } else {
         parts.push(
-          <a 
-            key={`link-${matchIndex}`} 
-            href={linkUrl} 
-            target="_blank" 
-            rel="noopener noreferrer" 
+          <a
+            key={`link-${matchIndex}`}
+            href={linkUrl}
+            target="_blank"
+            rel="noopener noreferrer"
             className="text-teal-600 dark:text-teal-400 font-bold hover:underline"
           >
             {linkText}
           </a>
         );
       }
-      
+
       lastIndex = linkRegex.lastIndex;
     }
 
@@ -489,7 +489,7 @@ export default function ChatWidget() {
 
     lines.forEach((line, idx) => {
       const trimmed = line.trim();
-      
+
       if (trimmed.startsWith('* ') || trimmed.startsWith('- ')) {
         const itemText = trimmed.substring(2);
         listItems.push(
@@ -500,7 +500,7 @@ export default function ChatWidget() {
         inList = true;
         return;
       }
-      
+
       if (inList && listItems.length > 0) {
         elements.push(
           <ul key={`ul-${idx}`} className="mb-2 list-inside">
@@ -549,8 +549,8 @@ export default function ChatWidget() {
         >
           <span className="pulse-ring" />
           <img
-            src="https://srinixnm.github.io/hospital-access/subam.png"
-            alt="Subam Hospital Logo"
+            src="https://placehold.co/320x100?text=Demo+Hospital"
+            alt="Demo Hospital Logo"
             className="w-10 h-10 object-contain bg-white rounded-full p-1 border border-slate-100 shadow-sm"
           />
         </button>
@@ -568,13 +568,13 @@ export default function ChatWidget() {
           <div className="chat-header">
             <div className="chat-header-avatar bg-white p-1 rounded-full border border-teal-600/20 flex items-center justify-center">
               <img
-                src="https://srinixnm.github.io/hospital-access/subam.png"
-                alt="Subam Hospital Logo"
+                src="https://placehold.co/320x100?text=Demo+Hospital"
+                alt="Demo Hospital Logo"
                 className="w-7 h-7 object-contain"
               />
             </div>
             <div className="chat-header-info">
-              <h3>Subam Hospital</h3>
+              <h3>Demo Hospital</h3>
               <p>Virtual Assistant</p>
             </div>
             <button
@@ -831,7 +831,7 @@ export default function ChatWidget() {
                         }}
                       />
                       <label htmlFor="chat-form-consent">
-                        I consent to Subam Hospital processing my personal data to respond to this inquiry.
+                        I consent to Demo Hospital processing my personal data to respond to this inquiry.
                         Your data will be handled in accordance with our privacy policy.
                       </label>
                     </div>

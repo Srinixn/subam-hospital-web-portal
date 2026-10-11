@@ -33,7 +33,7 @@ const JOURNALS: JournalItem[] = [
     id: 2,
     title: "Maternal Health and Well-Being — A Comprehensive Study",
     excerpt: "A peer-reviewed research publication exploring holistic maternal health outcomes, postpartum depression risk factors, and community-level health intervention strategies.",
-    publisher: "ResearchGate — Dr. Ojong Samuel et al.",
+    publisher: "ResearchGate — Dr. A. Example et al.",
     category: "Original Research",
     tag: "Peer Reviewed",
     pdfUrl: "https://www.researchgate.net/profile/Ojong-Samuel/publication/374807822_Maternal_Health_and_Well-Being/links/68b4c2ef7984e374acecb187/Maternal-Health-and-Well-Being.pdf?_tp=eyJjb250ZXh0Ijp7ImZpcnN0UGFnZSI6InB1YmxpY2F0aW9uIiwicGFnZSI6InB1YmxpY2F0aW9uIn19",
@@ -183,8 +183,8 @@ export default function MedicalJournals() {
               transition={{ delay: 0.2 }}
               className="text-lg text-slate-400 font-medium leading-relaxed max-w-2xl mb-10"
             >
-              A curated collection of peer-reviewed publications, clinical guidelines, and evidence-based 
-              research on maternal health, child welfare, and reproductive medicine — handpicked by our 
+              A curated collection of peer-reviewed publications, clinical guidelines, and evidence-based
+              research on maternal health, child welfare, and reproductive medicine — handpicked by our
               clinical team for healthcare professionals and informed patients.
             </motion.p>
 
@@ -386,10 +386,10 @@ export default function MedicalJournals() {
                   <span className="text-brand-primary italic">Accessible to Everyone</span>
                 </h2>
                 <p className="text-slate-500 text-sm leading-relaxed mb-6">
-                  This curated research library is maintained by the clinical team at Subam Hospital 
-                  to bridge the gap between academic medicine and community awareness. Every publication 
-                  listed here has been reviewed for clinical relevance and is freely accessible. We 
-                  believe informed patients make better health decisions — and well-read practitioners 
+                  This curated research library is maintained by the clinical team at Demo Hospital
+                  to bridge the gap between academic medicine and community awareness. Every publication
+                  listed here has been reviewed for clinical relevance and is freely accessible. We
+                  believe informed patients make better health decisions — and well-read practitioners
                   deliver better care.
                 </p>
                 <div className="flex flex-wrap gap-3">
@@ -411,12 +411,12 @@ export default function MedicalJournals() {
                     Contribute to our library
                   </h3>
                   <p className="text-white/60 text-xs leading-relaxed mb-6">
-                    If you've authored or encountered a valuable clinical paper on women's health 
+                    If you've authored or encountered a valuable clinical paper on women's health
                     or paediatric medicine, we'd love to review it for inclusion.
                   </p>
                 </div>
                 <a
-                  href="mailto:hospitalsubam@gmail.com?subject=Journal Recommendation for Medical Library"
+                  href="mailto:hello@example.com?subject=Journal Recommendation for Medical Library"
                   className="h-11 w-full bg-brand-primary text-white rounded-xl text-xs font-bold flex items-center justify-center gap-2 hover:bg-teal-600 transition-colors"
                 >
                   <span>Submit Publication</span>

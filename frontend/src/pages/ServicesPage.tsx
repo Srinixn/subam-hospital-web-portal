@@ -113,7 +113,7 @@ export default function ServicesPage() {
                    ))}
                 </div>
                 <div className="pl-0 md:pl-20">
-                  <Link 
+                  <Link
                     to={dept.link}
                     className="inline-flex items-center gap-2 text-brand-primary font-bold uppercase tracking-widest text-xs hover:gap-4 transition-all"
                   >

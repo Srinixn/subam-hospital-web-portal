@@ -4,8 +4,8 @@ import { fetchApi } from '../services/api';
 
 const LOCATION_OPTIONS = [
   'Sun Srishti Speciality Hospital',
-  'Sunsrishti Fertility Center',
-  'Subam Hospital'
+  'Example Fertility Center',
+  'Demo Hospital'
 ];
 
 interface Job {
@@ -128,7 +128,7 @@ export default function Jobs() {
           <h1 className="text-2xl font-bold text-slate-800">Jobs</h1>
           <p className="text-sm text-slate-500">Manage recruitment job postings.</p>
         </div>
-        <button 
+        <button
           onClick={() => openModal()}
           className="flex items-center gap-2 bg-brand-primary text-white px-4 py-2 rounded-lg font-medium hover:bg-teal-700 transition-colors"
         >
@@ -182,14 +182,14 @@ export default function Jobs() {
                       </span>
                     </td>
                     <td className="px-6 py-4 text-right">
-                      <button 
+                      <button
                         onClick={() => openModal(job)}
                         className="p-2 text-slate-400 hover:text-brand-primary transition-colors"
                         title="Edit Job"
                       >
                         <Edit2 size={18} />
                       </button>
-                      <button 
+                      <button
                         onClick={() => handleDelete(job.id)}
                         className="p-2 text-slate-400 hover:text-red-600 transition-colors"
                         title="Delete Job"
@@ -216,20 +216,20 @@ export default function Jobs() {
                 <X size={20} />
               </button>
             </div>
-            
+
             <form onSubmit={handleSubmit} className="p-6 space-y-4">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
                   <label className="block text-sm font-bold text-slate-700 mb-1">Job Title *</label>
-                  <input 
-                    required type="text" 
+                  <input
+                    required type="text"
                     className="w-full px-4 py-2 border border-slate-200 rounded-lg focus:ring-2 focus:ring-brand-primary/20 focus:border-brand-primary"
                     value={formData.title} onChange={e => setFormData({...formData, title: e.target.value})}
                   />
                 </div>
                 <div>
                   <label className="block text-sm font-bold text-slate-700 mb-1">Location *</label>
-                  <select 
+                  <select
                     required
                     className="w-full px-4 py-2 border border-slate-200 rounded-lg focus:ring-2 focus:ring-brand-primary/20 focus:border-brand-primary"
                     value={formData.location} onChange={e => setFormData({...formData, location: e.target.value})}
@@ -243,8 +243,8 @@ export default function Jobs() {
 
               <div>
                 <label className="block text-sm font-bold text-slate-700 mb-1">LinkedIn Job URL *</label>
-                <input 
-                  required type="url" 
+                <input
+                  required type="url"
                   placeholder="https://www.linkedin.com/jobs/view/..."
                   className="w-full px-4 py-2 border border-slate-200 rounded-lg focus:ring-2 focus:ring-brand-primary/20 focus:border-brand-primary"
                   value={formData.linkedinJobUrl} onChange={e => setFormData({...formData, linkedinJobUrl: e.target.value})}
@@ -253,7 +253,7 @@ export default function Jobs() {
 
               <div>
                 <label className="block text-sm font-bold text-slate-700 mb-1">Description *</label>
-                <textarea 
+                <textarea
                   required rows={4}
                   className="w-full px-4 py-2 border border-slate-200 rounded-lg focus:ring-2 focus:ring-brand-primary/20 focus:border-brand-primary"
                   value={formData.description} onChange={e => setFormData({...formData, description: e.target.value})}
@@ -262,7 +262,7 @@ export default function Jobs() {
 
               <div>
                 <label className="block text-sm font-bold text-slate-700 mb-1">Requirements</label>
-                <textarea 
+                <textarea
                   rows={4}
                   className="w-full px-4 py-2 border border-slate-200 rounded-lg focus:ring-2 focus:ring-brand-primary/20 focus:border-brand-primary"
                   value={formData.requirements} onChange={e => setFormData({...formData, requirements: e.target.value})}
@@ -272,7 +272,7 @@ export default function Jobs() {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
                   <label className="block text-sm font-bold text-slate-700 mb-1">Employment Type</label>
-                  <select 
+                  <select
                     className="w-full px-4 py-2 border border-slate-200 rounded-lg focus:ring-2 focus:ring-brand-primary/20 focus:border-brand-primary"
                     value={formData.employmentType} onChange={e => setFormData({...formData, employmentType: e.target.value})}
                   >
@@ -283,7 +283,7 @@ export default function Jobs() {
                 </div>
                 <div>
                   <label className="block text-sm font-bold text-slate-700 mb-1">Status</label>
-                  <select 
+                  <select
                     className="w-full px-4 py-2 border border-slate-200 rounded-lg focus:ring-2 focus:ring-brand-primary/20 focus:border-brand-primary"
                     value={formData.status} onChange={e => setFormData({...formData, status: e.target.value})}
                   >

@@ -52,7 +52,7 @@ export interface Job {
   slug: string;
   description: string;
   requirements: string;
-  location: 'Sun Srishti Speciality Hospital' | 'Sunsrishti Fertility Center' | 'Subam Hospital';
+  location: 'Sun Srishti Speciality Hospital' | 'Example Fertility Center' | 'Demo Hospital';
   employmentType: 'Full-time' | 'Part-time' | 'Contract';
   status: 'Draft' | 'Published' | 'Closed';
   linkedinJobUrl: string;

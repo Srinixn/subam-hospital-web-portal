@@ -15,12 +15,12 @@ const SERVICES = [
   { name: "Family Planning and Contraceptive Services", category: "routine" },
   { name: "Screening for Women's Health Conditions", category: "routine" },
   { name: "Preventive Women's Healthcare", category: "routine" },
-  
+
   { name: "Menstrual Disorder Management", category: "treatments" },
   { name: "PCOS/PCOD Treatment", category: "treatments" },
   { name: "Infertility Evaluation and Treatment", category: "treatments" },
   { name: "Menopause Care and Counseling", category: "treatments" },
-  
+
   { name: "Fibroid and Ovarian Cyst Management", category: "procedures" },
   { name: "Cervical and Uterine Disorder Treatment", category: "procedures" },
   { name: "Laparoscopic Gynaecological Surgery", category: "procedures" },
@@ -42,19 +42,19 @@ export default function Gynecology() {
         {/* Swapped Hero Section (Image Left, Content Right) */}
         <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center mb-24">
           <div className="relative order-2 lg:order-1">
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.8 }}
               className="aspect-[4/3] sm:aspect-[4/5] rounded-3xl lg:rounded-[3.5rem] overflow-hidden shadow-premium border-8 border-white bg-slate-100"
             >
-              <img 
-                src="https://images.unsplash.com/photo-1551076805-e1869033e561?auto=format&fit=crop&q=80&w=1200" 
+              <img
+                src="https://images.unsplash.com/photo-1551076805-e1869033e561?auto=format&fit=crop&q=80&w=1200"
                 alt="Gynecology Care and Consulting"
                 className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
               />
             </motion.div>
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.3 }}
@@ -65,7 +65,7 @@ export default function Gynecology() {
             </motion.div>
           </div>
 
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, x: 30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
@@ -76,7 +76,7 @@ export default function Gynecology() {
               Gynaecology & <br /><span className="text-brand-secondary italic">Women's Health.</span>
             </h1>
             <p className="text-lg text-slate-500 font-medium leading-relaxed mb-6">
-              Gynaecology is the branch of medicine that focuses on the health and well-being of women, particularly the diagnosis, treatment, and prevention of conditions affecting the female reproductive system. At Subam Hospital, our Gynaecology Department is dedicated to providing comprehensive and compassionate care for women of all ages.
+              Gynaecology is the branch of medicine that focuses on the health and well-being of women, particularly the diagnosis, treatment, and prevention of conditions affecting the female reproductive system. At Demo Hospital, our Gynaecology Department is dedicated to providing comprehensive and compassionate care for women of all ages.
             </p>
             <p className="text-base text-slate-500 font-medium leading-relaxed mb-8 border-l-4 border-brand-secondary/30 pl-4 italic">
               Our team of experienced specialists offers personalized treatment for a wide range of women's health concerns, from adolescence through menopause and beyond. We combine advanced medical technology with patient-centered care to ensure the highest standards of treatment and comfort.
@@ -139,7 +139,7 @@ export default function Gynecology() {
         </section>
 
         {/* Info Banner Section */}
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -155,7 +155,7 @@ export default function Gynecology() {
             </div>
             <h2 className="text-3xl md:text-4xl font-display mb-6 leading-tight">Accurate Diagnosis, Compassionate Guidance & Modern Treatment Options</h2>
             <p className="text-lg text-slate-500 mb-10 leading-relaxed">
-              At Subam Hospital, we understand that every woman has unique healthcare needs. Our goal is to provide accurate diagnosis, effective treatment, and ongoing support in a comfortable and caring environment. We are committed to promoting women's health through preventive care, early diagnosis, advanced treatment options, and continuous guidance at every stage of life.
+              At Demo Hospital, we understand that every woman has unique healthcare needs. Our goal is to provide accurate diagnosis, effective treatment, and ongoing support in a comfortable and caring environment. We are committed to promoting women's health through preventive care, early diagnosis, advanced treatment options, and continuous guidance at every stage of life.
             </p>
             <Link to="/contact" className="btn-primary bg-brand-secondary hover:bg-orange-700 hover:shadow-orange-500/20 inline-flex h-14 px-10 text-base">
               <span>Book a Consultation</span>

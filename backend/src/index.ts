@@ -20,7 +20,7 @@ async function main(): Promise<void> {
   const app = createApp();
 
   app.listen(PORT, () => {
-    console.log(`✓ Subam Hospital API running on http://localhost:${PORT}`);
+    console.log(`✓ Demo Hospital API running on http://localhost:${PORT}`);
     console.log(`  Health check: http://localhost:${PORT}/api/health`);
     console.log(`  Environment: ${process.env.NODE_ENV || 'development'}`);
   });

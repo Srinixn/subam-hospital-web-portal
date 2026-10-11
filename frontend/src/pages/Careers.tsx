@@ -17,24 +17,24 @@ const FALLBACK_JOBS: Job[] = [
         id: 101,
         title: "Staff Nurse (ICU & NICU)",
         slug: "staff-nurse-icu-nicu",
-        location: "Elampillai, Salem",
-        linkedinJobUrl: "https://www.linkedin.com/company/subamhospital",
+        location: "Example Town, Example City",
+        linkedinJobUrl: "https://www.linkedin.com/company/examplehospital",
         employmentType: "Full-Time"
     },
     {
         id: 102,
         title: "Duty Medical Officer",
         slug: "duty-medical-officer",
-        location: "Elampillai, Salem",
-        linkedinJobUrl: "https://www.linkedin.com/company/subamhospital",
+        location: "Example Town, Example City",
+        linkedinJobUrl: "https://www.linkedin.com/company/examplehospital",
         employmentType: "Full-Time"
     },
     {
         id: 103,
         title: "Lab Technician",
         slug: "lab-technician",
-        location: "Elampillai, Salem",
-        linkedinJobUrl: "https://www.linkedin.com/company/subamhospital",
+        location: "Example Town, Example City",
+        linkedinJobUrl: "https://www.linkedin.com/company/examplehospital",
         employmentType: "Full-Time"
     }
 ];
@@ -140,10 +140,10 @@ export default function Careers() {
                                         </div>
                                     </div>
                                     <div className="flex items-center gap-8">
-                                        <a 
-                                            href={job.linkedinJobUrl} 
-                                            target="_blank" 
-                                            rel="noopener noreferrer" 
+                                        <a
+                                            href={job.linkedinJobUrl}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
                                             className="h-14 px-8 bg-brand-dark text-white rounded-2xl font-bold flex items-center gap-2 hover:bg-brand-primary transition-colors shadow-lg w-full md:w-auto justify-center whitespace-nowrap"
                                         >
                                             Apply via LinkedIn <ArrowRight size={18} />
@@ -158,8 +158,8 @@ export default function Careers() {
                 <div className="bg-slate-50 rounded-3xl lg:rounded-[3rem] p-8 md:p-20 text-center">
                     <h3 className="text-2xl md:text-3xl font-display text-brand-dark mb-6">Didn't find your role?</h3>
                     <p className="text-sm md:text-base text-slate-500 mb-10 max-w-xl mx-auto font-medium">Send us your CV anyway. We are always happy to connect with talented healthcare professionals for future opportunities.</p>
-                    <a href="mailto:hospitalsubam@gmail.com" className="text-brand-primary font-black uppercase tracking-[0.2em] text-xs md:text-sm hover:underline underline-offset-8 transition-all">
-                        hospitalsubam@gmail.com
+                    <a href="mailto:hello@example.com" className="text-brand-primary font-black uppercase tracking-[0.2em] text-xs md:text-sm hover:underline underline-offset-8 transition-all">
+                        hello@example.com
                     </a>
                 </div>
             </div>

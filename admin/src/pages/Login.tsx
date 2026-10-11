@@ -15,7 +15,7 @@ export default function Login() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setError('');
-    
+
     if (!email || !password) {
       setError('Please enter both email and password.');
       return;
@@ -27,7 +27,7 @@ export default function Login() {
         method: 'POST',
         body: JSON.stringify({ email, password })
       });
-      
+
       if (response.success && response.user) {
         login(response.user);
         navigate('/');
@@ -44,9 +44,9 @@ export default function Login() {
       <div className="w-full max-w-md">
         <div className="text-center mb-10">
           <div className="h-16 flex items-center justify-center mb-6">
-            <img 
-              src="https://srinixnm.github.io/hospital-access/subam.png" 
-              alt="Subam Hospital" 
+            <img
+              src="https://placehold.co/320x100?text=Demo+Hospital"
+              alt="Demo Hospital"
               className="h-full w-auto object-contain"
             />
           </div>
@@ -69,12 +69,12 @@ export default function Login() {
                 <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-slate-400">
                   <Mail size={18} />
                 </div>
-                <input 
+                <input
                   type="email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   className="w-full h-14 bg-slate-50 border border-slate-200 rounded-2xl pl-12 pr-4 focus:outline-none focus:ring-2 focus:ring-brand-primary/20 focus:border-brand-primary transition-all"
-                  placeholder="admin@subamhospital.com"
+                  placeholder="admin@example.com"
                 />
               </div>
             </div>
@@ -85,7 +85,7 @@ export default function Login() {
                 <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-slate-400">
                   <Lock size={18} />
                 </div>
-                <input 
+                <input
                   type="password"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
@@ -95,8 +95,8 @@ export default function Login() {
               </div>
             </div>
 
-            <button 
-              type="submit" 
+            <button
+              type="submit"
               disabled={loading}
               className="w-full h-14 bg-brand-primary text-white font-bold rounded-2xl flex items-center justify-center gap-2 hover:bg-teal-700 transition-colors disabled:opacity-70"
             >
@@ -109,7 +109,7 @@ export default function Login() {
             </button>
           </form>
         </div>
-        
+
         <p className="text-center text-xs text-slate-400 mt-8">
           Secure Access Only. Unauthorized attempts will be logged.
         </p>

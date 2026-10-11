@@ -112,7 +112,7 @@ export default function Feedback() {
                      </div>
                      <h3 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4 text-brand-dark">We Care About You</h3>
                      <p className="text-slate-500 text-xs sm:text-sm leading-relaxed">
-                        At Subam Hospital, patient satisfaction is our topmost priority. Your honest feedback helps our medical and admin staff refine procedures and maintain standard of care excellence.
+                        At Demo Hospital, patient satisfaction is our topmost priority. Your honest feedback helps our medical and admin staff refine procedures and maintain standard of care excellence.
                      </p>
                   </div>
 
@@ -130,7 +130,7 @@ export default function Feedback() {
                {/* Right Column: Form container */}
                <div className="lg:col-span-3 bg-slate-50 rounded-2xl sm:rounded-[3rem] lg:rounded-[4rem] p-6 sm:p-10 md:p-16 border border-slate-100">
                   {isSubmitted ? (
-                     <motion.div 
+                     <motion.div
                         initial={{ opacity: 0, scale: 0.95 }}
                         animate={{ opacity: 1, scale: 1 }}
                         className="text-center py-16 px-6"
@@ -142,7 +142,7 @@ export default function Feedback() {
                         <p className="text-slate-500 text-lg max-w-md mx-auto mb-10 leading-relaxed">
                            Your feedback has been received and reviewed. We appreciate you taking the time to share your experience with us.
                         </p>
-                        <button 
+                        <button
                            onClick={() => setIsSubmitted(false)}
                            className="btn-primary px-8 h-14 text-xs font-bold uppercase tracking-widest"
                         >
@@ -160,11 +160,11 @@ export default function Feedback() {
                          <form onSubmit={handleSubmit} className="space-y-6 sm:space-y-8">
                             <div className="space-y-2">
                                <label className="text-[10px] font-black text-slate-400 uppercase tracking-widest pl-2">Patient / Caregiver Name</label>
-                               <input 
+                               <input
                                   value={formData.patientName}
                                   onChange={(e) => setFormData({ ...formData, patientName: e.target.value })}
-                                  className={`w-full text-base h-14 sm:h-16 bg-white border ${errors.patientName ? 'border-red-500 focus:ring-red-500/20' : 'border-slate-200 focus:ring-brand-primary/20'} rounded-2xl px-5 sm:px-6 focus:outline-none focus:ring-2`} 
-                                  placeholder="Jane Smith" 
+                                  className={`w-full text-base h-14 sm:h-16 bg-white border ${errors.patientName ? 'border-red-500 focus:ring-red-500/20' : 'border-slate-200 focus:ring-brand-primary/20'} rounded-2xl px-5 sm:px-6 focus:outline-none focus:ring-2`}
+                                  placeholder="Jane Smith"
                                />
                                {errors.patientName && <p className="text-red-500 text-xs mt-1 pl-2 font-medium">{errors.patientName}</p>}
                             </div>
@@ -172,21 +172,21 @@ export default function Feedback() {
                             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8">
                                <div className="space-y-2">
                                   <label className="text-[10px] font-black text-slate-400 uppercase tracking-widest pl-2">Phone (Optional)</label>
-                                  <input 
+                                  <input
                                      value={formData.phone}
                                      onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                                     className={`w-full text-base h-14 sm:h-16 bg-white border ${errors.phone ? 'border-red-500 focus:ring-red-500/20' : 'border-slate-200 focus:ring-brand-primary/20'} rounded-2xl px-5 sm:px-6 focus:outline-none focus:ring-2`} 
-                                     placeholder="+91 00000 00000" 
+                                     className={`w-full text-base h-14 sm:h-16 bg-white border ${errors.phone ? 'border-red-500 focus:ring-red-500/20' : 'border-slate-200 focus:ring-brand-primary/20'} rounded-2xl px-5 sm:px-6 focus:outline-none focus:ring-2`}
+                                     placeholder="+91 00000 00000"
                                   />
                                   {errors.phone && <p className="text-red-500 text-xs mt-1 pl-2 font-medium">{errors.phone}</p>}
                                </div>
                                <div className="space-y-2">
                                   <label className="text-[10px] font-black text-slate-400 uppercase tracking-widest pl-2">Email (Optional)</label>
-                                  <input 
+                                  <input
                                      value={formData.email}
                                      onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                                     className={`w-full text-base h-14 sm:h-16 bg-white border ${errors.email ? 'border-red-500 focus:ring-red-500/20' : 'border-slate-200 focus:ring-brand-primary/20'} rounded-2xl px-5 sm:px-6 focus:outline-none focus:ring-2`} 
-                                     placeholder="jane@example.com" 
+                                     className={`w-full text-base h-14 sm:h-16 bg-white border ${errors.email ? 'border-red-500 focus:ring-red-500/20' : 'border-slate-200 focus:ring-brand-primary/20'} rounded-2xl px-5 sm:px-6 focus:outline-none focus:ring-2`}
+                                     placeholder="jane@example.com"
                                   />
                                   {errors.email && <p className="text-red-500 text-xs mt-1 pl-2 font-medium">{errors.email}</p>}
                                </div>
@@ -227,16 +227,16 @@ export default function Feedback() {
 
                             <div className="space-y-2">
                                <label className="text-[10px] font-black text-slate-400 uppercase tracking-widest pl-2">Comments & Suggestions</label>
-                               <textarea 
+                               <textarea
                                   value={formData.comments}
                                   onChange={(e) => setFormData({ ...formData, comments: e.target.value })}
-                                  className={`w-full text-base h-40 bg-white border ${errors.comments ? 'border-red-500 focus:ring-red-500/20' : 'border-slate-200 focus:ring-brand-primary/20'} rounded-3xl p-5 sm:p-6 focus:outline-none focus:ring-2 resize-none`} 
-                                  placeholder="Share your thoughts about your visit..." 
+                                  className={`w-full text-base h-40 bg-white border ${errors.comments ? 'border-red-500 focus:ring-red-500/20' : 'border-slate-200 focus:ring-brand-primary/20'} rounded-3xl p-5 sm:p-6 focus:outline-none focus:ring-2 resize-none`}
+                                  placeholder="Share your thoughts about your visit..."
                                />
                                {errors.comments && <p className="text-red-500 text-xs mt-1 pl-2 font-medium">{errors.comments}</p>}
                             </div>
 
-                            <button 
+                            <button
                                disabled={isSubmitting}
                                className="btn-primary w-full h-14 sm:h-16 text-base sm:text-lg flex items-center justify-center gap-3 disabled:opacity-75 cursor-pointer"
                             >

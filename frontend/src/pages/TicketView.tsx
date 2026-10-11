@@ -1,15 +1,15 @@
 /**
  * TicketView.tsx — Public, secure patient ticket tracking viewer.
- * 
+ *
  * Accessible only via: /ticket-view?id=X&token=Y
  * Verifies the ticket's private access token to ensure HIPAA compliance
  * and prevent cross-user ticket scanning.
  */
 import { useState, useEffect } from 'react';
 import { useSearchParams, Link } from 'react-router-dom';
-import { 
-  FileText, MessageSquare, AlertTriangle, CheckCircle, 
-  Clock, ArrowLeft, Calendar, ShieldCheck, User 
+import {
+  FileText, MessageSquare, AlertTriangle, CheckCircle,
+  Clock, ArrowLeft, Calendar, ShieldCheck, User
 } from 'lucide-react';
 
 const API_BASE = import.meta.env.VITE_API_BASE_URL || 'http://localhost:4000/api';
@@ -132,8 +132,8 @@ export default function TicketView() {
         </div>
         <h3 className="text-xl font-bold text-slate-800 mb-2">Access Restricted</h3>
         <p className="text-slate-600 text-sm leading-relaxed mb-6">{error || 'Ticket not found.'}</p>
-        <Link 
-          to="/" 
+        <Link
+          to="/"
           className="inline-flex items-center gap-2 px-6 py-3 bg-teal-600 text-white rounded-2xl font-semibold text-sm hover:bg-teal-700 transition-colors shadow-sm"
         >
           <ArrowLeft size={16} /> Return to Homepage
@@ -179,7 +179,7 @@ export default function TicketView() {
           <div className="flex items-center justify-between max-w-lg mx-auto relative">
             {/* Background line */}
             <div className="absolute top-1/2 left-0 right-0 h-0.5 bg-slate-200 -translate-y-1/2 z-0" />
-            
+
             {STATUS_STEPS.map((step, idx) => {
               const isActive = idx <= currentStepIndex;
               const isCurrent = step.key === ticket.status;
@@ -187,10 +187,10 @@ export default function TicketView() {
               return (
                 <div key={step.key} className="flex flex-col items-center z-10 relative">
                   <div className={`h-9 w-9 rounded-full flex items-center justify-center border-4 ${
-                    isCurrent 
-                      ? 'bg-teal-600 border-teal-200 text-white animate-pulse' 
-                      : isActive 
-                        ? 'bg-teal-600 border-white text-white' 
+                    isCurrent
+                      ? 'bg-teal-600 border-teal-200 text-white animate-pulse'
+                      : isActive
+                        ? 'bg-teal-600 border-white text-white'
                         : 'bg-white border-slate-200 text-slate-400'
                   } transition-all`}>
                     {idx < currentStepIndex ? <CheckCircle size={16} /> : <Clock size={16} />}
@@ -218,11 +218,11 @@ export default function TicketView() {
               </div>
               <div className="flex-1 bg-slate-50 border border-slate-100 rounded-2xl p-5">
                 <div className="flex items-center justify-between mb-2">
-                  <span className="font-bold text-slate-800 text-sm">Subam Hospital System</span>
+                  <span className="font-bold text-slate-800 text-sm">Demo Hospital System</span>
                   <span className="text-xs text-slate-400 font-mono">{formatDate(ticket.createdAt)}</span>
                 </div>
                 <p className="text-slate-600 text-sm leading-relaxed">
-                  Thank you for contacting Subam Hospital. We have received your inquiry. A clinical administrator or staff member from the matching department will review your details and write a reply here.
+                  Thank you for contacting Demo Hospital. We have received your inquiry. A clinical administrator or staff member from the matching department will review your details and write a reply here.
                 </p>
               </div>
             </div>
@@ -254,8 +254,8 @@ export default function TicketView() {
                       <User size={18} />
                     </div>
                     <div className={`flex-1 rounded-2xl p-5 shadow-sm border ${
-                      isStaff 
-                        ? 'bg-teal-50/15 border-teal-600/10' 
+                      isStaff
+                        ? 'bg-teal-50/15 border-teal-600/10'
                         : 'bg-slate-50 border-slate-100'
                     }`}>
                       <div className="flex items-center justify-between mb-2">
@@ -284,7 +284,7 @@ export default function TicketView() {
         {ticket.status !== 'ARCHIVED' && (
           <div className="border-t border-slate-100 p-8 bg-slate-50/30">
             <h4 className="font-bold text-slate-800 text-sm mb-3">Send a Reply to Staff</h4>
-            
+
             {replyError && (
               <div className="p-3.5 mb-4 bg-red-50 border border-red-100 rounded-xl text-red-600 text-xs font-semibold">
                 {replyError}

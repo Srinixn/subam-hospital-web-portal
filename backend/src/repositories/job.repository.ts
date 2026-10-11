@@ -8,11 +8,11 @@ export class JobRepository {
       SELECT id, title, slug, description, requirements, location, employment_type as employmentType, status, linkedin_job_url as linkedinJobUrl, created_at as createdAt, updated_at as updatedAt
       FROM jobs
     `;
-    
+
     if (!includeDrafts) {
       query += ` WHERE status = 'Published'`;
     }
-    
+
     query += ` ORDER BY created_at DESC`;
 
     const [rows] = await pool.query<RowDataPacket[]>(query);

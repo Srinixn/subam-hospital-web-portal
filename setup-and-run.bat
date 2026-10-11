@@ -1,6 +1,6 @@
 @echo off
 echo ===================================================
-echo  Subam Hospital Website - Setup and Test Script
+echo  Demo Hospital Website - Setup and Test Script
 echo ===================================================
 echo.
 
@@ -27,8 +27,8 @@ if not exist backend\.env (
         echo DB_HOST=localhost >> backend\.env
         echo DB_PORT=3306 >> backend\.env
         echo DB_USER=root >> backend\.env
-        echo DB_PASSWORD=root >> backend\.env
-        echo DB_NAME=subam_hospital >> backend\.env
+          echo DB_PASSWORD=your_mysql_password >> backend\.env
+        echo DB_NAME=demo_hospital >> backend\.env
         echo SESSION_SECRET=change-this-to-a-random-64-char-string >> backend\.env
         echo CORS_ORIGIN=http://localhost:3000,http://localhost:3001 >> backend\.env
         echo Created new backend\.env file.
@@ -70,8 +70,8 @@ REM 4. Ask user to start application
 echo [4/4] Setup complete!
 echo.
 echo Admin default credentials:
-echo   Email:    admin@subamhospital.com
-echo   Password: Subam@2026
+echo   Email:    admin@example.com
+echo   Password: Demo@2026
 echo.
 set /p START_APP="Do you want to start the application (Frontend, Admin, and Backend) now? (y/n): "
 if /i "%START_APP%"=="y" (

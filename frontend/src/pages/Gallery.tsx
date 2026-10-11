@@ -17,8 +17,8 @@ export default function Gallery() {
   const [filter, setFilter] = useState("All");
   const [selected, setSelected] = useState<typeof GALLERY_ITEMS[0] | null>(null);
 
-  const filteredItems = filter === "All" 
-    ? GALLERY_ITEMS 
+  const filteredItems = filter === "All"
+    ? GALLERY_ITEMS
     : GALLERY_ITEMS.filter(item => item.category === filter);
 
   return (
@@ -32,7 +32,7 @@ export default function Gallery() {
             </h1>
             <p className="text-sm sm:text-lg text-slate-500 font-medium">A glimpse into our advanced infrastructure and moments of compassionate care.</p>
           </div>
-          
+
           <div className="flex gap-2 overflow-x-auto no-scrollbar max-w-full pb-2 shrink-0">
             {CATEGORIES.map(cat => (
               <button
@@ -60,8 +60,8 @@ export default function Gallery() {
                 onClick={() => setSelected(item)}
                 className="group relative rounded-2xl sm:rounded-[2rem] overflow-hidden aspect-[4/3] cursor-pointer shadow-sm border border-slate-100"
               >
-                <img 
-                  src={item.url} 
+                <img
+                  src={item.url}
                   alt={item.title}
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                 />
@@ -78,26 +78,26 @@ export default function Gallery() {
         {/* Lightbox */}
         <AnimatePresence>
           {selected && (
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               className="fixed inset-0 z-[100] bg-brand-dark/95 backdrop-blur-xl flex items-center justify-center p-4 sm:p-6"
             >
-              <button 
+              <button
                 onClick={() => setSelected(null)}
                 className="absolute top-4 right-4 sm:top-8 sm:right-8 text-white/60 hover:text-white transition-colors cursor-pointer"
                 aria-label="Close lightbox"
               >
                 <X size={32} />
               </button>
-              
-              <motion.div 
+
+              <motion.div
                 layoutId={`item-${selected.id}`}
                 className="max-w-4xl w-full rounded-xl sm:rounded-[3rem] overflow-hidden bg-white shadow-2xl relative"
               >
-                <img 
-                  src={selected.url} 
+                <img
+                  src={selected.url}
                   alt={selected.title}
                   className="w-full h-auto max-h-[70vh] sm:max-h-[80vh] object-contain bg-slate-900"
                 />

@@ -18,9 +18,9 @@ function CredentialsBridge() {
             { value: "35k+", label: "Patients Served" },
             { value: "24/7", label: "Emergency Care" }
           ].map((stat, idx) => (
-            <div 
-              key={stat.label} 
-              className={`py-6 md:py-10 text-center border-slate-100 border-r last:border-r-0 
+            <div
+              key={stat.label}
+              className={`py-6 md:py-10 text-center border-slate-100 border-r last:border-r-0
                 ${idx >= 3 ? 'hidden sm:block' : ''}`}
             >
               <p className="text-2xl md:text-3xl font-display font-black text-brand-primary leading-none mb-1">{stat.value}</p>
@@ -37,32 +37,32 @@ function InstitutionalOverview() {
   const institutions = [
     {
       name: "Hospital",
-      brand: "SUBAM",
-      fullName: "Subam Hospital",
-      desc: "Subam Hospital is specialized in women's healthcare and pregnancy care, providing comprehensive maternity, gynaecology, prenatal, and postnatal services for mothers and children.",
+      brand: "DEMO",
+      fullName: "Demo Hospital",
+      desc: "Demo Hospital is specialized in women's healthcare and pregnancy care, providing comprehensive maternity, gynaecology, prenatal, and postnatal services for mothers and children.",
       image: "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&q=80&w=1200",
-      logoUrl: "https://srinixnm.github.io/hospital-access/subam.png",
-      path: "/subam-hospital",
+      logoUrl: "https://placehold.co/320x100?text=Demo+Hospital",
+      path: "/demo-hospital",
       specialty: "WOMEN'S & PREGNANCY CARE"
     },
     {
       name: "Fertility Center",
-      brand: "SUNSRISHTI",
-      fullName: "Sunsrishti Fertility Center",
-      desc: "Sunsrishti Fertility Center is a dedicated center for IVF (In Vitro Fertilization), ICSI, IUI, and advanced reproductive treatments, bringing hope to aspiring parents.",
+      brand: "EXAMPLE",
+      fullName: "Example Fertility Center",
+      desc: "Example Fertility Center is a dedicated center for IVF (In Vitro Fertilization), ICSI, IUI, and advanced reproductive treatments, bringing hope to aspiring parents.",
       image: "https://images.unsplash.com/photo-1551076805-e1869033e561?auto=format&fit=crop&q=80&w=1200",
-      logoUrl: "https://srinixnm.github.io/hospital-access/image.png",
-      path: "/sunsrishti-fertility-center",
+      logoUrl: "https://placehold.co/320x100?text=Example+Fertility",
+      path: "/example-fertility-center",
       specialty: "IVF & FERTILITY CARE"
     },
     {
       name: "Multispeciality Hospital",
-      brand: "SUNSRISHTI",
-      fullName: "Sunsrishti Multispeciality Hospital",
-      desc: "Sunsrishti Multispeciality Hospital provides general medicine, general surgery, orthopaedics, skin care, dermatology, and a complete range of healthcare services for all patients.",
+      brand: "EXAMPLE",
+      fullName: "Example Multispeciality Hospital",
+      desc: "Example Multispeciality Hospital provides general medicine, general surgery, orthopaedics, skin care, dermatology, and a complete range of healthcare services for all patients.",
       image: "https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&q=80&w=1200",
-      logoUrl: "https://srinixnm.github.io/hospital-access/sunsrishti.png",
-      path: "/sunsrishti-multispeciality-hospital",
+      logoUrl: "https://placehold.co/320x100?text=Example+Hospital",
+      path: "/example-multispeciality-hospital",
       specialty: "MULTI-SPECIALTY"
     }
   ];
@@ -79,7 +79,7 @@ function InstitutionalOverview() {
           >
             <div className="flex items-center justify-center gap-3 mb-4">
               <div className="h-px w-10 bg-brand-primary" />
-              <span className="text-brand-primary font-bold tracking-[0.3em] text-[10px] uppercase">The Subam Network</span>
+              <span className="text-brand-primary font-bold tracking-[0.3em] text-[10px] uppercase">The Demo Network</span>
               <div className="h-px w-10 bg-brand-primary" />
             </div>
             <h2 className="text-2xl md:text-4xl font-display text-brand-dark mb-4">Our Healthcare Institutions</h2>
@@ -91,7 +91,7 @@ function InstitutionalOverview() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
           {institutions.map((hospital, i) => (
-            <motion.div 
+            <motion.div
               key={hospital.fullName}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -100,31 +100,31 @@ function InstitutionalOverview() {
               className="bg-white rounded-2xl overflow-hidden border border-slate-100 hover:shadow-premium transition-all duration-500 group flex flex-col"
             >
               <div className="relative overflow-hidden">
-                 <img 
-                    src={hospital.image} 
-                    alt={hospital.fullName} 
-                    className="w-full aspect-[16/10] object-cover transition-transform duration-700 group-hover:scale-105" 
+                 <img
+                    src={hospital.image}
+                    alt={hospital.fullName}
+                    className="w-full aspect-[16/10] object-cover transition-transform duration-700 group-hover:scale-105"
                  />
                  <div className="absolute top-4 left-4">
                     <span className="px-3 py-1.5 bg-white/90 backdrop-blur-sm rounded-lg text-[9px] font-bold uppercase tracking-[0.15em] text-brand-dark">{hospital.specialty}</span>
                  </div>
               </div>
-              
+
               <div className="p-6 sm:p-8 flex flex-col flex-grow text-center">
                  <div className="h-16 md:h-20 mb-4 flex items-center justify-center">
-                    <img 
-                      src={hospital.logoUrl} 
-                      alt={`${hospital.fullName} Logo`} 
-                      className="h-12 md:h-16 w-auto object-contain mx-auto" 
+                    <img
+                      src={hospital.logoUrl}
+                      alt={`${hospital.fullName} Logo`}
+                      className="h-12 md:h-16 w-auto object-contain mx-auto"
                     />
                  </div>
-                 
+
                  <p className="text-slate-500 text-xs md:text-sm leading-relaxed mb-6 flex-grow">
                    {hospital.desc}
                  </p>
-                 
-                 <Link 
-                   to={hospital.path} 
+
+                 <Link
+                   to={hospital.path}
                    className="inline-flex items-center justify-center gap-2 text-brand-primary font-bold text-xs uppercase tracking-widest hover:gap-4 transition-all"
                  >
                    Learn More <ArrowRight size={14} />
@@ -147,7 +147,7 @@ function AboutSection() {
           <div className="relative">
             {/* Background design element (teal shape) */}
             <div className="absolute top-0 -left-12 w-[100%] h-full bg-brand-primary rounded-r-[3rem] -z-10 opacity-100 hidden lg:block" />
-            
+
             <div className="relative p-0 sm:p-4 md:p-8">
               <motion.div
                 initial={{ opacity: 0, scale: 0.95 }}
@@ -156,12 +156,12 @@ function AboutSection() {
                 className="relative z-10"
               >
                 <div className="relative">
-                  <img 
-                    src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&q=80&w=1200" 
-                    alt="Hospital Entrance" 
+                  <img
+                    src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&q=80&w=1200"
+                    alt="Hospital Entrance"
                     className="rounded-2xl sm:rounded-[2.5rem] shadow-2xl w-full object-cover aspect-[4/3] border-4 border-white"
                   />
-                  
+
                   {/* 20+ Years Experience Badge - Styled as image */}
                   <div className="absolute -top-4 -right-4 sm:-top-6 sm:-right-6 w-20 h-20 sm:w-24 sm:h-24 flex items-center justify-center">
                     <div className="relative w-full h-full">
@@ -200,21 +200,21 @@ function AboutSection() {
             <div className="inline-flex items-center px-4 py-1.5 border border-slate-200 bg-white text-slate-900 rounded-lg text-[10px] font-black uppercase tracking-widest mb-6 sm:mb-8 shadow-sm">
               About Us
             </div>
-            
+
             <h2 className="text-2xl md:text-4xl font-black text-slate-900 mb-6 leading-[1.1] tracking-tight">
               Dedication to <br />
               <span className="text-brand-primary">Clinical Excellence</span>
             </h2>
-            
+
             <p className="text-slate-600 text-xs md:text-sm leading-relaxed mb-8 font-medium">
-              Subam Hospital stands as a premier healthcare facility dedicated to the complete wellness of women and children. 
-              Established in 2013, our mission remains steadfast: to deliver life and happiness through clinical precision and human empathy. 
+              Demo Hospital stands as a premier healthcare facility dedicated to the complete wellness of women and children.
+              Established in 2013, our mission remains steadfast: to deliver life and happiness through clinical precision and human empathy.
               With over a decade of specialized expertise, we have successfully managed over 25,000 deliveries at our hospital, out of which more than 20,000 are normal deliveries, maintaining an exceptional standard of maternal safety.
             </p>
 
             <div className="space-y-4 mb-10">
               {[
-                "The only exclusive women's center in Salem.",
+                "The only exclusive women's center in Example City.",
                 "Over 25,000 deliveries successfully completed (including 20,000+ normal deliveries).",
                 "The only private hospital Accredited DNB course with 4 seats in Obstetrics & Gynaecology."
               ].map((item, idx) => (
@@ -227,8 +227,8 @@ function AboutSection() {
               ))}
             </div>
 
-            <Link 
-              to="/contact" 
+            <Link
+              to="/contact"
               className="h-12 px-8 bg-brand-primary text-white font-bold rounded-xl flex items-center justify-center gap-3 hover:bg-teal-700 transition-all w-fit uppercase text-[10px] tracking-widest shadow-xl shadow-brand-primary/20 hover:-translate-y-1"
             >
               <Phone size={16} /> Contact Us
@@ -244,25 +244,25 @@ function AboutSection() {
 
 function WhyChooseUs() {
   const points = [
-    { 
-      id: "1", 
-      title: "Decade of Trusted Care", 
-      desc: "Serving the Ellampillai community since 2013, evolving from a small setup into a trusted multi-specialty healthcare network." 
+    {
+      id: "1",
+      title: "Decade of Trusted Care",
+      desc: "Serving the Ellampillai community since 2013, evolving from a small setup into a trusted multi-specialty healthcare network."
     },
-    { 
-      id: "2", 
-      title: "Clinical Leadership", 
-      desc: "Guided by Dr. Selvi Raju (Gynaecologist & Infertility Specialist, DRM Germany) and Dr. K. Raj (General & Laparoscopic Surgeon)." 
+    {
+      id: "2",
+      title: "Clinical Leadership",
+      desc: "Guided by Dr. A. Example (Gynaecologist & Infertility Specialist, DRM Germany) and Dr. A. Example (General & Laparoscopic Surgeon)."
     },
-    { 
-      id: "3", 
-      title: "Specialized Medical Wings", 
-      desc: "Equipped with dual operation theatres, modern ICU, advanced trauma care, a fully functional OT complex, and 24/7 pharmacy." 
+    {
+      id: "3",
+      title: "Specialized Medical Wings",
+      desc: "Equipped with dual operation theatres, modern ICU, advanced trauma care, a fully functional OT complex, and 24/7 pharmacy."
     },
-    { 
-      id: "4", 
-      title: "Life-Stage Specialization", 
-      desc: "Expert care across Obstetrics, Gynaecology, Paediatrics, state-of-the-art IVF Fertility Center, and specialized Newborn Care." 
+    {
+      id: "4",
+      title: "Life-Stage Specialization",
+      desc: "Expert care across Obstetrics, Gynaecology, Paediatrics, state-of-the-art IVF Fertility Center, and specialized Newborn Care."
     }
   ];
 
@@ -278,7 +278,7 @@ function WhyChooseUs() {
           </h2>
           <div className="space-y-3 text-slate-500 text-xs md:text-sm font-medium max-w-2xl mx-auto leading-relaxed px-4">
             <p>
-              Subam Hospital and Sunsrishti Speciality Hospital stand as trusted healthcare institutions, combining modern medical technology, experienced healthcare professionals, and patient-centered care.
+              Demo Hospital and Example Speciality Hospital stand as trusted healthcare institutions, combining modern medical technology, experienced healthcare professionals, and patient-centered care.
             </p>
             <p>
               Our commitment remains unchanged—to deliver safe, affordable, and compassionate healthcare services while continually evolving to meet the growing needs of our community.
@@ -302,7 +302,7 @@ function WhyChooseUs() {
           </div>
 
           <div className="relative group">
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, scale: 0.98 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
@@ -317,9 +317,9 @@ function WhyChooseUs() {
                 <p className="text-[8px] font-bold opacity-80 mb-0">*Trusted by 1.2k Patients on Google</p>
               </div>
               <div className="sm:w-1/2 w-full h-full overflow-hidden">
-                <img 
-                  src="https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?auto=format&fit=crop&q=80&w=800" 
-                  alt="Care" 
+                <img
+                  src="https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?auto=format&fit=crop&q=80&w=800"
+                  alt="Care"
                   className="w-full h-full object-cover min-h-[200px] sm:min-h-full transition-transform duration-700 group-hover:scale-105"
                 />
               </div>
@@ -409,7 +409,7 @@ function Testimonials() {
             </div>
           ) : (
             <>
-          <div 
+          <div
             ref={scrollRef}
             onScroll={handleScroll}
             className="flex gap-6 overflow-x-auto pb-10 scrollbar-hide items-stretch snap-x snap-mandatory scroll-smooth animate-once"
@@ -438,7 +438,7 @@ function Testimonials() {
               </motion.div>
             ))}
           </div>
-          
+
           {/* Pagination Dots */}
           <div className="flex justify-center gap-2 mt-8">
             {reviews.map((_, i) => (
@@ -491,9 +491,9 @@ function InsurancePartners() {
           {/* Loop 1 */}
           {logos.map((logo, i) => (
             <div key={`logo-a-${i}`} className="flex-shrink-0 flex items-center justify-center bg-white px-4 sm:px-6 py-2 sm:py-4 rounded-xl sm:rounded-2xl border border-teal-100 shadow-sm w-36 h-12 sm:w-48 sm:h-16 md:w-56 md:h-20 hover:border-brand-primary/40 hover:shadow-md transition-all duration-300">
-              <img 
-                src={logo.src} 
-                alt={logo.alt} 
+              <img
+                src={logo.src}
+                alt={logo.alt}
                 className="max-w-full max-h-full object-contain mx-auto"
                 loading="lazy"
               />
@@ -502,9 +502,9 @@ function InsurancePartners() {
           {/* Loop 2 */}
           {logos.map((logo, i) => (
             <div key={`logo-b-${i}`} className="flex-shrink-0 flex items-center justify-center bg-white px-4 sm:px-6 py-2 sm:py-4 rounded-xl sm:rounded-2xl border border-teal-100 shadow-sm w-36 h-12 sm:w-48 sm:h-16 md:w-56 md:h-20 hover:border-brand-primary/40 hover:shadow-md transition-all duration-300">
-              <img 
-                src={logo.src} 
-                alt={logo.alt} 
+              <img
+                src={logo.src}
+                alt={logo.alt}
                 className="max-w-full max-h-full object-contain mx-auto"
                 loading="lazy"
               />
@@ -522,25 +522,25 @@ export default function Home() {
       <Hero />
       <InstitutionalOverview />
       <AboutSection />
-      
+
       {/* Editorial Feature Section */}
       <section className="py-12 sm:py-24 bg-slate-900 relative overflow-hidden">
         <div className="absolute inset-0 opacity-20">
           <div className="h-full w-full bg-[radial-gradient(circle_at_center,_#0D9488_0%,transparent_70%)]" />
         </div>
-        
+
         <div className="container-custom relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             <div className="relative">
-              <motion.div 
+              <motion.div
                 initial={{ opacity: 0, x: -30 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 className="relative rounded-[1.5rem] overflow-hidden aspect-video shadow-xl border border-white/10"
               >
-                <img 
-                  src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&q=80&w=1200" 
-                  alt="Operating Theater" 
+                <img
+                  src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&q=80&w=1200"
+                  alt="Operating Theater"
                   className="h-full w-full object-cover transition-transform duration-1000 group-hover:scale-105"
                 />
               </motion.div>
@@ -588,7 +588,7 @@ export default function Home() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-center">
             <div>
               <span className="text-teal-600 font-black tracking-[0.4em] text-[9px] uppercase mb-4 block">Care for the Community</span>
-              <h2 className="text-2xl md:text-4xl mb-6 md:mb-8 leading-[1.1] tracking-tight">Serving the Wider <br /> <span className="font-bold">Salem Region.</span></h2>
+              <h2 className="text-2xl md:text-4xl mb-6 md:mb-8 leading-[1.1] tracking-tight">Serving the Wider <br /> <span className="font-bold">Example City Region.</span></h2>
               <div className="space-y-6 mb-8">
                 <div className="flex gap-6">
                   <div className="h-12 w-12 rounded-2xl bg-white flex items-center justify-center text-teal-600 shrink-0 shadow-md group hover:bg-teal-600 hover:text-white transition-all duration-500">
@@ -596,7 +596,7 @@ export default function Home() {
                   </div>
                   <div>
                     <h4 className="text-lg font-bold mb-1">Central Location</h4>
-                    <p className="text-slate-500 leading-relaxed text-sm max-w-sm font-medium">Strategically located for rapid access from Magudanchavadi and Elampillai.</p>
+                    <p className="text-slate-500 leading-relaxed text-sm max-w-sm font-medium">Strategically located for rapid access from Magudanchavadi and Example Town.</p>
                   </div>
                 </div>
                 <div className="flex gap-6">
@@ -613,27 +613,27 @@ export default function Home() {
                 "Our mission is to bring global medical standards to our local community, ensuring no life is lost due to distance."
               </div>
             </div>
-            
-            <motion.div 
+
+            <motion.div
               initial={{ opacity: 0, x: 30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               className="relative"
             >
               <div className="aspect-video rounded-2xl sm:rounded-[3rem] overflow-hidden shadow-xl border-4 sm:border-8 border-white bg-slate-200">
-                <iframe 
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3917.464!2d78.0042!3d11.6070!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTHCsDM2JzI1LjIiTiA3OMKwMDAnMTUuMSJF!5e0!3m2!1sen!2sin!4v1716117600000!5m2!1sen!2sin" 
-                  width="100%" 
-                  height="100%" 
-                  style={{ border: 0 }} 
-                  allowFullScreen 
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3917.464!2d78.0042!3d11.6070!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTHCsDM2JzI1LjIiTiA3OMKwMDAnMTUuMSJF!5e0!3m2!1sen!2sin!4v1716117600000!5m2!1sen!2sin"
+                  width="100%"
+                  height="100%"
+                  style={{ border: 0 }}
+                  allowFullScreen
                   loading="lazy"
-                  title="Subam Hospital Location Map"
+                  title="Demo Hospital Location Map"
                 />
               </div>
               <div className="absolute -bottom-4 -left-4 sm:-bottom-6 sm:-left-6 bg-slate-900 text-white p-4 sm:p-8 rounded-xl sm:rounded-[2rem] shadow-xl border border-white/5">
                 <p className="text-[8px] font-black uppercase tracking-[0.4em] mb-1 sm:mb-2 text-teal-500">Accessible Hub</p>
-                <p className="text-sm sm:text-xl font-display leading-tight">Magudanchavadi Rd, <br /> Salem - 637502</p>
+                <p className="text-sm sm:text-xl font-display leading-tight">Example Main Road, <br /> Example City - 000000</p>
               </div>
             </motion.div>
           </div>

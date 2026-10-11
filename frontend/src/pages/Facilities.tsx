@@ -1,14 +1,14 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { 
-  Activity, 
-  HeartHandshake, 
-  Stethoscope, 
-  Sparkles, 
-  Baby, 
-  Eye, 
-  Microscope, 
-  Clock, 
+import {
+  Activity,
+  HeartHandshake,
+  Stethoscope,
+  Sparkles,
+  Baby,
+  Eye,
+  Microscope,
+  Clock,
   PhoneCall,
   ArrowDown,
   Check
@@ -41,36 +41,36 @@ const CATEGORIES: FacilityCategory[] = [
     icon: Activity,
     coverImage: "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&q=80&w=800",
     items: [
-      { 
-        name: "24x7 Emergency Services", 
-        desc: "Immediate clinical assessment and treatment response for all acute medical and surgical emergencies.", 
+      {
+        name: "24x7 Emergency Services",
+        desc: "Immediate clinical assessment and treatment response for all acute medical and surgical emergencies.",
         image: "https://images.unsplash.com/photo-1516549655169-df83a0774514?auto=format&fit=crop&q=80&w=600",
         features: ["Trauma resuscitation bays", "Advanced medical triage system", "24/7 cardiac monitoring"],
-        isEmergency: true 
+        isEmergency: true
       },
-      { 
-        name: "24x7 Labour Ward", 
-        desc: "Continuous fetal-maternal monitoring and skilled obstetric nursing care for safe delivery.", 
+      {
+        name: "24x7 Labour Ward",
+        desc: "Continuous fetal-maternal monitoring and skilled obstetric nursing care for safe delivery.",
         image: "https://images.unsplash.com/photo-1516627145497-ae6968895b74?auto=format&fit=crop&q=80&w=600",
         features: ["Continuous CTG monitoring", "Pain relief (Epidural) options", "Dedicated obstetricians on-duty"],
-        isEmergency: true 
+        isEmergency: true
       },
-      { 
-        name: "24x7 Operation Theatre", 
-        desc: "Fully equipped surgical suites staffed and available 24/7 for immediate surgical interventions.", 
+      {
+        name: "24x7 Operation Theatre",
+        desc: "Fully equipped surgical suites staffed and available 24/7 for immediate surgical interventions.",
         image: "https://images.unsplash.com/photo-1551076805-e1869033e561?auto=format&fit=crop&q=80&w=600",
         features: ["Modular aseptic layout", "HEPA air filtration systems", "Advanced anesthesia workstation"],
-        isEmergency: true 
+        isEmergency: true
       },
-      { 
-        name: "Obstetric Emergencies", 
-        desc: "Advanced protocols for the immediate management of postpartum hemorrhage, eclampsia, and obstructed labor.", 
+      {
+        name: "Obstetric Emergencies",
+        desc: "Advanced protocols for the immediate management of postpartum hemorrhage, eclampsia, and obstructed labor.",
         image: "https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?auto=format&fit=crop&q=80&w=600",
         features: ["Postpartum hemorrhage protocols", "Eclampsia management suites", "Emergency blood bank access"]
       },
-      { 
-        name: "Trauma Ready Surgical Response", 
-        desc: "Rapid-response surgical teams configured for life-saving trauma and emergency surgeries.", 
+      {
+        name: "Trauma Ready Surgical Response",
+        desc: "Rapid-response surgical teams configured for life-saving trauma and emergency surgeries.",
         image: "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&q=80&w=600",
         features: ["Rapid triage protocols", "Polytrauma surgical panels", "Critical life-support systems"]
       }
@@ -84,39 +84,39 @@ const CATEGORIES: FacilityCategory[] = [
     icon: HeartHandshake,
     coverImage: "https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?auto=format&fit=crop&q=80&w=800",
     items: [
-      { 
-        name: "Normal Deliveries", 
-        desc: "Supportive, evidence-based care focusing on natural vaginal childbirth with maternal comfort.", 
+      {
+        name: "Normal Deliveries",
+        desc: "Supportive, evidence-based care focusing on natural vaginal childbirth with maternal comfort.",
         image: "https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&q=80&w=600",
         features: ["Supportive active birth care", "Fetal heart rate monitoring", "Post-delivery bonding care"]
       },
-      { 
-        name: "LSCS (Caesarean Section)", 
-        desc: "Elective and emergency C-sections performed by our experienced obstetrics surgical panel.", 
+      {
+        name: "LSCS (Caesarean Section)",
+        desc: "Elective and emergency C-sections performed by our experienced obstetrics surgical panel.",
         image: "https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&q=80&w=600",
         features: ["Elective & emergency procedures", "Cosmetic skin suturing", "Partner accompaniment protocols"]
       },
-      { 
-        name: "VBAC (Vaginal Birth After Caesarean)", 
-        desc: "Continuous clinical monitoring and trial of labor for eligible patients seeking vaginal birth after C-section.", 
+      {
+        name: "VBAC (Vaginal Birth After Caesarean)",
+        desc: "Continuous clinical monitoring and trial of labor for eligible patients seeking vaginal birth after C-section.",
         image: "https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&q=80&w=600",
         features: ["Continuous electronic monitoring", "Rigorous patient screening", "Immediate C-section backup"]
       },
-      { 
-        name: "Ruptured Uterus Management", 
-        desc: "Rapid-response emergency surgical protocols and definitive uterine reconstruction.", 
+      {
+        name: "Ruptured Uterus Management",
+        desc: "Rapid-response emergency surgical protocols and definitive uterine reconstruction.",
         image: "https://images.unsplash.com/photo-1603398938378-e54eab446dde?auto=format&fit=crop&q=80&w=600",
         features: ["Ultra-rapid response drills", "Emergency laparotomy setups", "Intensive resuscitation care"]
       },
-      { 
-        name: "Postpartum Care", 
-        desc: "Dedicated post-delivery recovery, lactation support, maternal monitoring, and hemorrhage care.", 
+      {
+        name: "Postpartum Care",
+        desc: "Dedicated post-delivery recovery, lactation support, maternal monitoring, and hemorrhage care.",
         image: "https://images.unsplash.com/photo-1590233649088-e8898b5b4e31?auto=format&fit=crop&q=80&w=600",
         features: ["Lactation consultant visits", "Maternal recovery charting", "Pelvic floor rehab guides"]
       },
-      { 
-        name: "Hysterectomy for Obstetric Indications", 
-        desc: "Emergency surgical intervention when definitive maternal life-saving measures are required.", 
+      {
+        name: "Hysterectomy for Obstetric Indications",
+        desc: "Emergency surgical intervention when definitive maternal life-saving measures are required.",
         image: "https://images.unsplash.com/photo-1579684288227-1507b992796e?auto=format&fit=crop&q=80&w=600",
         features: ["Advanced surgical panels", "Critical care monitoring", "Multidisciplinary oversight"]
       }
@@ -130,39 +130,39 @@ const CATEGORIES: FacilityCategory[] = [
     icon: Stethoscope,
     coverImage: "https://images.unsplash.com/photo-1551076805-e1869033e561?auto=format&fit=crop&q=80&w=800",
     items: [
-      { 
-        name: "Major Obstetric OT Procedures", 
-        desc: "Complex reconstructive and therapeutic surgeries in specialized modular operating theatres.", 
+      {
+        name: "Major Obstetric OT Procedures",
+        desc: "Complex reconstructive and therapeutic surgeries in specialized modular operating theatres.",
         image: "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&q=80&w=600",
         features: ["High-risk surgical setups", "Advanced suture technology", "Dedicated recovery bays"]
       },
-      { 
-        name: "Laparoscopic Surgeries", 
-        desc: "Minimally invasive keyhole surgery for gynaecologic, gallbladder, and abdominal conditions.", 
+      {
+        name: "Laparoscopic Surgeries",
+        desc: "Minimally invasive keyhole surgery for gynaecologic, gallbladder, and abdominal conditions.",
         image: "https://images.unsplash.com/photo-1581594693702-fbdc51b2763b?auto=format&fit=crop&q=80&w=600",
         features: ["Keyhole surgical setups", "Reduced recovery timelines", "Minimal post-op scarring"]
       },
-      { 
-        name: "Hysteroscopic Surgeries", 
-        desc: "Diagnostic and operative hysteroscopy services with quick recovery and minimal discomfort.", 
+      {
+        name: "Hysteroscopic Surgeries",
+        desc: "Diagnostic and operative hysteroscopy services with quick recovery and minimal discomfort.",
         image: "https://images.unsplash.com/photo-1512678080530-7760d81faba6?auto=format&fit=crop&q=80&w=600",
         features: ["Diagnostic uterine checks", "Resection of polyps & fibroids", "Same-day discharge procedures"]
       },
-      { 
-        name: "Cyst Removal", 
-        desc: "Laparoscopic and open surgical removal of ovarian cysts, fibroids, and adnexal masses.", 
+      {
+        name: "Cyst Removal",
+        desc: "Laparoscopic and open surgical removal of ovarian cysts, fibroids, and adnexal masses.",
         image: "https://images.unsplash.com/photo-1584017911766-d451b3d0e843?auto=format&fit=crop&q=80&w=600",
         features: ["Laparoscopic cystectomy", "Ovarian tissue preservation", "Detailed histopathology tracking"]
       },
-      { 
-        name: "Ovarian Drilling", 
-        desc: "Laparoscopic ovarian drilling procedures as a specialized treatment for PCOS.", 
+      {
+        name: "Ovarian Drilling",
+        desc: "Laparoscopic ovarian drilling procedures as a specialized treatment for PCOS.",
         image: "https://images.unsplash.com/photo-1559839734-2b71f1536783?auto=format&fit=crop&q=80&w=600",
         features: ["Laparoscopic drilling", "Endocrine profile charting", "Post-surgical fertility support"]
       },
-      { 
-        name: "IUD Insertion & Removal", 
-        desc: "Family planning procedures conducted safely by experienced gynaecological practitioners.", 
+      {
+        name: "IUD Insertion & Removal",
+        desc: "Family planning procedures conducted safely by experienced gynaecological practitioners.",
         image: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&q=80&w=600",
         features: ["Hormonal & copper IUDs", "Pre-insertion counseling", "Post-insertion checks"]
       }
@@ -176,33 +176,33 @@ const CATEGORIES: FacilityCategory[] = [
     icon: Sparkles,
     coverImage: "https://images.unsplash.com/photo-1579152276517-7507c992796e?auto=format&fit=crop&q=80&w=800",
     items: [
-      { 
-        name: "IVF (In Vitro Fertilization)", 
-        desc: "Complete assisted reproductive cycle management with customized stimulation protocols.", 
+      {
+        name: "IVF (In Vitro Fertilization)",
+        desc: "Complete assisted reproductive cycle management with customized stimulation protocols.",
         image: "https://images.unsplash.com/photo-1579152276517-7507c992796e?auto=format&fit=crop&q=80&w=600",
         features: ["Individualized stimulation cycles", "ICSI fertilization support", "High-efficiency incubator monitoring"]
       },
-      { 
-        name: "ICSI (Intracytoplasmic Sperm Injection)", 
-        desc: "High-precision microinjection technology for fertilization in severe male factor infertility.", 
+      {
+        name: "ICSI (Intracytoplasmic Sperm Injection)",
+        desc: "High-precision microinjection technology for fertilization in severe male factor infertility.",
         image: "https://images.unsplash.com/photo-1532187863486-abf9d39d66e8?auto=format&fit=crop&q=80&w=600",
         features: ["Laser-assisted micromanipulation", "Sperm selection protocols", "Improved fertilization rates"]
       },
-      { 
-        name: "Andrology Lab", 
-        desc: "Advanced semen diagnostics, morphological analysis, and washing preparations for IUI/IVF.", 
+      {
+        name: "Andrology Lab",
+        desc: "Advanced semen diagnostics, morphological analysis, and washing preparations for IUI/IVF.",
         image: "https://images.unsplash.com/photo-1530026405186-ed1ea0ac7a63?auto=format&fit=crop&q=80&w=600",
         features: ["Computerized semen analysis", "Sperm washing for IUI prep", "Detailed morphology analysis"]
       },
-      { 
-        name: "Cryopreservation of Sperms & Embryos", 
-        desc: "Secure long-term storage using vitrification and controlled-rate freezing protocols.", 
+      {
+        name: "Cryopreservation of Sperms & Embryos",
+        desc: "Secure long-term storage using vitrification and controlled-rate freezing protocols.",
         image: "https://images.unsplash.com/photo-1581594541451-330d9bc9812a?auto=format&fit=crop&q=80&w=600",
         features: ["Vitrification rapid-freeze", "Secure cryogenic storage", "Double-identification verification"]
       },
-      { 
-        name: "Oocyte Freezing", 
-        desc: "Egg freezing services for elective or medical fertility preservation with high survival rates.", 
+      {
+        name: "Oocyte Freezing",
+        desc: "Egg freezing services for elective or medical fertility preservation with high survival rates.",
         image: "https://images.unsplash.com/photo-1576086213369-97a306d36557?auto=format&fit=crop&q=80&w=600",
         features: ["Egg quality evaluations", "Controlled-rate cooling", "Fertility preservation panels"]
       }
@@ -216,25 +216,25 @@ const CATEGORIES: FacilityCategory[] = [
     icon: Baby,
     coverImage: "https://images.unsplash.com/photo-1502086223501-7ea6ecd79368?auto=format&fit=crop&q=80&w=800",
     items: [
-      { 
-        name: "Newborn Care 24x7", 
-        desc: "Continuous neonatal monitoring, immediate newborn stabilization, and post-delivery nursery care.", 
+      {
+        name: "Newborn Care 24x7",
+        desc: "Continuous neonatal monitoring, immediate newborn stabilization, and post-delivery nursery care.",
         image: "https://images.unsplash.com/photo-1519689680058-324335c77ebe?auto=format&fit=crop&q=80&w=600",
         features: ["Immediate pediatric check", "Neonatal screening panels", "Newborn vaccine programs"],
-        isEmergency: true 
+        isEmergency: true
       },
-      { 
-        name: "Pediatric Services", 
-        desc: "Comprehensive outpatient consultations and inpatient care for childhood illnesses and growth tracking.", 
+      {
+        name: "Pediatric Services",
+        desc: "Comprehensive outpatient consultations and inpatient care for childhood illnesses and growth tracking.",
         image: "https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?auto=format&fit=crop&q=80&w=600",
         features: ["Growth & development charts", "Immunization scheduling", "Outpatient child health care"]
       },
-      { 
-        name: "NICU Capabilities", 
-        desc: "Advanced Level III Neonatal ICU equipped for premature, low-birth-weight, and critically ill infants.", 
+      {
+        name: "NICU Capabilities",
+        desc: "Advanced Level III Neonatal ICU equipped for premature, low-birth-weight, and critically ill infants.",
         image: "https://images.unsplash.com/photo-1551076805-e1869033e561?auto=format&fit=crop&q=80&w=600",
         features: ["Level III incubator bays", "Surfactant delivery support", "Neonatal ventilators"],
-        isEmergency: true 
+        isEmergency: true
       }
     ]
   },
@@ -246,37 +246,37 @@ const CATEGORIES: FacilityCategory[] = [
     icon: Eye,
     coverImage: "https://images.unsplash.com/photo-1516549655169-df83a0774514?auto=format&fit=crop&q=80&w=800",
     items: [
-      { 
-        name: "CT Scan 24x7", 
-        desc: "Continuous advanced cross-sectional diagnostic imaging for trauma and emergency care.", 
+      {
+        name: "CT Scan 24x7",
+        desc: "Continuous advanced cross-sectional diagnostic imaging for trauma and emergency care.",
         image: "https://images.unsplash.com/photo-1471864190281-a93a3070b6de?auto=format&fit=crop&q=80&w=600",
         features: ["128-slice rapid scanning", "Low-radiation dose setups", "Emergency trauma scanning"],
-        isEmergency: true 
+        isEmergency: true
       },
-      { 
-        name: "X-Ray 24x7", 
-        desc: "Round-the-clock digital radiography for bone trauma and acute diagnostic screenings.", 
+      {
+        name: "X-Ray 24x7",
+        desc: "Round-the-clock digital radiography for bone trauma and acute diagnostic screenings.",
         image: "https://images.unsplash.com/photo-1557344265-883d77290d58?auto=format&fit=crop&q=80&w=600",
         features: ["High-resolution digital X-rays", "Minimal radiation exposure", "Instant digital reporting"],
-        isEmergency: true 
+        isEmergency: true
       },
-      { 
-        name: "Ultrasound Services", 
-        desc: "Routine and emergency abdominal, pelvic, and vascular color Doppler imaging services.", 
+      {
+        name: "Ultrasound Services",
+        desc: "Routine and emergency abdominal, pelvic, and vascular color Doppler imaging services.",
         image: "https://images.unsplash.com/photo-1590273466070-40c466b4432c?auto=format&fit=crop&q=80&w=600",
-        features: ["Pelvic & abdominal sonography", "Vascular color Doppler scans", "Emergency ultrasound units"] 
+        features: ["Pelvic & abdominal sonography", "Vascular color Doppler scans", "Emergency ultrasound units"]
       },
-      { 
-        name: "3D Ultrasound", 
-        desc: "High-resolution 3D volumetric scanning for detailed anatomical evaluations of the fetus.", 
+      {
+        name: "3D Ultrasound",
+        desc: "High-resolution 3D volumetric scanning for detailed anatomical evaluations of the fetus.",
         image: "https://images.unsplash.com/photo-1516549655169-df83a0774514?auto=format&fit=crop&q=80&w=600",
-        features: ["Volumetric baby scanning", "Congenital anomaly checks", "First-semester screening"] 
+        features: ["Volumetric baby scanning", "Congenital anomaly checks", "First-semester screening"]
       },
-      { 
-        name: "Fetal Medicine", 
-        desc: "Specialized maternal-fetal diagnostics, early second trimester anomaly screening, and growth monitoring.", 
+      {
+        name: "Fetal Medicine",
+        desc: "Specialized maternal-fetal diagnostics, early second trimester anomaly screening, and growth monitoring.",
         image: "https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&q=80&w=600",
-        features: ["Targeted anomaly checks", "Fetal growth assessments", "Amniocentesis procedures"] 
+        features: ["Targeted anomaly checks", "Fetal growth assessments", "Amniocentesis procedures"]
       }
     ]
   },
@@ -288,30 +288,30 @@ const CATEGORIES: FacilityCategory[] = [
     icon: Microscope,
     coverImage: "https://images.unsplash.com/photo-1585435557343-3b092031a831?auto=format&fit=crop&q=80&w=800",
     items: [
-      { 
-        name: "24x7 Pharmacy", 
-        desc: "Fully stocked on-site pharmacy dispensing prescription drugs and critical emergency supplies.", 
+      {
+        name: "24x7 Pharmacy",
+        desc: "Fully stocked on-site pharmacy dispensing prescription drugs and critical emergency supplies.",
         image: "https://images.unsplash.com/photo-1585435557343-3b092031a831?auto=format&fit=crop&q=80&w=600",
         features: ["Automated inventory lists", "Cold-chain medicine storage", "Emergency drug availability"],
-        isEmergency: true 
+        isEmergency: true
       },
-      { 
-        name: "Pharmacy Lab Integration", 
-        desc: "Integrated prescription systems matching patient records to ensure dispensing safety and counseling.", 
+      {
+        name: "Pharmacy Lab Integration",
+        desc: "Integrated prescription systems matching patient records to ensure dispensing safety and counseling.",
         image: "https://images.unsplash.com/photo-1579152276508-e87fecfcfcfc?auto=format&fit=crop&q=80&w=600",
-        features: ["Barcode medication checks", "Direct record integration", "Clinical pharmacist review"] 
+        features: ["Barcode medication checks", "Direct record integration", "Clinical pharmacist review"]
       },
-      { 
-        name: "Clinical Laboratory Services", 
-        desc: "Pathological, microbiological, and hematological testing conducted locally with high quality.", 
+      {
+        name: "Clinical Laboratory Services",
+        desc: "Pathological, microbiological, and hematological testing conducted locally with high quality.",
         image: "https://images.unsplash.com/photo-1579152276517-7507c992796e?auto=format&fit=crop&q=80&w=600",
-        features: ["Automated biochemistry checks", "Microbiological cultures", "Hematology profiling units"] 
+        features: ["Automated biochemistry checks", "Microbiological cultures", "Hematology profiling units"]
       },
-      { 
-        name: "Quiet Room Facilities", 
-        desc: "Quiet, private support suites configured for lactation, medical counseling, and family rest.", 
+      {
+        name: "Quiet Room Facilities",
+        desc: "Quiet, private support suites configured for lactation, medical counseling, and family rest.",
         image: "https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&q=80&w=600",
-        features: ["Private lactation suites", "Grief counselling spaces", "Quiet rest environments"] 
+        features: ["Private lactation suites", "Grief counselling spaces", "Quiet rest environments"]
       }
     ]
   }
@@ -416,8 +416,8 @@ export default function Facilities() {
                 key={`sticky-tab-${cat.id}`}
                 onClick={() => scrollToCategory(cat.id)}
                 className={`flex-shrink-0 px-4 py-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer ${
-                  isActive 
-                    ? 'bg-brand-primary text-white shadow-sm shadow-brand-primary/10' 
+                  isActive
+                    ? 'bg-brand-primary text-white shadow-sm shadow-brand-primary/10'
                     : 'bg-slate-50 text-slate-500 hover:text-slate-800 border border-slate-200/50'
                 }`}
               >
@@ -436,9 +436,9 @@ export default function Facilities() {
           {CATEGORIES.map((cat) => {
             const CategoryIcon = cat.icon;
             return (
-              <section 
-                key={cat.id} 
-                id={cat.id} 
+              <section
+                key={cat.id}
+                id={cat.id}
                 className="scroll-mt-32 border-b border-slate-100 pb-16 last:border-0 last:pb-0"
               >
                 {/* Category Header */}
@@ -459,15 +459,15 @@ export default function Facilities() {
                 {/* 3-Column Professional Card Grid */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6">
                   {cat.items.map((item, idx) => (
-                    <div 
-                      key={idx} 
+                    <div
+                      key={idx}
                       className="bg-white rounded-xl border border-slate-200/60 overflow-hidden hover:shadow-[0_12px_35px_rgba(15,23,42,0.04)] transition-all duration-300 flex flex-col group animate-once"
                     >
                       {/* Facility Image Cover */}
                       <div className="h-44 w-full overflow-hidden bg-slate-50 relative">
-                        <img 
-                          src={item.image} 
-                          alt={item.name} 
+                        <img
+                          src={item.image}
+                          alt={item.name}
                           className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                           loading="lazy"
                         />
@@ -503,7 +503,7 @@ export default function Facilities() {
 
                         <div className="mt-5 pt-3 border-t border-slate-50 flex items-center justify-between text-[9px] font-bold text-slate-300 uppercase tracking-widest">
                           <span>Clinical Resource</span>
-                          <span className="text-[8px] text-brand-primary/50 group-hover:text-brand-primary transition-colors">Subam Network</span>
+                          <span className="text-[8px] text-brand-primary/50 group-hover:text-brand-primary transition-colors">Demo Network</span>
                         </div>
                       </div>
                     </div>
@@ -527,8 +527,8 @@ export default function Facilities() {
               <h3 className="text-2xl md:text-3xl font-display leading-tight mb-2">Trauma & Emergency Services Available 24/7</h3>
               <p className="text-slate-400 text-xs font-normal">Immediate response coordinates for acute trauma, ambulance dispatch, and labor admissions.</p>
             </div>
-            <a 
-              href="tel:+914272448400" 
+            <a
+              href="tel:+914272448400"
               className="h-12 px-8 bg-brand-primary text-white font-bold rounded-xl flex items-center justify-center gap-3 hover:bg-teal-700 transition-all uppercase text-[10px] tracking-widest shadow-xl shadow-brand-primary/20"
             >
               <PhoneCall size={14} /> Call Emergency Desk

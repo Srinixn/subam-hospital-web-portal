@@ -26,8 +26,8 @@ const TIMELINE = [
   },
   {
     year: "2024",
-    title: "Sunsrishti Speciality Hospital",
-    desc: "Launched Sunsrishti Speciality Hospital — equipped with modern ICU, advanced trauma care, laparoscopic surgery services, and endoscopic procedures for high-quality specialized treatment.",
+    title: "Example Speciality Hospital",
+    desc: "Launched Example Speciality Hospital — equipped with modern ICU, advanced trauma care, laparoscopic surgery services, and endoscopic procedures for high-quality specialized treatment.",
     color: "bg-brand-primary",
     icon: ShieldCheck
   },
@@ -57,9 +57,9 @@ export default function About() {
       <section className="relative grid grid-cols-1 lg:grid-cols-2 min-h-auto lg:min-h-screen">
         {/* Left — Image Panel */}
         <div className="relative overflow-hidden bg-slate-900 min-h-[55vh] sm:min-h-[60vh] lg:min-h-screen flex flex-col justify-center items-center py-10 sm:py-16 px-6 sm:px-12 lg:p-0">
-          <img 
-            src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&q=80&w=2000" 
-            alt="Subam Hospital"
+          <img
+            src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&q=80&w=2000"
+            alt="Demo Hospital"
             className="absolute inset-0 w-full h-full object-cover opacity-30 sm:opacity-40"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/60 to-slate-900/30" />
@@ -79,11 +79,11 @@ export default function About() {
               </p>
               <div className="flex items-center justify-center gap-3">
                 <div className="h-px w-6 sm:w-8 bg-brand-primary" />
-                <span className="text-brand-primary text-[9px] sm:text-[11px] font-bold uppercase tracking-[0.2em]">Dr. K. Raj & Dr. Selvi Raju</span>
+                <span className="text-brand-primary text-[9px] sm:text-[11px] font-bold uppercase tracking-[0.2em]">Dr. A. Example & Dr. A. Example</span>
                 <div className="h-px w-6 sm:w-8 bg-brand-primary" />
               </div>
             </motion.div>
-            
+
             {/* Floating Stats on Image */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -116,7 +116,7 @@ export default function About() {
             >
               <div className="flex items-center gap-3 mb-6 sm:mb-10">
                 <div className="h-px w-10 sm:w-12 bg-brand-primary" />
-                <span className="text-brand-primary font-bold tracking-[0.3em] uppercase text-[10px]">About Subam Hospital</span>
+                <span className="text-brand-primary font-bold tracking-[0.3em] uppercase text-[10px]">About Demo Hospital</span>
               </div>
 
               <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display text-brand-dark leading-[1.1] sm:leading-[1] tracking-tight mb-6 sm:mb-8">
@@ -124,10 +124,10 @@ export default function About() {
               </h1>
 
               <p className="text-slate-500 text-sm sm:text-base md:text-lg leading-relaxed mb-4 sm:mb-6 font-medium">
-                Located on Kakkapalayam Main Road, Ellampillai, Subam Hospital has been committed to providing quality healthcare services to the community for more than a decade.
+                Located on Kakkapalayam Main Road, Ellampillai, Demo Hospital has been committed to providing quality healthcare services to the community for more than a decade.
               </p>
               <p className="text-slate-500 text-sm sm:text-base md:text-lg leading-relaxed mb-8 sm:mb-10 font-medium">
-                What started in 2013 as a small clinical setup with a compassionate vision has grown into a 50-bedded multi-specialty healthcare institution — trusted by thousands of families across Salem.
+                What started in 2013 as a small clinical setup with a compassionate vision has grown into a 50-bedded multi-specialty healthcare institution — trusted by thousands of families across Example City.
               </p>
 
               <div className="flex flex-wrap gap-4">
@@ -172,7 +172,7 @@ export default function About() {
         <div className="container-custom">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start">
             {/* Left Column — Label */}
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
@@ -185,7 +185,7 @@ export default function About() {
               <h2 className="text-3xl sm:text-4xl md:text-5xl font-display text-brand-dark leading-[1.1] mb-6 lg:mb-8">
                 From a Small Clinic<br />to a Healthcare<br /><span className="italic text-brand-primary">Institution.</span>
               </h2>
-              
+
               <div className="hidden lg:block mt-12">
                 <div className="rounded-3xl overflow-hidden aspect-[3/4] shadow-premium">
                   <img src="https://images.unsplash.com/photo-1516549655169-df83a0774514?auto=format&fit=crop&q=80&w=800" className="w-full h-full object-cover" alt="Hospital Team" />
@@ -194,7 +194,7 @@ export default function About() {
             </motion.div>
 
             {/* Right Column — Long-form Content */}
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -205,11 +205,11 @@ export default function About() {
               </p>
 
               <p className="text-slate-600 text-sm sm:text-lg md:text-xl leading-relaxed font-medium">
-                Driven by our commitment to excellence, Subam Hospital underwent a major expansion in 2017, transforming into a 50-bedded multi-specialty healthcare facility. We introduced dual operation theatres, deluxe patient rooms, a fully functional operation theatre complex, advanced laboratory services, a well-equipped labour ward, 24/7 pharmacy services, and ultrasound scanning facilities — ensuring comprehensive care under one roof.
+                Driven by our commitment to excellence, Demo Hospital underwent a major expansion in 2017, transforming into a 50-bedded multi-specialty healthcare facility. We introduced dual operation theatres, deluxe patient rooms, a fully functional operation theatre complex, advanced laboratory services, a well-equipped labour ward, 24/7 pharmacy services, and ultrasound scanning facilities — ensuring comprehensive care under one roof.
               </p>
 
               <p className="text-slate-600 text-sm sm:text-lg md:text-xl leading-relaxed font-medium">
-                Continuing our mission, we launched Sunsrishti Speciality Hospital in 2024 — equipped with modern Intensive Care Units, advanced trauma care, laparoscopic surgery, and endoscopic procedures. In 2025, we established our state-of-the-art IVF Centre, bringing advanced fertility treatment to Salem.
+                Continuing our mission, we launched Example Speciality Hospital in 2024 — equipped with modern Intensive Care Units, advanced trauma care, laparoscopic surgery, and endoscopic procedures. In 2025, we established our state-of-the-art IVF Centre, bringing advanced fertility treatment to Example City.
               </p>
 
               <blockquote className="border-l-4 border-brand-primary pl-6 sm:pl-8 py-3 sm:py-4 my-8 sm:my-12">
@@ -219,7 +219,7 @@ export default function About() {
               </blockquote>
 
               <p className="text-slate-600 text-sm sm:text-lg md:text-xl leading-relaxed font-medium">
-                Today, Subam Hospital and Sunsrishti Speciality Hospital stand as trusted healthcare institutions combining modern medical technology, experienced professionals, and patient-centered care. We are a leading centre for Women's Health, Maternity Care, Fertility Treatment, IVF Services, Laparoscopic Surgery, Newborn Care, and Comprehensive Gynaecological Services.
+                Today, Demo Hospital and Example Speciality Hospital stand as trusted healthcare institutions combining modern medical technology, experienced professionals, and patient-centered care. We are a leading centre for Women's Health, Maternity Care, Fertility Treatment, IVF Services, Laparoscopic Surgery, Newborn Care, and Comprehensive Gynaecological Services.
               </p>
 
               {/* Delivery Milestone Card */}
@@ -230,7 +230,7 @@ export default function About() {
                 <div>
                   <h4 className="text-base sm:text-lg font-bold text-brand-dark mb-1">Over 25,000 Deliveries (20,000+ Normal Deliveries)</h4>
                   <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-                    Subam Hospital has successfully delivered <strong>25,000 deliveries</strong>, out of which <strong>20,000 are normal deliveries</strong> — reflecting our clinical dedication to natural childbirth, patient safety, and maternal health.
+                    Demo Hospital has successfully delivered <strong>25,000 deliveries</strong>, out of which <strong>20,000 are normal deliveries</strong> — reflecting our clinical dedication to natural childbirth, patient safety, and maternal health.
                   </p>
                 </div>
               </div>
@@ -360,7 +360,7 @@ export default function About() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 max-w-5xl mx-auto">
-            {/* Dr. K. Raj */}
+            {/* Dr. A. Example */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -376,9 +376,9 @@ export default function About() {
                 </div>
               </div>
               <div className="p-6 sm:p-10">
-                <h3 className="text-xl sm:text-2xl font-display text-brand-dark mb-1">Dr. K. Raj</h3>
+                <h3 className="text-xl sm:text-2xl font-display text-brand-dark mb-1">Dr. A. Example</h3>
                 <p className="text-brand-primary font-bold uppercase tracking-[0.15em] text-[10px] mb-4 sm:mb-6">Consultant General Surgeon</p>
-                
+
                 <div className="space-y-2.5 mb-6 sm:mb-8">
                   {["MBBS", "MS (General Surgery)", "FMAS (Fellow Minimal Access Surgery)", "DMAS (Diploma Minimal Access Surgery)"].map((q, i) => (
                     <div key={i} className="flex items-center gap-2.5">
@@ -387,14 +387,14 @@ export default function About() {
                     </div>
                   ))}
                 </div>
-                
+
                 <p className="text-xs sm:text-sm text-slate-500 leading-relaxed border-t border-slate-100 pt-5 sm:pt-6">
-                  A skilled surgeon with expertise in general and minimally invasive procedures. Dr. Raj's surgical precision and leadership have been instrumental in establishing Subam Hospital as a trusted healthcare destination.
+                  A skilled surgeon with expertise in general and minimally invasive procedures. Dr. A. Example's surgical precision and leadership have been instrumental in establishing Demo Hospital as a trusted healthcare destination.
                 </p>
               </div>
             </motion.div>
 
-            {/* Dr. Selvi Raju */}
+            {/* Dr. A. Example */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -411,9 +411,9 @@ export default function About() {
                 </div>
               </div>
               <div className="p-6 sm:p-10">
-                <h3 className="text-xl sm:text-2xl font-display text-brand-dark mb-1">Dr. Selvi Raju</h3>
+                <h3 className="text-xl sm:text-2xl font-display text-brand-dark mb-1">Dr. A. Example</h3>
                 <p className="text-brand-secondary font-bold uppercase tracking-[0.15em] text-[10px] mb-4 sm:mb-6">Consultant Gynaecologist & Infertility Specialist</p>
-                
+
                 <div className="space-y-2.5 mb-6 sm:mb-8">
                   {[
                     "MBBS",
@@ -427,9 +427,9 @@ export default function About() {
                     </div>
                   ))}
                 </div>
-                
+
                 <p className="text-xs sm:text-sm text-slate-500 leading-relaxed border-t border-slate-100 pt-5 sm:pt-6">
-                  An accomplished gynaecologist and fertility specialist with international training from Germany. Dr. Selvi Raju's expertise in reproductive medicine drives the hospital's speciality programs and IVF centre.
+                  An accomplished gynaecologist and fertility specialist with international training from Germany. Dr. A. Example's expertise in reproductive medicine drives the hospital's speciality programs and IVF centre.
                 </p>
               </div>
             </motion.div>

@@ -1,6 +1,6 @@
 /**
  * AuditLog.tsx — Read-only admin audit trail viewer
- * 
+ *
  * Displays all admin actions logged by the system.
  * No delete or edit capability — append-only log.
  */

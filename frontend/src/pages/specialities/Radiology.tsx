@@ -23,7 +23,7 @@ export default function Radiology() {
       <div className="container-custom">
         {/* Hero Section */}
         <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center mb-24">
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, x: -30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
@@ -46,19 +46,19 @@ export default function Radiology() {
           </motion.div>
 
           <div className="relative">
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.8, delay: 0.2 }}
               className="aspect-[4/3] sm:aspect-[4/5] rounded-3xl lg:rounded-[3.5rem] overflow-hidden shadow-premium border-8 border-white bg-slate-100"
             >
-              <img 
-                src="https://content.jdmagicbox.com/comp/salem/g6/0427px427.x427.181025180837.u3g6/catalogue/dr-sharmila-senthilkumar-ssk-women-and-kidney-care-swarnapuri-salem-gynaecologist-and-obstetrician-doctors-abx9tc7y5q.jpg" 
+              <img
+                src="https://placehold.co/600x600?text=Doctor"
                 alt="Radiology and Diagnostics"
                 className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
               />
             </motion.div>
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
@@ -73,7 +73,7 @@ export default function Radiology() {
         {/* High-Tech Diagnostic Panel Section */}
         <section id="dashboard-services" className="mb-24 scroll-mt-32 p-8 md:p-16 bg-slate-950 rounded-[4rem] border border-slate-900 shadow-2xl relative">
           <div className="absolute top-0 right-0 w-80 h-80 bg-brand-primary/10 rounded-full blur-3xl -z-10" />
-          
+
           <div className="text-center mb-16 relative z-10">
             <span className="text-brand-primary font-bold tracking-[0.2em] uppercase text-xs mb-3 block">Digital Scanning Suite</span>
             <h2 className="text-3xl md:text-5xl font-display text-white">Diagnostic Imaging Hub</h2>
@@ -88,7 +88,7 @@ export default function Radiology() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: i * 0.04 }}
                 viewport={{ once: true }}
-                whileHover={{ 
+                whileHover={{
                   scale: 1.03,
                   boxShadow: "0 0 25px rgba(13, 148, 136, 0.3)",
                   borderColor: "rgba(13, 148, 136, 0.5)"
@@ -116,7 +116,7 @@ export default function Radiology() {
         </section>
 
         {/* Info Banner Section */}
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -132,7 +132,7 @@ export default function Radiology() {
             </div>
             <h2 className="text-3xl md:text-4xl font-display mb-6 leading-tight">Accurate Scans Conducted with Low-Radiation Protocols</h2>
             <p className="text-lg text-slate-500 mb-10 leading-relaxed">
-              Equipped with modern diagnostic scanning machinery and managed by a dedicated group of scanning consultants, Subam Hospital ensures you receive highly detailed images and reports for all diagnostics. We focus on physical safety, precision testing, and immediate assistance to critical trauma cases.
+              Equipped with modern diagnostic scanning machinery and managed by a dedicated group of scanning consultants, Demo Hospital ensures you receive highly detailed images and reports for all diagnostics. We focus on physical safety, precision testing, and immediate assistance to critical trauma cases.
             </p>
             <Link to="/contact" className="btn-primary inline-flex h-14 px-10 text-base">
               <span>Book an Scan Appointment</span>

@@ -63,7 +63,7 @@ export async function logout(
       return;
     }
 
-    res.clearCookie('subam.sid');
+    res.clearCookie('demo.sid');
     res.json({
       success: true,
       message: 'Logged out successfully.',

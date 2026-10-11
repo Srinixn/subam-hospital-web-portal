@@ -72,7 +72,7 @@ const MIGRATIONS: { name: string; sql: string }[] = [
         slug              VARCHAR(255)  NOT NULL,
         description       TEXT          NOT NULL,
         requirements      TEXT          NOT NULL,
-        location          ENUM('Sun Srishti Speciality Hospital', 'Sunsrishti Fertility Center', 'Subam Hospital') NOT NULL,
+        location          ENUM('Sun Srishti Speciality Hospital', 'Example Fertility Center', 'Demo Hospital') NOT NULL,
         employment_type   ENUM('Full-time', 'Part-time', 'Contract') NOT NULL,
         status            ENUM('Draft', 'Published', 'Closed') NOT NULL DEFAULT 'Draft',
         linkedin_job_url  VARCHAR(255)  NOT NULL,
@@ -246,7 +246,7 @@ async function migrate(): Promise<void> {
         ALTER TABLE jobs
         DROP FOREIGN KEY fk_jobs_department,
         DROP COLUMN department_id,
-        ADD COLUMN location ENUM('Sun Srishti Speciality Hospital', 'Sunsrishti Fertility Center', 'Subam Hospital') NOT NULL DEFAULT 'Subam Hospital',
+        ADD COLUMN location ENUM('Sun Srishti Speciality Hospital', 'Example Fertility Center', 'Demo Hospital') NOT NULL DEFAULT 'Demo Hospital',
         ADD COLUMN linkedin_job_url VARCHAR(255) NOT NULL DEFAULT '';
       `);
       console.log('  ✓ Altered existing jobs table schema.');

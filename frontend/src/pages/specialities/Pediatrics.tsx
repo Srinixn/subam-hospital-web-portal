@@ -27,7 +27,7 @@ export default function Pediatrics() {
       <div className="container-custom">
         {/* Hero Section */}
         <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center mb-24">
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ type: "spring", stiffness: 60, delay: 0.1 }}
@@ -37,7 +37,7 @@ export default function Pediatrics() {
               Paediatrics & <br /><span className="text-amber-500 italic">Child Health.</span>
             </h1>
             <p className="text-lg text-slate-500 font-medium leading-relaxed mb-6">
-              Paediatrics is the branch of medicine dedicated to the health, growth, and development of infants, children, and adolescents. At Subam Hospital, our Paediatrics Department provides comprehensive healthcare services to ensure that children receive the best possible medical care from birth through adolescence.
+              Paediatrics is the branch of medicine dedicated to the health, growth, and development of infants, children, and adolescents. At Demo Hospital, our Paediatrics Department provides comprehensive healthcare services to ensure that children receive the best possible medical care from birth through adolescence.
             </p>
             <p className="text-base text-slate-500 font-medium leading-relaxed mb-8 border-l-4 border-amber-400/50 pl-4 italic">
               Our experienced paediatric team focuses on preventive care, early diagnosis, and effective treatment of childhood illnesses while supporting healthy growth and development. We are committed to creating a child-friendly environment where young patients receive compassionate and specialized care.
@@ -50,19 +50,19 @@ export default function Pediatrics() {
           </motion.div>
 
           <div className="relative">
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.8, type: "spring", stiffness: 80 }}
               className="aspect-[4/3] sm:aspect-[4/5] rounded-3xl lg:rounded-[3.5rem] rounded-tr-none rounded-bl-none overflow-hidden shadow-premium border-8 border-white bg-slate-100"
             >
-              <img 
-                src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&q=80&w=1200" 
+              <img
+                src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&q=80&w=1200"
                 alt="Paediatric Care for Children"
                 className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
               />
             </motion.div>
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
@@ -107,7 +107,7 @@ export default function Pediatrics() {
         </section>
 
         {/* Info Banner Section */}
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -123,7 +123,7 @@ export default function Pediatrics() {
             </div>
             <h2 className="text-3xl md:text-4xl font-display mb-6 leading-tight">Providing Safe, Quality, and Compassionate Care for Families</h2>
             <p className="text-lg text-slate-500 mb-10 leading-relaxed">
-              At Subam Hospital, we believe that every child deserves quality healthcare in a safe and caring environment. Our dedicated team works closely with parents to promote healthy development and provide timely medical care for children at every stage of growth. Our mission is to ensure the well-being of every child through expert medical care, preventive health services, and compassionate support for families.
+              At Demo Hospital, we believe that every child deserves quality healthcare in a safe and caring environment. Our dedicated team works closely with parents to promote healthy development and provide timely medical care for children at every stage of growth. Our mission is to ensure the well-being of every child through expert medical care, preventive health services, and compassionate support for families.
             </p>
             <Link to="/contact" className="px-8 py-4 bg-amber-500 text-white rounded-2xl font-bold transition-all hover:bg-amber-600 hover:shadow-xl hover:shadow-amber-500/20 flex items-center justify-center gap-2 max-w-xs text-base">
               <span>Book a Pediatric Visit</span>

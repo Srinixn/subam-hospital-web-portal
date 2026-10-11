@@ -34,7 +34,7 @@ export function requireJwtAuth(
   if (req.session && req.session.userId) {
     req.jwtUser = {
       userId: req.session.userId,
-      email: req.session.userEmail || 'admin@subamhospital.com',
+      email: req.session.userEmail || 'admin@example.com',
       name: req.session.userName || 'Admin',
       type: 'access',
     };

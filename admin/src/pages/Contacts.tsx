@@ -47,7 +47,7 @@ export default function Contacts() {
     try {
       // Optimistic update
       setContacts(contacts.map(c => c.id === id ? { ...c, isRead: !currentStatus } : c));
-      
+
       await fetchApi(`admin/contacts/${id}/read`, {
         method: 'PATCH',
         body: JSON.stringify({ isRead: !currentStatus })
@@ -66,8 +66,8 @@ export default function Contacts() {
           <h1 className="text-2xl font-bold text-slate-800">Contact Inquiries</h1>
           <p className="text-sm text-slate-500">Manage public contact form submissions.</p>
         </div>
-        
-        <select 
+
+        <select
           value={filterRead}
           onChange={(e) => { setFilterRead(e.target.value); setPage(1); }}
           className="h-10 bg-white border border-slate-200 rounded-lg px-4 text-sm font-medium focus:outline-none focus:ring-2 focus:ring-brand-primary/20 focus:border-brand-primary"
@@ -108,7 +108,7 @@ export default function Contacts() {
                 contacts.map((contact) => (
                   <tr key={contact.id} className={`hover:bg-slate-50 transition-colors ${!contact.isRead ? 'bg-brand-primary/5' : ''}`}>
                     <td className="px-6 py-4">
-                      <button 
+                      <button
                         onClick={() => toggleReadStatus(contact.id, contact.isRead)}
                         className={`p-1 rounded-full transition-colors ${contact.isRead ? 'text-slate-400 hover:text-slate-600' : 'text-brand-primary hover:text-teal-800'}`}
                         title={contact.isRead ? "Mark as unread" : "Mark as read"}
@@ -147,7 +147,7 @@ export default function Contacts() {
             </tbody>
           </table>
         </div>
-        
+
         {/* Pagination */}
         {!loading && totalPages > 1 && (
           <div className="px-6 py-4 border-t border-slate-200 flex items-center justify-between bg-slate-50">
@@ -155,14 +155,14 @@ export default function Contacts() {
               Page <span className="font-bold text-slate-800">{page}</span> of <span className="font-bold text-slate-800">{totalPages}</span>
             </span>
             <div className="flex gap-2">
-              <button 
+              <button
                 onClick={() => setPage(p => Math.max(1, p - 1))}
                 disabled={page === 1}
                 className="p-2 rounded-lg border border-slate-200 bg-white text-slate-500 hover:bg-slate-50 hover:text-slate-800 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
               >
                 <ChevronLeft size={18} />
               </button>
-              <button 
+              <button
                 onClick={() => setPage(p => Math.min(totalPages, p + 1))}
                 disabled={page === totalPages}
                 className="p-2 rounded-lg border border-slate-200 bg-white text-slate-500 hover:bg-slate-50 hover:text-slate-800 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"

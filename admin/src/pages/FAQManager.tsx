@@ -1,6 +1,6 @@
 /**
  * FAQManager.tsx — Admin page for managing the chatbot knowledge base
- * 
+ *
  * Features:
  * - CRUD interface for FAQ documents
  * - Department assignment

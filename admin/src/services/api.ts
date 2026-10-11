@@ -20,24 +20,24 @@ export interface PaginatedResponse<T> {
 
 export const fetchApi = async <T = any>(endpoint: string, options: RequestInit = {}) => {
   const url = `${API_BASE_URL.replace(/\/$/, '')}/${endpoint.replace(/^\//, '')}`;
-  
+
   // Important for sending cookies
   options.credentials = 'include';
-  
+
   if (!options.headers) {
     options.headers = {};
   }
-  
+
   if (!(options.body instanceof FormData)) {
     (options.headers as Record<string, string>)['Content-Type'] = 'application/json';
   }
 
   const response = await fetch(url, options);
   const data = await response.json();
-  
+
   if (!response.ok) {
     throw new Error(data.message || 'An error occurred');
   }
-  
+
   return data as T;
 };
